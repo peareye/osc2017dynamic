@@ -1,0 +1,170 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+html {
+    height: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    font-family: 'Vollkorn', serif;
+    font-size: 21px;
+    color: #333;
+    /* controls sticky footer */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* end sticky footer control */
+}
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Lato', sans-serif;
+}
+
+#main {
+    /* Used for sticky footer. The main section will take up all the available free space on the page that is not taken up by the footer. */
+    flex: 1 0 auto;
+}
+
+footer {
+    /* Use for sticky footer. The footer will take up as much vertical space as it needs and not a pixel more. */
+    font-family: 'Lato', sans-serif;
+    flex: 0 0 auto;
+    background: #335566;
+    color: #eee;
+    padding: 2.5rem 0 10rem 0; /* adjust if necessary */
+    margin-top: 1rem; /* adjust if necessary */
+}
+
+footer h5 {
+    color: #000000;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+footer a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.jumbotron {
+/*
+    padding-top: 20rem;
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+    background-color: #335566;
+    color: #fff;
+    background-image: url('../../../media/large/98/98609e223a8197dc3ece904c8fff5fd0.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+*/
+}
+/* NOTE: if you use a jumbotron background image you will need to also uncomment the padding in the xl media query */
+
+.jumbotron h1, .jumbotron h2 {
+/*    text-shadow: 1px 1px 10px #000;*/
+}
+.required {
+    color: red;
+}
+
+.navbar {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+p:first-of-type {
+    margin-top: 2rem;
+}
+/* Next and Previous Pagination */
+.pager {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+      margin-bottom: 60px;
+    text-align: left;
+}
+
+form {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+/*===================Bootstrap 3 Media Queries ==========*/
+/*=====================Mobile First Method===============*/
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 479px) {
+    body {
+
+    }
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+    body {
+
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+    body {
+
+    }
+    .navbar {
+        border-radius: 0 !important;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+    body {
+
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+    body {
+
+    }
+    .jumbotron {
+      padding-top: 30rem;/*NOTE: Uncomment out this line if you are using a background image in the jumbotron */
+    }
+    .container {
+        width: 970px;
+    }
+}
+
+

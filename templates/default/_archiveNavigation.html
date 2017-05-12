@@ -1,0 +1,21 @@
+{# Archive Navigation Links #}
+
+<ul class="archive-navigation list-unstyled small">
+{% for year, nav in getPostArchive() %}
+	<li>
+		<a href="#" class="archive-item" data-archive="{{ year }}">{{ year }}</a>
+		<ul class="archive-{{ year }} list-unstyled" style="display:none;">
+			{% for month, link in nav %}
+			<li>
+				<a href="#" class="archive-item" data-archive="{{ year }}-{{ month }}">{{ month }}</a>
+				<ul class="archive-{{ year }}-{{ month }}" style="display:none;">
+					{% for l in link %}
+						<li><a href="{{ pathFor('viewPost', {'url': l.url}) }}">{{ l.title }}</a></li>
+					{% endfor %}
+				</ul>
+			</li>
+			{% endfor %}
+		</ul>
+	</li>
+{% endfor %}
+</ul>

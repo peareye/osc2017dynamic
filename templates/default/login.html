@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h2>Login</h2>
+  <form action="{{ pathFor('sendLoginToken') }}" method="post" accept-charset="utf-8">
+    <div class="form-group">
+      <label for="post-title">Email</label>
+      <input type="email" class="form-control" name="email" maxlength="60" value="" autocomplete="off" autofocus="autofocus" required>
+    </div>
+    <button type="submit" class="btn btn-default" name="button" value="requestToken">Request Login Token</button>
+  </form>
+{% endblock %}

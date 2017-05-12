@@ -1,0 +1,9 @@
+# Things to ignore
+
+config/config.local.php
+public/media/
+logs/
+twigcache/
+
+# Misc
+*.xml

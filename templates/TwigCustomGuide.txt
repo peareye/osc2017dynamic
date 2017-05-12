@@ -1,0 +1,92 @@
+# Twig Template Guide
+
+For general documentation see http://twig.sensiolabs.org/documentation.
+Click on "For Designers" for general help on using Twig in templates.
+Or click on one of the function/tag names for more reference details.
+
+
+## Custom Twig Variables
+
+### Theme name {{ theme }}
+	As set in your config.local.php file
+
+### Config settings {{ setting.name-of-config-key }}
+Any Configuration Settings (as set in your config.local.php file)
+
+The dot represents depth of the array. For example, $config['baseUrl'] is defined at the very top, so to get that:
+	{{ setting.baseUrl }}
+
+But $config['user']['htmlTitle'] is two levels deep ('user' is at the top, and 'htmlTitle' is another level down):
+	{{ setting.user.htmlTitle }}
+
+
+## Custom Twig Functions
+Functions have a name and parenthesis, they typically create additional HTML content.
+
+### Show Twig variables {{ dump() }}
+This is not a custom function, but very handy if you want to see what you have to work with. Just paste in {{ dump() }} and save.
+You can also drill down into an array. If you see an array (list) of variables, you can then be more specific, for example:
+
+	{{ dump(settings) }} or {{ dump(post.id) }} (if post is in the page).
+
+### URL for a particular page {{ pathFor() }}
+	Use this inside of the href="" anchor tag.
+	You have to know the name of the path to use this, which are all defined in config/routes.php (take a look).
+
+	Here are some common ones:
+
+	Home: {{ pathFor('home') }}
+	Post: {{ pathFor('viewPost', {'url': 'my-post-title'}) }}
+
+	Example usage
+	<a href="{{ pathFor('viewPost', {'url': 'my-post-title'}) }}">My Link</a>
+
+In the last example, {'url': 'my-post-title'} is the unique URL to the post as shown in the edit post title form.
+You can instead in the post ID which is shown in the admin list of posts (useful if the post URL may change): {'url': 22}
+
+In the examples above, the post identifier (ID or URL) is hardcoded, good for links that will not change.
+But you can also pass in a Twig variable (if it is available): {'url': post.url}
+
+### Current domain and folder {{ baseUrl() }}
+On your local computer this would show "http://localhost/blog".
+On the production server, it would print "http://perimoritz.com" if that is your domain
+
+Note: If you don't want relative links (relative to the computer), use {{ setting.baseUrl }} instead.
+
+### Show the project folder {{ basePath() }}
+Very handy! On your local computer it would show "/blog" (your project folder). It's the folder after localhost in the URL, if you have one.
+On the production server this would show nothing. To make your assets (CSS, JS, images saved to Git) have consistent working links, reference {{ basePath() }}
+in your sources. This way it works on production and locally. For example:
+
+	<link href="{{ basePath() }}/assets/{{ theme }}/css/style.css" rel="stylesheet"> Or
+	<script src="{{ basePath() }}/assets/{{ theme }}/js/script.js"></script>
+
+### Does a URL segment exist in the current URL: inUrl()
+Handy if you want to mark a navigation link "active". It just returns true or false, so it's used in "if" conditions.
+For example, to check if you are viewing a post (which has "post" in the URL):
+
+	{% if inUrl('post') %}class="active"{% endif %}
+
+### Get all published post links {{ getPostArchive() }}
+This returns an array of all published posts, the raw data. So most likely you would use it like this:
+
+	{% for p in getPostArchive() %}
+		{{ p.title }}
+	{% endfor %}
+
+You can always see the raw dump of posts by {{ dump(getPostArchive()) }}
+
+### Is the user logged in: authenticated()
+It just returns true or false. Use to conditionally show something for yourself (like an administration link):
+
+	{% if authenticated() %}
+		Show top secret stuff
+	{% endif %}
+
+## Tip
+If you want to include HTML only when it's run on the production server (such as a tracking code, or an ad),
+use the setting.production variable:
+
+	{% if setting.production %}
+		HTML/JS for tracking code
+	{% endif %}

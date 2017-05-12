@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>{{ setting.user.htmlAdminTitle }}</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" rel="stylesheet">
+    <link href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css" rel="stylesheet">
+    <link href="{{ basePath() }}/assets/admin/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="icon" href="{{ basePath() }}/favicon.ico">
+    <script type="text/javascript">
+        var basePath = '{{ basePath() }}',
+            adminSegment = '{{ setting.route.adminSegment }}',
+            thumbUri = '{{ setting.file.fileThumbUri }}';
+    </script>
+</head>
+
+<body>
+    <div class="modal thumbPathModal" id="admin-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+
+    <div class="alert alert-{{ flashMessage('alertStatus')|default('info') }} alert-dismissible" role="alert" {% if not flashMessage() %}style="display:none;"{% endif %}>
+      <button type="button" class="alert-close close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="alert-message">
+          {{ flashMessage('message')|raw }}
+      </div>
+    </div>
+    <!-- /.alert -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12" style="rgba(51,122,183, 0.8);">
+                <a href="{{ pathFor('home') }}" target="_blank" title="View Blog"><h1>{{ setting.user.blogTitle }}</h1></a>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-3 col-md-2 side-bar">
+                <ul class="list-group u-m-t-2">
+                    <li class="list-group-item {% if inUrl( 'dashboard') %} active{% endif %}"><a href="{{ pathFor('adminDashboard') }}">Admin Home</a></li>
+                    <li class="list-group-item {% if inUrl( 'editpost') %}active{% endif %}"><a href="{{ pathFor('editPost') }}">New Post</a></li>
+                    <li class="list-group-item {% if inUrl( 'comments') %}active{% endif %}"><a href="{{ pathFor('comments') }}">Comments</a> <span class="label label-default">{{ newCommentCount() }}</span></li>
+                    <li class="list-group-item"><a data-toggle="modal" href="#" data-target="#admin-modal" data-action="uploadFile">Upload Image</a></li>
+                    <li class="list-group-item"><a data-toggle="modal" href="#" data-target="#admin-modal" data-action="viewFiles">Image Gallery</a></li>
+                    <li class="list-group-item"><a href="{{ pathFor('updateSitemap') }}">Update Sitemap</a></li>
+                    <li class="list-group-item"><a href="{{ pathFor('logout') }}">Logout</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-md-10">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+
+    <div id="uploadFileForm" style="display:none;">
+        {% include '@admin/_uploadImageForm.html' %}
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+    <script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script src="{{ basePath() }}/assets/admin/script.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script>
+        var simplemde = new SimpleMDE({forceSync: true});
+    </script>
+</body>
+
+</html>

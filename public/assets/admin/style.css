@@ -1,0 +1,80 @@
+/* main layout style */
+
+/* Left Nav styling */
+.list-group>.active a{
+    color: #fff;
+}
+
+/*
+ * Misc
+ */
+.publish-date li {
+  padding: 0 5px 0 5px;
+}
+.post-title-error {
+  color: #c9302c;
+}
+.post-title-ok {
+  color: #5cb85c;
+}
+/* Utilities */
+.u-m-t-1{
+    margin-top: 1rem;
+}
+.u-m-t-2{
+    margin-top: 2rem;
+}
+.u-m-t-3{
+    margin-top: 3rem;
+}
+/*
+ * Markdown Code Format
+ */
+.hljs {
+  white-space: pre;
+  word-wrap: normal;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.gallery-image-path {
+	width: 100%;
+}
+.thumbnail .caption .height,
+.thumbnail .caption .width {
+	width: 40px;
+	text-align: center;
+}
+.thumb-gallery {
+  position: relative;
+}
+.image-delete {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  display: none;
+}
+.thumb-gallery:hover .image-delete {
+  display: block;
+}
+
+#admin-img-gallery{
+    display: flex;
+    flex-flow: row wrap;
+}
+.modal-preview-post {
+  width: 95%;
+}
+.alert {
+  width: 90%;
+  max-width: 700px;
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  z-index: 10;
+}

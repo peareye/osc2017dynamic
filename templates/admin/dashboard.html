@@ -1,0 +1,33 @@
+{% extends '@admin/_layout.html' %} {% block body %}
+<div class="row">
+    <div class="col-sm-6">
+        <h2>Blog Posts</h2></div>
+    <div class="col-sm-6">
+        <form accept-charset="utf-8" class="u-m-t-2" action="{{ pathFor('adminSearch')}}" method="get">
+            <div class="form-group" style="display:inline;">
+                <div class="input-group">
+                    <input type="text" name="terms" class="form-control" value="{{ search }}" autocomplete="off" placeholder="Search..." autocomplete="off">
+
+                    <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+{% for p in posts %}
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a href="{{ pathFor('previewPost', {'url': p.url}) }}" target="_blank" title="View {{ p.title }}">{{ p.title }}</a></h3>
+    </div>
+    <div class="panel-body">
+        ID: {{ p.id }} | <a href="{{ pathFor('editPost', {'id': p.id}) }}">Edit</a> | <a href="{{ pathFor('deletePost', {'id': p.id}) }}" class="deleteButton"><span class="text-danger">Delete</span></a> | Published: {% if p.published_date %}{{ p.published_date|date('F j, Y') }}{% else %}<span class="label label-warning">Not Published</span>{% endif %} {% if p.page == 'Y' %} | <span class="label label-info">Page</span>{% endif %}
+    </div>
+</div>
+<hr> {% else %}
+<h4>No posts found</h4> {% endfor %} {{ pagination() }} {% endblock %}

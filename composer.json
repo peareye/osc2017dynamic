@@ -1,0 +1,32 @@
+{
+    "name": "wolfmoritz/blog",
+    "description": "Really simple single-user themable blog.",
+    "license": "MIT",
+    "homepage": "https://github.com/wolfmoritz/blog",
+    "keywords": ["blog"],
+    "authors": [
+        {
+            "name": "Wolfgang Moritz",
+            "email": "wolfmoritz@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "slim/slim": "^3.1",
+        "slim/twig-view": "^2.0",
+        "monolog/monolog": "^1.17",
+        "wolfmoritz/session": "^1.0",
+        "nette/mail": "^2.3",
+        "erusev/parsedown": "^1.6",
+        "intervention/image": "^2.3"
+    },
+    "autoload": {
+      "psr-4": {
+          "Blog\\": "app/Blog/"
+      }
+    },
+    "config": {
+      "preferred-install": "dist",
+      "optimize-autoloader": true
+    }
+}
