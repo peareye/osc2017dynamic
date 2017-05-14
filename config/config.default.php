@@ -11,13 +11,6 @@
 $config['production'] = true;
 
 /**
- * Theme Name
- *
- * This is the theme folder name
- */
-$config['theme'] = 'default';
-
-/**
  * Default Domain
  * Note: Do not include a trailing slash
  */
