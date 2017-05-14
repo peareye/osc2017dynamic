@@ -124,17 +124,29 @@ $app->get('/logout/', function ($request, $response, $args) {
     return (new Blog\Controllers\LoginController($this))->logout($request, $response, $args);
 })->setName('logout');
 
-// Contact form
-$app->get('/contact[-{me}]', function ($request, $response, $args) {
-    return (new Blog\Controllers\IndexController($this))->contact($request, $response, $args);
-})->setName('contactForm');
+// *** Pages ***
 
-// View page
-$app->get('/{url}', function ($request, $response, $args) {
-    return (new Blog\Controllers\IndexController($this))->viewPost($request, $response, $args);
-})->setName('viewPage');
+// Gallery
+$app->get('/gallery', function ($request, $response, $args) {
+    return $this->view->render($response, 'gallery.html');
+})->setName('gallery');
+
+// Calendar
+$app->get('/calendar', function ($request, $response, $args) {
+    return $this->view->render($response, 'calendar.html');
+})->setName('calendar');
+
+// Rates and Policies
+$app->get('/rates', function ($request, $response, $args) {
+    return $this->view->render($response, 'rates.html');
+})->setName('rates');
+
+// Contact form
+$app->get('/contact', function ($request, $response, $args) {
+    return $this->view->render($response, 'contact.html');
+})->setName('contact');
 
 // Home page (last route, the default)
 $app->get('/', function ($request, $response, $args) {
-    return (new Blog\Controllers\IndexController($this))->home($request, $response, $args);
+    return $this->view->render($response, 'home.html');
 })->setName('home');

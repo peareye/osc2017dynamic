@@ -20,26 +20,24 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item {% if inUrl('/') %}active{% endif %}">
+          <a class="nav-link" href="{{ pathFor('home') }}">Home {% if inUrl('/') %}<span class="sr-only">(current)</span>{% endif %}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="rates.html">Rates &amp; Policies</a>
+        <li class="nav-item {% if inUrl('rates') %}active{% endif %}">
+          <a class="nav-link" href="{{ pathFor('rates') }}">Rates &amp; Policies {% if inUrl('rates') %}<span class="sr-only">(current)</span>{% endif %}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="calendar.html">Calendar</a>
+        <li class="nav-item {% if inUrl('calendar') %}active{% endif %}">
+          <a class="nav-link" href="{{ basePath() }}/calendar">Calendar {% if inUrl('calendar') %}<span class="sr-only">(current)</span>{% endif %}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="gallery.html">Photos</a>
+        <li class="nav-item {% if inUrl('gallery') %}active{% endif %}">
+          <a class="nav-link" href="{{ pathFor('gallery') }}">Photos {% if inUrl('gallery') %}<span class="sr-only">(current)</span>{% endif %}</a>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact Us</a>
+        <li class="nav-item {% if inUrl('contact') %}active{% endif %}">
+          <a class="nav-link" href="{{ pathFor('contact') }}">Contact Us {% if inUrl('contact') %}<span class="sr-only">(current)</span>{% endif %}</a>
         </li>
-
       </ul>
 
-      <a href="reserve.html" class="btn btn-success" role="button" aria-pressed="true">Request Reservation Now!</a>
+      <a href="{{ basePath() }}/reserve" class="btn btn-success" role="button" aria-pressed="true">Request Reservation Now!</a>
 
     </div>
   </nav>
@@ -74,9 +72,11 @@
   <!-- End Header Section -->
   {% block body %}
 
+    {# All content between the jumbo header and footer, including sidebar, goes here #}
+
   {% endblock %}
   <footer>
-    <p class="small-text">&copy;2017 Wilfin LLC, All Rights Reserved.</p>
+    <p class="small-text">&copy;{{ now|date('Y') }} Wilfin LLC, All Rights Reserved.</p>
   </footer>
   <!-- End Footer  -->
 
@@ -84,7 +84,8 @@
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  <script src="assets/js/javascript.js" charset="utf-8"></script>
+  <script src="{{ basePath() }}/assets/js/javascript.js"></script>
+  <script src="{{ basePath() }}/assets/js/lightbox-plus-jquery.min.js"></script>
 
   {% if setting.production %}
   <!-- Start of StatCounter Code -->

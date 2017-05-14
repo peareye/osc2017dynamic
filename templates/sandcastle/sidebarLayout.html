@@ -1,0 +1,58 @@
+{% extends 'baseLayout.html' %}
+
+{% block body %}
+
+  <section id="{% block sectionName %}none{% endblock %}">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+
+        {% block main %}
+
+			{# All left column content goes here #}
+
+		{% endblock main %}
+
+        </div>
+        <div class="col-md-4">
+          <div class="sidebar-wrapper">
+            <h3 class="">How to Reserve</h3>
+            <ol class="">
+              <li>Check
+                <a href="calendar.html">Calendar</a> for Availability.</li>
+              <li>Submit a
+                <a href="reserve.html">Reservation Request.</a>
+              </li>
+              <li>We Will Contact You.</li>
+            </ol>
+          </div>
+          <div class="sidebar-wrapper">
+            <div class="homeaway-img">
+              <a href="http://www.homeaway.com/vacation-rental/p117917" rel="nofollow">
+                <img src="http://www.homeaway.com/haow/api/image/homeaway_us/trips/117917/reviews" alt="HomeAway Property" rel="nofollow">
+              </a>
+            </div>
+            <div class="homeaway-content">
+              <a href="http://www.homeaway.com/vacation-rental/reviews/p117917" rel="nofollow">Read</a> or
+              <a href="http://www.homeaway.com/vacation-rental/reviews/write/p117917" rel="nofollow">Write</a> Reviews
+            </div>
+          </div>
+          <div class="sidebar-wrapper">
+            <div id="FK_Property_Badge539c83b3924a1">
+              <a href="http://www.flipkey.com/">
+                <img alt="FlipKey" src="http://www.flipkey.com/img/logos/FlipKey_TA_Color_Logo.svg">
+              </a>
+              <script src="http://www.flipkey.com/widgets/badges/property/428568/539c83b3924a1/92570"></script>
+            </div>
+            <div class="more-amenities">
+              <a class="btn btn-outline-success btn-sm mt-2" href="#reviews" role="button">Read Reviews</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End calendar container row -->
+    </div>
+    <!-- End calendar container -->
+  </section>
+
+{% endblock %}

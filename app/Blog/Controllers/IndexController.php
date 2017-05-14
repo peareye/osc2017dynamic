@@ -13,7 +13,6 @@ class IndexController extends BaseController
     {
         // Get dependencies
         $postMapper = $this->container->get('postMapper');
-        $pagination = $this->container->get('pagination');
 
         // Render view
         $this->container->view->render($response, 'home.html');
