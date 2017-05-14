@@ -31,7 +31,8 @@ class LoginController extends BaseController
         $session = $this->container->get('sessionHandler');
 
         // Does the supplied email match the one in config?
-        if ($config['user']['email'] !== strtolower(trim($body['email']))) {
+        $userEmail = strtolower(trim($body['email']));
+        if (!in_array($userEmail, $config['user']['email'])) {
             // It does not, log and silently redirect to home
             $this->container->logger->alert('Failed login attempt: ' . $body['email']);
             return $response->withRedirect($this->container->router->pathFor('home'));
@@ -53,7 +54,7 @@ class LoginController extends BaseController
 
         // Send message
         $message->setFrom("My Blog <send@{$host}>")
-            ->addTo($config['user']['email'])
+            ->addTo($userEmail)
             ->setSubject('Blog Login')
             ->setBody("Click to login\n\n http://{$link}");
 
