@@ -124,48 +124,15 @@ $app->get('/logout/', function ($request, $response, $args) {
     return (new Blog\Controllers\LoginController($this))->logout($request, $response, $args);
 })->setName('logout');
 
-// Search site
-$app->get('/search', function ($request, $response, $args) {
-    return (new Blog\Controllers\IndexController($this))->search($request, $response, $args);
-})->setName('search');
-
-// Submit comment
-$app->post('/savecomment', function ($request, $response, $args) {
-    return (new Blog\Controllers\CommentController($this))->save($request, $response, $args);
-})->setName('commentSubmit');
-
 // Contact form
 $app->get('/contact[-{me}]', function ($request, $response, $args) {
     return (new Blog\Controllers\IndexController($this))->contact($request, $response, $args);
 })->setName('contactForm');
 
-// View post
-$app->get('/post/{url}', function ($request, $response, $args) {
-    return (new Blog\Controllers\IndexController($this))->viewPost($request, $response, $args);
-})->setName('viewPost');
-
 // View page
 $app->get('/{url}', function ($request, $response, $args) {
     return (new Blog\Controllers\IndexController($this))->viewPost($request, $response, $args);
 })->setName('viewPage');
-
-// Catch old WordPress category routes and 301 redirect
-$app->get('/{category}/{url}', function ($request, $response, $args) {
-    // Get defined categories and try to match
-    $wPCategories = $this->get('settings')['route']['wordPressCategories'];
-    if (in_array($args['category'], $wPCategories)) {
-        return $response->withRedirect($this->router->pathFor('viewPost', ['url' => $args['url']]), 301);
-    }
-
-    // Category not matched
-    $notFound = $this->get('notFoundHandler');
-    return $notFound($request, $response);
-});
-
-// Catch old WordPress date routes and 301 redirect
-$app->get('/{yyyy:[0-9]{4}}/{mm:[0-9]{2}}/{dd:[0-9]{2}}/{url}', function ($request, $response, $args) {
-    return $response->withRedirect($this->router->pathFor('viewPost', ['url' => $args['url']]), 301);
-});
 
 // Home page (last route, the default)
 $app->get('/', function ($request, $response, $args) {

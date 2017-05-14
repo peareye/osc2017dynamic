@@ -15,20 +15,8 @@ class IndexController extends BaseController
         $postMapper = $this->container->get('postMapper');
         $pagination = $this->container->get('pagination');
 
-        // Get the page number and setup pagination
-        $pageNumber = ($this->container->request->getParam('page')) ?: 1;
-        $pagination->setPagePath($this->container->router->pathFor('home'));
-        $pagination->setCurrentPageNumber($pageNumber);
-
-        // Fetch posts with limit and offset
-        $posts = $postMapper->getPosts($pagination->getRowsPerPage(), $pagination->getOffset());
-
-        // Get total row count and add extension
-        $pagination->setTotalRowsFound($postMapper->foundRows());
-        $this->container->view->addExtension($pagination);
-
         // Render view
-        $this->container->view->render($response, 'home.html', ['posts' => $posts]);
+        $this->container->view->render($response, 'home.html');
     }
 
     /**

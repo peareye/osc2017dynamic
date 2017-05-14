@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="{{ metaDescription|default(setting.user.defaultMetaDescription) }}">
+  <meta name="google-site-verification" content="mIjoxU7xEK9kQA6fpfkLpHd4NCvwLMd0wccREUwzp8k" /><!-- oursandcastle.com -->
+  <meta name="google-site-verification" content="88WIba9eqT7o7Eflnb1lWfyGhoNEPYkph6y8HgCyNms" /><!-- wilfinproperties.com -->
+  <title>OurSandCastle - A Luxury Vacation Rental in Yachats, Oregon</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+  <script src="https://use.fontawesome.com/0e492d299f.js"></script>
+  <link rel="stylesheet" href="{{ basePath() }}/assets/{{ theme }}/css/main.css">
+</head>
+
+<body>
+
+  <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-primary">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="rates.html">Rates &amp; Policies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="calendar.html">Calendar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="gallery.html">Photos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+
+      </ul>
+
+      <a href="reserve.html" class="btn btn-success" role="button" aria-pressed="true">Request Reservation Now!</a>
+
+    </div>
+  </nav>
+  <!-- End Nav Section -->
+
+  <header id="home-header">
+    <div class="welcome-wrapper">
+      <div class="title-wrapper">
+        <h1>Our Sand Castle</h1>
+        <p class="lead">a very special vacation rental in Yachats, OR</p>
+      </div>
+
+    </div>
+    <div class="amenities-wrapper">
+      <div class="item-wrapper">
+        <div class="item">
+          <i class="fa fa-male fa-2x"></i> 9 People </div>
+        <div class="item">
+          <i class="fa fa-bed fa-2x"></i> 4 Bedrooms</div>
+        <div class="item">
+          <i class="fa fa-bath fa-2x"></i> 3 Full Baths </div>
+        <div class="item">
+          <i class="fa fa-binoculars fa-2x"></i> Ocean Views</div>
+        <div class="item">
+          <i class="fa fa-wifi fa-2x"></i> Wireless Internet</div>
+      </div>
+      <div class="more-amenities">
+        <a href="#amenities" class="btn btn-primary" role="button" aria-pressed="true">More House Amenities</a>
+      </div>
+    </div>
+  </header>
+  <!-- End Header Section -->
+  {% block body %}
+
+  {% endblock %}
+  <footer>
+    <p class="small-text">&copy;2017 Wilfin LLC, All Rights Reserved.</p>
+  </footer>
+  <!-- End Footer  -->
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="assets/js/javascript.js" charset="utf-8"></script>
+
+  {% if setting.production %}
+  <!-- Start of StatCounter Code -->
+  <script type="text/javascript">
+  var sc_project=10223149;
+  var sc_invisible=1;
+  var sc_security="57fc8ceb";
+  </script>
+
+  <script type="text/javascript"
+  src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
+  class="statcounter"><a title="tumblr hit tracking tool"
+  href="http://statcounter.com/tumblr/" target="_blank"><img
+  class="statcounter"
+  src="http://c.statcounter.com/10223149/0/57fc8ceb/1/"
+  alt="tumblr hit tracking tool" ></a></div></noscript>
+  <!-- End of StatCounter Code -->
+  {% endif %}
+</body>
+
+</html>

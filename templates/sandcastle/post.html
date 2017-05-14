@@ -1,0 +1,32 @@
+{% extends 'layout.html' %} {% block body %}
+
+<div class="blog-post">
+    <h2 class="blog-post-title">{{ post.title }}</h2>
+    <p class="blog-post-meta">{{ post.published_date|date('F j, Y') }}</p>
+    <div class="blog-post-body">{{ post.content_html|raw }}</div>
+</div>
+<!-- /.blog-post -->
+
+<nav>
+  <ul class="pager">
+    {% if priorPost(post.url) %}
+    <li class="previous"><a href="{{ priorPost(post.id) }}"><span aria-hidden="true">&larr;</span> Older</a></li>
+    {% endif %}
+    {% if nextPost(post.url) %}
+    <li class="next"><a href="{{ nextPost(post.id) }}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+     {% endif %}
+  </ul>
+</nav>
+<hr>
+<div id="post-comments">
+    <div class="blog-post">
+        <h2>Leave me a Comment</h2>
+        {% include '_commentForm.html' %}
+    </div>
+    <hr>
+    <div class="">
+        <h2>Comments</h2>
+        {% include '_postComments.html' %}
+    </div>
+</div>
+{% endblock %}
