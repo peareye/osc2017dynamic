@@ -14,32 +14,37 @@
 
 
           <div class="form-wrapper">
-            <form action="" id="contact_form" method="post" accept-charset="utf-8">
-
-              <input type="hidden" name="current_property_url" value="OurSandCastle">
-              <input type="hidden" name="current_menu_url" value="Contact-Us">
+            {% if submitted %}
+              {% include '_thankYou.html' %}
+            {% else %}
+            <form action="{{ pathFor('contactSubmit') }}" id="contact_form" method="post" accept-charset="utf-8">
 
               <div class="form-group">
                 <label for="contact_name">Name <span class="required">*</span></label>
-                <input class="form-control" type="text" name="contact_name" id="contact_name" value="">
+                <input class="form-control" type="text" name="name" id="contact_name" value="" required autocomplete="off">
               </div>
 
               <div class="form-group">
                 <label for="contact_email">Email <span class="required">*</span></label>
-                <input class="form-control" type="text" name="contact_email" id="contact_email" value="">
+                <input class="form-control" type="text" name="email" id="contact_email" value="" required autocomplete="off">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
 
               <div class="form-group">
                 <label for="message">Message <span class="required">*</span></label>
-                <textarea class="form-control" name="message" id="message"></textarea>
+                <textarea class="form-control" name="comment" id="message" required></textarea>
               </div>
-              <input type="text" name="alt_email" alt="Do not fill in" class="hide" value="">
+
+              <input type="text" class="form-control alt-email hide" name="alt_email" alt="Do not fill in" value="" autocomplete="off">
 
               <button type="submit" class="btn btn-primary">Send Message</button>
 
             </form>
             <div class="footnote"><span class="required">*</span> Field is required</div>
+          {% endif %}
           </div>
+          <script type="text/javascript">
+            document.getElementsByClassName('alt-email')[0].setAttribute('value', 'alt@example.com');
+          </script>
 
 {% endblock %}

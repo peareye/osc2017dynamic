@@ -39,21 +39,6 @@ $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}",
         return (new Blog\Controllers\AdminController($this))->unpublishPost($request, $response, $args);
     })->setName('unpublishPost');
 
-    // Make sitemap
-    $this->get('/updatesitmap', function ($request, $response, $args) {
-        return (new Blog\Controllers\AdminController($this))->updateSitemap($request, $response, $args);
-    })->setName('updateSitemap');
-
-    // Upload file
-    $this->post('/uploadfile', function ($request, $response, $args) {
-        return (new Blog\Controllers\FileController($this))->uploadFile($request, $response, $args);
-    })->setName('uploadFile');
-
-    // Delete uploaded file
-    $this->post('/deletefile', function ($request, $response, $args) {
-        return (new Blog\Controllers\FileController($this))->deleteFile($request, $response, $args);
-    })->setName('deleteFile');
-
     // Preview unpublished post (Used in admin dashboard, the Edit Post Preview uses the savePost route)
     $this->get('/previewpost/{url}', function ($request, $response, $args) {
         return (new Blog\Controllers\AdminController($this))->previewPost($request, $response, $args);
@@ -63,21 +48,6 @@ $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}",
     $this->get('/loadfiles', function ($request, $response, $args) {
         return (new Blog\Controllers\FileController($this))->loadFiles($request, $response, $args);
     })->setName('loadImages');
-
-    // Show comments
-    $this->get('/comments', function ($request, $response, $args) {
-        return (new Blog\Controllers\CommentController($this))->showAll($request, $response, $args);
-    })->setName('comments');
-
-    // Change comment status
-    $this->get('/commentstatus/{commentId}/{newStatus}', function ($request, $response, $args) {
-        return (new Blog\Controllers\CommentController($this))->changeCommentStatus($request, $response, $args);
-    })->setName('changeCommentStatus');
-
-    // Delete comment
-    $this->get('/deletecomment/{commentId}', function ($request, $response, $args) {
-        return (new Blog\Controllers\CommentController($this))->deleteComment($request, $response, $args);
-    })->setName('deleteComment');
 
     // Search posts and pages
     $this->get('/search', function ($request, $response, $args) {
@@ -124,7 +94,9 @@ $app->get('/logout/', function ($request, $response, $args) {
     return (new Blog\Controllers\LoginController($this))->logout($request, $response, $args);
 })->setName('logout');
 
-// *** Pages ***
+//
+// Pages
+//
 
 // Gallery
 $app->get('/gallery', function ($request, $response, $args) {
@@ -145,6 +117,13 @@ $app->get('/rates', function ($request, $response, $args) {
 $app->get('/contact', function ($request, $response, $args) {
     return $this->view->render($response, 'contact.html');
 })->setName('contact');
+
+// Contact form submit
+$app->post('/contactsubmit', function ($request, $response, $args) {
+    (new Blog\Controllers\ContactController($this))->sendContactEmail($request, $response, $args);
+
+    return $this->view->render($response, '_thankYou.html');
+})->setName('contactSubmit');
 
 // Home page (last route, the default)
 $app->get('/', function ($request, $response, $args) {

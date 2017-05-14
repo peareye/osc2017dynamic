@@ -23,6 +23,7 @@ $config['baseUrl'] = '';
  */
 $config['user']['user_id'] = 1;
 $config['user']['email'] = '';
+$config['user']['contactEmail'] = '';
 $config['user']['htmlTitle'] = '';
 $config['user']['htmlAdminTitle'] = '';
 $config['user']['blogTitle'] = '';

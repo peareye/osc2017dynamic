@@ -57,11 +57,7 @@
             <div class="col-sm-3 col-md-2 side-bar">
                 <ul class="list-group u-m-t-2">
                     <li class="list-group-item {% if inUrl( 'dashboard') %} active{% endif %}"><a href="{{ pathFor('adminDashboard') }}">Admin Home</a></li>
-                    <li class="list-group-item {% if inUrl( 'editpost') %}active{% endif %}"><a href="{{ pathFor('editPost') }}">New Post</a></li>
-                    <li class="list-group-item {% if inUrl( 'comments') %}active{% endif %}"><a href="{{ pathFor('comments') }}">Comments</a> <span class="label label-default">{{ newCommentCount() }}</span></li>
-                    <li class="list-group-item"><a data-toggle="modal" href="#" data-target="#admin-modal" data-action="uploadFile">Upload Image</a></li>
-                    <li class="list-group-item"><a data-toggle="modal" href="#" data-target="#admin-modal" data-action="viewFiles">Image Gallery</a></li>
-                    <li class="list-group-item"><a href="{{ pathFor('updateSitemap') }}">Update Sitemap</a></li>
+                    <!-- <li class="list-group-item {% if inUrl( 'editpost') %}active{% endif %}"><a href="{{ pathFor('editPost') }}">New Post</a></li> -->
                     <li class="list-group-item"><a href="{{ pathFor('logout') }}">Logout</a></li>
                 </ul>
             </div>
@@ -71,10 +67,6 @@
         </div>
     </div>
     <!-- /.container-fluid -->
-
-    <div id="uploadFileForm" style="display:none;">
-        {% include '@admin/_uploadImageForm.html' %}
-    </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

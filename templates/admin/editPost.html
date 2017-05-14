@@ -6,41 +6,12 @@
     <input type="hidden" name="id" value="{{ post.id }}">
     <div class="form-group">
       <a href="{{ pathFor('adminDashboard') }}" class="btn btn-default">Cancel</a>
-      <button type="submit" class="btn btn-primary" name="button" value="save">Save{% if not post.published_date %} Draft{% endif %}</button>
-      {% if post.published_date %}
-      <a href="{{ pathFor('unpublishPost', {'id': post.id}) }}" class="btn btn-warning">Unpublish</a>
-      <input type="hidden" name="published_date" value="{{ post.published_date }}">
-      {% else %}
-      <div class="btn-group">
-        <button type="submit" class="btn btn-success" name="button" value="publish">Publish</button>
-        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu publish-date">
-          <li>Publish Later</li>
-          <li><input type="date" class="form-control" name="published_date" autocomplete="off" value="{{ post.published_date }}"></li>
-        </ul>
-      </div>
-      {% endif %}
-
-      {% if post.id %}
-      <a href="{{ pathFor('deletePost', {'id': post.id}) }}" class="btn btn-danger deleteButton">Delete Post</a>
-      {% endif %}
-      <button type="submit" class="btn btn-info previewPost" name="button" value="preview" title="Preview without saving">Preview Post</button>
-    </div>
-
-    <div class="form-group">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="page" {{ checked(post.page) }}>
-          Page (Does not appear in archive or feed.)
-        </label>
-      </div>
+      <button type="submit" class="btn btn-primary" name="button" value="save">Save</button>
     </div>
 
     <div class="form-group">
       <label>Template</label>
-      <select class="form-control" name="template">
+      <select class="form-control" name="template" disabled="disabled">
         {% for t in post.allTemplates %}
         <option {% if t == post.template %}selected{% endif %}>{{ t }}</option>
         {% endfor %}
@@ -50,10 +21,8 @@
     <div class="form-group">
       <label for="post-title">Title</label>
       <div class="input-group">
-        <input type="text" class="form-control" name="title" maxlength="60" autocomplete="off" value="{{ post.title }}" required>
-        <span class="input-group-addon"><span class="post-title-status glyphicon {% if post.title %}glyphicon-ok post-title-ok{% else %}glyphicon-question-sign{% endif %}"></span></span>
+        <input type="text" class="form-control" name="title" maxlength="60" autocomplete="off" value="{{ post.title }}" required readonly="readonly">
       </div>
-      <p class="form-control-static post-url"><span class="glyphicon {% if post.url_locked|default('N') == 'N' %}glyphicon-unchecked{% else %}glyphicon-lock{% endif %}" title="Click to lock/unlock the URL"></span> URL: <var>{{ post.url }}</var></p>
       <input type="hidden" name="url" value="{{ post.url }}">
       <input type="hidden" name="url_locked" value="{{ post.url_locked|default('N') }}">
     </div>
@@ -64,7 +33,7 @@
     </div>
 
     <div class="form-group">
-      <label for="content">Post Content</label>
+      <label for="content">Content</label>
       <textarea class="form-control" rows="20" name="content">{{ post.content|raw }}</textarea>
     </div>
   </form>
