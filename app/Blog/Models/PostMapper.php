@@ -61,10 +61,9 @@ class PostMapper extends DataMapperAbstract
      *
      * Returns post by url segment, or by post ID
      * @param string|int $id Post URL segment or ID
-     * @param bool $publishedPostsOnly Only get published posts - defaults to true
      * @return object
      */
-    public function getSinglePost($id, $publishedPostsOnly = true)
+    public function getSinglePost($id)
     {
         $this->sql = $this->defaultSelect . ' where 1=1';
 
@@ -78,10 +77,6 @@ class PostMapper extends DataMapperAbstract
         }
 
         $this->sql .= $where;
-
-        if ($publishedPostsOnly) {
-            $this->sql .= ' and p.published_date <= curdate()';
-        }
 
         return $this->findRow();
     }

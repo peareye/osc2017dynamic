@@ -14,27 +14,31 @@ class IndexController extends BaseController
         // Get dependencies
         $postMapper = $this->container->get('postMapper');
 
+        $page['welcome'] = $postMapper->getSinglePost(1);
+        $page['house'] = $postMapper->getSinglePost(2);
+        $page['provide'] = $postMapper->getSinglePost(3);
+        $page['comfort'] = $postMapper->getSinglePost(4);
+        $page['review'] = $postMapper->getSinglePost(5);
+
         // Render view
-        $this->container->view->render($response, 'home.html');
+        $this->container->view->render($response, 'home.html', $page);
     }
 
     /**
-     * View Post
+     * Get Rates and Policies Page
      */
-    public function viewPost($request, $response, $args)
+    public function rates($request, $response, $args)
     {
-        $postMapper = $this->container['postMapper'];
-        $post = $postMapper->getSinglePost($args['url']);
+        // Get dependencies
+        $postMapper = $this->container->get('postMapper');
 
-        // Was anything found?
-        if (empty($post)) {
-            return $this->notFound($request, $response);
-        }
+        $page['summer'] = $postMapper->getSinglePost(6);
+        $page['winter'] = $postMapper->getSinglePost(7);
+        $page['details'] = $postMapper->getSinglePost(8);
+        $page['policies'] = $postMapper->getSinglePost(9);
 
-        // Make sure we have a template set
-        $template = (!$post->template) ? 'post.html' : $post->template;
-
-        $this->container->view->render($response, $template, ['post' => $post, 'metaDescription' => $post->meta_description]);
+        // Render view
+        $this->container->view->render($response, 'rates.html', $page);
     }
 
     /**
@@ -66,16 +70,5 @@ class IndexController extends BaseController
 
         // Render view
         return $this->container->view->render($response, 'home.html', ['posts' => $posts, 'search' => $terms]);
-    }
-
-    /**
-     * Contact Me Form
-     *
-     * Renders contact me form
-     */
-    public function contact($request, $response, $args)
-    {
-        // Render view
-        return $this->container->view->render($response, 'contact.html', ['title' => 'Contact Form']);
     }
 }

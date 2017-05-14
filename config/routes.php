@@ -110,7 +110,7 @@ $app->get('/calendar', function ($request, $response, $args) {
 
 // Rates and Policies
 $app->get('/rates', function ($request, $response, $args) {
-    return $this->view->render($response, 'rates.html');
+    (new Blog\Controllers\IndexController($this))->rates($request, $response, $args);
 })->setName('rates');
 
 // Contact form
@@ -125,7 +125,12 @@ $app->post('/contactsubmit', function ($request, $response, $args) {
     return $this->view->render($response, '_thankYou.html');
 })->setName('contactSubmit');
 
+// Reservation form
+$app->get('/reserve', function ($request, $response, $args) {
+    return $this->view->render($response, 'reserve.html');
+})->setName('reserve');
+
 // Home page (last route, the default)
 $app->get('/', function ($request, $response, $args) {
-    return $this->view->render($response, 'home.html');
+    (new Blog\Controllers\IndexController($this))->home($request, $response, $args);
 })->setName('home');

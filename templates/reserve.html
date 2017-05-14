@@ -1,0 +1,82 @@
+{% extends '_sidebarLayout.html' %}
+
+{% block sectionName %}reserve{% endblock %}
+
+{% block main %}
+
+          <h2>Request Reservation Availability</h2>
+          <form>
+            <div class="row">
+
+              <div class="col-sm-6">
+                <label for="last_name">Last Name <span class="required">*</span></label>
+                <input class="form-control" type="text" name="last_name" id="last_name" class="short" value="">
+              </div>
+              <div class="col-sm-6">
+                <label for="email">Email <span class="required">*</span></label>
+                <input class="form-control" type="text" name="email" id="email" class="medium" value="">
+              </div>
+              <div class="col-sm-6">
+                <label for="phone_number">Phone Number</label>
+                <input class="form-control" type="text" name="phone_number" id="phone_number" class="short" value="">
+              </div>
+              <div class="col-sm-6">
+                <label for="address1">Address 1</label>
+                <input class="form-control" type="text" name="address1" id="address1" class="long" value="">
+              </div>
+              <div class="col-sm-6">
+                <label for="address2">Address 2</label>
+                <input class="form-control" type="text" name="address2" id="address2" class="long" value="">
+              </div>
+              <div class="col-sm-6">
+                &nbsp;
+              </div>
+              <div class="col-sm-4">
+                <label for="city">City</label>
+                <input class="form-control" type="text" name="city" id="city" class="medium" value="">
+              </div>
+              <div class="col-sm-4">
+                <label for="state">State</label>
+                <input class="form-control" type="text" name="state" id="state" class="short" value="">
+              </div>
+              <div class="col-sm-4">
+                <label for="postal_code">Postal / Zip Code</label>
+                <input class="form-control" type="text" name="postal_code" id="postal_code" class="short" value="">
+              </div>
+              <div class="col-sm-12">
+                <label for="country">Country <span class="required">*</span></label>
+                <input class="form-control" type="text" name="country" id="country" class="short" value="United States">
+              </div>
+              <div class="col-sm-12">
+                <label for="party_count">Number in Party <span class="required">*</span></label>
+                <input class="form-control" type="text" name="party_count" id="party_count" class="short" value="">
+              </div>
+              <div class="col-md-6">
+                <label for="arrival_date">Arrival Date <span class="required">*</span></label>
+                <input class="form-control" type="text" name="arrival_date" id="arrival_date" class="short datepicker" value="">
+              </div>
+              <div class="col-md-6">
+                <button class="btn btn-link" data-toggle="modal" data-target=".reserve-modal">Check Availability</button>
+              </div>
+              <div class="col-md-6">
+                <label for="departure_date">Departure Date <span class="required">*</span></label>
+                <input class="form-control" type="text" name="departure_date" id="departure_date" class="short datepicker" value="">
+              </div>
+              <div class="col-xs-12">
+                <label for="message">Message</label>
+                <textarea name="message" class="form-control" id="message"></textarea>
+              </div>
+              <input type="text" name="alt_email" alt="Do not fill in" class="hide" value="">
+
+              <div class="col-xs-12">
+                <button type="submit" class="btn btn-primary mt-2" value="send request">Send Request</button>
+              </div>
+              <div class="footnote"><span class="required">*</span> Field is required</div>
+            </div>
+          </form>
+
+          <script type="text/javascript">
+            document.getElementsByClassName('alt-email')[0].setAttribute('value', 'alt@example.com');
+          </script>
+
+{% endblock %}
