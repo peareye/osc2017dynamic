@@ -1,52 +1,53 @@
-{% extends '_sidebarLayout.html' %}
+{% extends '_sidebarLayout.html' %} {% block sectionName %}rates{% endblock %} {% block subTitleWrapper %}Rates &amp; Policies{% endblock %} {% block main %}
 
-{% block sectionName %}rates{% endblock %}
+<div class="block-spacing">
+  <h2>Our Sand Castle Image Gallery</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Summer &amp; Holiday* Rates</h4>
+    </div>
+    <div class="col-md-8">
 
-{% block main %}
+      {{ summer.content_html|raw }}
 
-          <div class="row">
-            <div class="col-md-4">
-              <h4>Summer and Holiday* Rates</h4>
-            </div>
-            <div class="col-md-8">
+    </div>
+  </div>
+  <!-- End Summer Rates -->
+  <hr>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Winter Rates</h4></div>
+    <div class="col-md-8">
 
-              {{ summer.content_html|raw }}
+      {{ winter.content_html|raw }}
 
-            </div>
-          </div>
-          <!-- End Summer Rates -->
-          <hr>
-          <div class="row">
-            <div class="col-md-4">
-              <h4>Winter Rates</h4></div>
-            <div class="col-md-8">
+    </div>
+  </div>
+  <!-- End Winter Rates -->
+  <hr>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>The Details</h4></div>
+    <div class="col-md-8">
 
-              {{ winter.content_html|raw }}
+      {{ details.content_html|raw }}
 
-            </div>
-          </div>
-          <!-- End Winter Rates -->
-          <hr>
-          <div class="row">
-            <div class="col-md-4">
-              <h4>The Details</h4></div>
-            <div class="col-md-8">
+    </div>
+  </div>
+  <!-- End The Details -->
+  <hr>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>House Policies</h4></div>
+    <div class="col-md-8">
 
-              {{ details.content_html|raw }}
+      {{ policies.content_html|raw }}
 
-            </div>
-          </div>
-          <!-- End The Details -->
-          <hr>
-          <div class="row">
-            <div class="col-md-4">
-              <h4>House Policies</h4></div>
-            <div class="col-md-8">
+    </div>
+  </div>
+  <!-- End House Policies -->
+</div>
 
-              {{ policies.content_html|raw }}
 
-            </div>
-          </div>
-          <!-- End House Policies -->
 
 {% endblock %}

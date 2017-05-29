@@ -6,3 +6,6 @@ twigcache/
 
 # Misc
 *.xml
+
+.sass-cache/
+*.map

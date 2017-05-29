@@ -1,10 +1,17 @@
-{% extends '_sidebarLayout.html' %}
+{% extends '_sidebarLayout.html' %} {% block sectionName %}calendar{% endblock %} {% block subTitleWrapper %}Find your days to stay!{% endblock %} {% block main %}
+<div class="block-spacing">
+  <h2>Our Sand Castle Availability</h2>
+  <div class="iframe-wrapper">
+    <iframe scrolling="no" width="519" height="800" frameborder="0" style="overflow:hidden;border: none" src="http://www.homeaway.com/haow/widgets/calendar.html?propertyId=117917&amp;unitId=336188&amp;monthCount=12&amp;orientation=horizontal&amp;site=homeaway_us"></iframe>
+    <a href="http://www.homeaway.com/vacation-rental/p117917" style="display:block;text-align:center;margin-top:-30px; font-size:12px;" rel="nofollow">HomeAway.com #117917</a>
 
-{% block sectionName %}calendar{% endblock %}
+  </div>
+</div>
 
-{% block main %}
 
-          <iframe margin: 0 src="http://www.homeaway.com/haow/widgets/calendar.html?propertyId=117917&amp;unitId=336188&amp;monthCount=12&amp;orientation=horizontal&amp;site=homeaway_us"></iframe>
-          <a href="http://www.homeaway.com/vacation-rental/p117917" style="display:block;text-align:center;margin-top:-30px; font-size:12px;" rel="nofollow">HomeAway.com #117917</a>
+
+
+
+
 
 {% endblock %}

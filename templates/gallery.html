@@ -1,92 +1,91 @@
-{% extends '_sidebarLayout.html' %}
+{% extends '_sidebarLayout.html' %} {% block sectionName %}gallery{% endblock %} {% block subTitleWrapper %}So relaxing and peaceful!{% endblock %} {% block main %}
 
-{% block sectionName %}gallery{% endblock %}
+<div class="block-spacing">
+  <h2>Our Sand Castle Image Gallery</h2>
+  <p class="lead">Click on an image and then use your mouse or keyboard arrows to scroll through the images. Click the 'X' or anywhere outside the image to close the slideshow.</p>
 
-{% block main %}
-
-          <h2>Gallery</h2>
-          <p class="lead">Click on an image and then use your mouse or keyboard arrows to scroll through the images. Click the 'X' or anywhere outside the image to close the slideshow.</p>
-          <div class="row">
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-1.jpg" data-lightbox="gallery" data-title="OurSandCastle">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-1.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-2.jpg" data-lightbox="gallery" data-title="The Dining Room and Kitchen">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-2.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-3.jpg" data-lightbox="gallery" data-title="The Kitchen">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-3.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-4.jpg" data-lightbox="gallery" data-title="The Dining Room and Kitchen ">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-4.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-5.jpg" data-lightbox="gallery" data-title="The Dining Room">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-5.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-6.jpg" data-lightbox="gallery" data-title="The Living Room">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-6.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-7.jpg" data-lightbox="gallery" data-title="The Master Bedroom">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-7.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-8.jpg" data-lightbox="gallery" data-title="The Jacuzzi Bathtub in the Master Bedroom en suite">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-8.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-9.jpg" data-lightbox="gallery" data-title="The Master Bedroom en suite">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-9.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-10.jpg" data-lightbox="gallery" data-title="First of two Full Bathrooms">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-10.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-11.jpg" data-lightbox="gallery" data-title="Second of two Full Bathrooms">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-11.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-12.jpg" data-lightbox="gallery" data-title="First Bedroom with Queen Bed (no television)">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-12.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-13.jpg" data-lightbox="gallery" data-title="Second Bedroom with Queen Bed (with television) ">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-13.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-14.jpg" data-lightbox="gallery" data-title="Childrens bedroom with Bunk Bed">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-14.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-15.jpg" data-lightbox="gallery" data-title="Full size washer / dryer">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-15.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ basePath() }}/media/large/osc-16.jpg" data-lightbox="gallery" data-title="Puzzles, games, and spare towels">
-                <img class="img-fluid" src="{{ basePath() }}/media/small/osc-16.jpg" alt="This is a picture of OurSandCastle" />
-              </a>
-            </div>
-          </div>
+  <div class="row center-block ">
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-1.jpg" data-lightbox="gallery" data-title="OurSandCastle">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-1.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-2.jpg" data-lightbox="gallery" data-title="The Dining Room and Kitchen">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-2.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-3.jpg" data-lightbox="gallery" data-title="The Kitchen">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-3.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-4.jpg" data-lightbox="gallery" data-title="The Dining Room and Kitchen ">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-4.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-5.jpg" data-lightbox="gallery" data-title="The Dining Room">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-5.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-6.jpg" data-lightbox="gallery" data-title="The Living Room">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-6.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-7.jpg" data-lightbox="gallery" data-title="The Master Bedroom">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-7.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-8.jpg" data-lightbox="gallery" data-title="The Jacuzzi Bathtub in the Master Bedroom en suite">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-8.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-9.jpg" data-lightbox="gallery" data-title="The Master Bedroom en suite">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-9.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-10.jpg" data-lightbox="gallery" data-title="First of two Full Bathrooms">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-10.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-11.jpg" data-lightbox="gallery" data-title="Second of two Full Bathrooms">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-11.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-12.jpg" data-lightbox="gallery" data-title="First Bedroom with Queen Bed (no television)">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-12.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-13.jpg" data-lightbox="gallery" data-title="Second Bedroom with Queen Bed (with television) ">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-13.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-14.jpg" data-lightbox="gallery" data-title="Childrens bedroom with Bunk Bed">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-14.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-15.jpg" data-lightbox="gallery" data-title="Full size washer / dryer">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-15.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="{{ basePath() }}/media/large/osc-16.jpg" data-lightbox="gallery" data-title="Puzzles, games, and spare towels">
+        <img class="img-fluid" src="{{ basePath() }}/media/small/osc-16.jpg" alt="This is a picture of OurSandCastle" />
+      </a>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

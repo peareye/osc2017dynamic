@@ -1,109 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="{{ metaDescription|default(setting.user.defaultMetaDescription) }}">
-  <meta name="google-site-verification" content="mIjoxU7xEK9kQA6fpfkLpHd4NCvwLMd0wccREUwzp8k" /><!-- oursandcastle.com -->
-  <meta name="google-site-verification" content="88WIba9eqT7o7Eflnb1lWfyGhoNEPYkph6y8HgCyNms" /><!-- wilfinproperties.com -->
-  <title>OurSandCastle - A Luxury Vacation Rental in Yachats, Oregon</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
-  <script src="https://use.fontawesome.com/0e492d299f.js"></script>
-  <link rel="stylesheet" href="{{ basePath() }}/assets/css/main.css">
-  <link rel="stylesheet" href="{{ basePath() }}/assets/css/lightbox.css">
-</head>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ metaDescription|default(setting.user.defaultMetaDescription) }}">
+    <meta name="google-site-verification" content="mIjoxU7xEK9kQA6fpfkLpHd4NCvwLMd0wccREUwzp8k" />
+    <!-- oursandcastle.com -->
+    <meta name="google-site-verification" content="88WIba9eqT7o7Eflnb1lWfyGhoNEPYkph6y8HgCyNms" />
+    <!-- wilfinproperties.com -->
+    <title>OurSandCastle - A Luxury Vacation Rental in Yachats, Oregon</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <script src="https://use.fontawesome.com/0e492d299f.js"></script>
+    <link rel="stylesheet" href="{{ basePath() }}/assets/css/main.css">
+    <link rel="stylesheet" href="{{ basePath() }}/assets/css/lightbox.css">
+  </head>
 
-<body>
+  <body>
 
-  <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-primary">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item {% if inUrl('/') %}active{% endif %}">
-          <a class="nav-link" href="{{ pathFor('home') }}">Home {% if inUrl('/') %}<span class="sr-only">(current)</span>{% endif %}</a>
-        </li>
-        <li class="nav-item {% if inUrl('rates') %}active{% endif %}">
-          <a class="nav-link" href="{{ pathFor('rates') }}">Rates &amp; Policies {% if inUrl('rates') %}<span class="sr-only">(current)</span>{% endif %}</a>
-        </li>
-        <li class="nav-item {% if inUrl('calendar') %}active{% endif %}">
-          <a class="nav-link" href="{{ basePath() }}/calendar">Calendar {% if inUrl('calendar') %}<span class="sr-only">(current)</span>{% endif %}</a>
-        </li>
-        <li class="nav-item {% if inUrl('gallery') %}active{% endif %}">
-          <a class="nav-link" href="{{ pathFor('gallery') }}">Photos {% if inUrl('gallery') %}<span class="sr-only">(current)</span>{% endif %}</a>
-        </li>
-        <li class="nav-item {% if inUrl('contact') %}active{% endif %}">
-          <a class="nav-link" href="{{ pathFor('contact') }}">Contact Us {% if inUrl('contact') %}<span class="sr-only">(current)</span>{% endif %}</a>
-        </li>
-      </ul>
+    <nav class="navbar sticky-top navbar-toggleable-md navbar-light bg-faded">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item {% if inUrl('/') %}active{% endif %}">
+            <a class="nav-link" href="{{ pathFor('home') }}">Home {% if inUrl('/') %}<span class="sr-only">(current)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item {% if inUrl('rates') %}active{% endif %}">
+            <a class="nav-link" href="{{ pathFor('rates') }}">Rates &amp; Policies {% if inUrl('rates') %}<span class="sr-only">(current)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item {% if inUrl('calendar') %}active{% endif %}">
+            <a class="nav-link" href="{{ basePath() }}/calendar">Calendar {% if inUrl('calendar') %}<span class="sr-only">(current)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item {% if inUrl('gallery') %}active{% endif %}">
+            <a class="nav-link" href="{{ pathFor('gallery') }}">Photos {% if inUrl('gallery') %}<span class="sr-only">(current)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item {% if inUrl('contact') %}active{% endif %}">
+            <a class="nav-link" href="{{ pathFor('contact') }}">Contact Us {% if inUrl('contact') %}<span class="sr-only">(current)</span>{% endif %}</a>
+          </li>
+        </ul>
+        <div class="nav-reservation-button">
+          <a href="{{ pathFor('reserve') }}" class="btn btn-success" role="button" aria-pressed="true">Request Reservation Now!</a>
+        </div>
 
-      <a href="{{ pathFor('reserve') }}" class="btn btn-success" role="button" aria-pressed="true">Request Reservation Now!</a>
 
-    </div>
-  </nav>
-  <!-- End Nav Section -->
-
-  <header id="home-header">
-    <div class="welcome-wrapper">
-      <div class="title-wrapper">
-        <h1>Our Sand Castle</h1>
-        <p class="lead">a very special vacation rental in Yachats, OR</p>
       </div>
+    </nav>
+    <!-- End Nav Section -->
 
-    </div>
-    <div class="amenities-wrapper">
-      <div class="item-wrapper">
-        <div class="item">
-          <i class="fa fa-male fa-2x"></i> 9 People </div>
-        <div class="item">
-          <i class="fa fa-bed fa-2x"></i> 4 Bedrooms</div>
-        <div class="item">
-          <i class="fa fa-bath fa-2x"></i> 3 Full Baths </div>
-        <div class="item">
-          <i class="fa fa-binoculars fa-2x"></i> Ocean Views</div>
-        <div class="item">
-          <i class="fa fa-wifi fa-2x"></i> Wireless Internet</div>
+    <header id="{% block sectionName %}none{% endblock %}-header">
+      <div class="welcome-wrapper">
+        <div class="title-wrapper">
+          <h1>Our Sand Castle</h1>
+          <h5>{% block subTitleWrapper %}none {% endblock %}</h5>
+        </div>
       </div>
-      <div class="more-amenities">
-        <a href="#amenities" class="btn btn-primary" role="button" aria-pressed="true">More House Amenities</a>
+      {% if inUrl('/') %}
+      <div class="amenities-wrapper">
+        <div class="item-wrapper">
+          <div class="item">
+            <i class="fa fa-male fa-2x"></i> 9 People </div>
+          <div class="item">
+            <i class="fa fa-bed fa-2x"></i> 4 Bedrooms</div>
+          <div class="item">
+            <i class="fa fa-bath fa-2x"></i> 3 Full Baths </div>
+          <div class="item">
+            <i class="fa fa-binoculars fa-2x"></i> Ocean Views</div>
+          <div class="item">
+            <i class="fa fa-wifi fa-2x"></i> Wireless Internet</div>
+        </div>
+        {% endif %}
+        <div class="more-amenities">
+          {% if inUrl('/') %}
+          <a href="#amenities" class="btn btn-primary btn-lg" role="button" aria-pressed="true">More House Amenities</a>
+          {% endif %}
+          <a href="reserve.html" class="btn btn-success btn-lg" role="button" aria-pressed="true">Request Reservation Now!</a>
+        </div>
       </div>
-    </div>
-  </header>
-  <!-- End Header Section -->
-  {% block body %}
+    </header>
+    <!-- End Header Section -->
+    {% block body %} {# All content between the jumbo header and footer, including sidebar, goes here #} {% endblock %}
+    <footer>
+      <div class="content"></div>
+      <p class="small-text">&copy;{{ now|date('Y') }} Wilfin LLC, All Rights Reserved.</p>
 
-    {# All content between the jumbo header and footer, including sidebar, goes here #}
+    </footer>
+    <!-- End Footer  -->
 
-  {% endblock %}
-  <footer>
-    <p class="small-text">&copy;{{ now|date('Y') }} Wilfin LLC, All Rights Reserved.</p>
-  </footer>
-  <!-- End Footer  -->
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="{{ basePath() }}/assets/js/lightbox-plus-jquery.min.js"></script>
 
-  <!-- jQuery first, then Tether, then Bootstrap JS. -->
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  <script src="{{ basePath() }}/assets/js/lightbox-plus-jquery.min.js"></script>
+    {% if setting.production %}
+    <!-- Start of StatCounter Code for Default Guide -->
+    <script type="text/javascript">
+      var sc_project = 11344598;
+      var sc_invisible = 0;
+      var sc_security = "2d74541d";
+      var scJsHost = (("https:" == document.location.protocol) ?
+        "https://secure." : "http://www.");
+      document.write("<sc" + "ript type='text/javascript' src='" +
+        scJsHost +
+        "statcounter.com/counter/counter.js'></" + "script>");
 
-  {% if setting.production %}
-  <!-- Start of StatCounter Code -->
-  <script type="text/javascript">
-  var sc_project=10223149;
-  var sc_invisible=1;
-  var sc_security="57fc8ceb";
-  </script>
-
-  <script type="text/javascript"
-  src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
-  class="statcounter"><a title="tumblr hit tracking tool"
-  href="http://statcounter.com/tumblr/" target="_blank"><img
+    </script>
+    <noscript><div class="statcounter"><a title="site stats"
+  href="http://statcounter.com/" target="_blank"><img
   class="statcounter"
-  src="http://c.statcounter.com/10223149/0/57fc8ceb/1/"
-  alt="tumblr hit tracking tool" ></a></div></noscript>
-  <!-- End of StatCounter Code -->
-  {% endif %}
-</body>
+  src="//c.statcounter.com/11344598/0/2d74541d/0/" alt="site
+  stats"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+    {% endif %}
+  </body>
 
 </html>
