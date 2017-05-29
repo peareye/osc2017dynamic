@@ -81,7 +81,9 @@
     <!-- End Header Section -->
     {% block body %} {# All content between the jumbo header and footer, including sidebar, goes here #} {% endblock %}
     <footer>
+      {% if not setting.production %}
       <div class="content"></div>
+      {% endif %}
       <p class="small-text">&copy;{{ now|date('Y') }} Wilfin LLC, All Rights Reserved.</p>
 
     </footer>
