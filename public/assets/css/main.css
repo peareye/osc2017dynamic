@@ -4,6 +4,8 @@
  * Copyright 2011-2017 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+/* Core variables and mixins*/
+/* Reset and dependencies*/
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -263,6 +265,7 @@ template {
   .table-bordered th,
   .table-bordered td {
     border: 1px solid #ddd !important; } }
+/* Core CSS*/
 html {
   box-sizing: border-box; }
 
@@ -2236,6 +2239,7 @@ input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%; }
 
+/* Components*/
 .fade {
   opacity: 0;
   transition: opacity 0.15s linear; }
@@ -3700,6 +3704,7 @@ button.close {
   border: 0;
   -webkit-appearance: none; }
 
+/* Components w/ JavaScript*/
 .modal-open {
   overflow: hidden; }
 
@@ -4143,6 +4148,7 @@ button.close {
   color: #fff;
   text-align: center; }
 
+/* Utility classes*/
 .align-baseline {
   vertical-align: baseline !important; }
 

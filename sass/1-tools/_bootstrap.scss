@@ -5,16 +5,16 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-// Core variables and mixins
+/* Core variables and mixins*/
 @import "../../vendor/twbs/bootstrap/scss/variables";
 @import "../../vendor/twbs/bootstrap/scss/mixins";
 @import "../../vendor/twbs/bootstrap/scss/custom";
 
-// Reset and dependencies
+/* Reset and dependencies*/
 @import "../../vendor/twbs/bootstrap/scss/normalize";
 @import "../../vendor/twbs/bootstrap/scss/print";
 
-// Core CSS
+/* Core CSS*/
 @import "../../vendor/twbs/bootstrap/scss/reboot";
 @import "../../vendor/twbs/bootstrap/scss/type";
 @import "../../vendor/twbs/bootstrap/scss/images";
@@ -24,7 +24,7 @@
 @import "../../vendor/twbs/bootstrap/scss/forms";
 @import "../../vendor/twbs/bootstrap/scss/buttons";
 
-// Components
+/* Components*/
 @import "../../vendor/twbs/bootstrap/scss/transitions";
 @import "../../vendor/twbs/bootstrap/scss/dropdown";
 @import "../../vendor/twbs/bootstrap/scss/button-group";
@@ -44,11 +44,11 @@
 @import "../../vendor/twbs/bootstrap/scss/responsive-embed";
 @import "../../vendor/twbs/bootstrap/scss/close";
 
-// Components w/ JavaScript
+/* Components w/ JavaScript*/
 @import "../../vendor/twbs/bootstrap/scss/modal";
 @import "../../vendor/twbs/bootstrap/scss/tooltip";
 @import "../../vendor/twbs/bootstrap/scss/popover";
 @import "../../vendor/twbs/bootstrap/scss/carousel";
 
-// Utility classes
+/* Utility classes*/
 @import "../../vendor/twbs/bootstrap/scss/utilities";

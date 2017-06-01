@@ -14,9 +14,9 @@
           <h3 class="">How to Reserve</h3>
           <ol class="">
             <li>Check
-              <a href="calendar.html">Calendar</a> for Availability.</li>
+              <a href="{{ pathFor('calendar') }}">Calendar</a> for Availability.</li>
             <li>Submit a
-              <a href="reserve.html">Reservation Request.</a>
+              <a href="{{ pathFor('reserve') }}">Reservation Request.</a>
             </li>
             <li>We Will Contact You.</li>
           </ol>
@@ -51,7 +51,7 @@
             <script src="http://www.flipkey.com/widgets/badges/property/428568/539c83b3924a1/92570"></script>
           </div>
           <div class="more-amenities">
-            <a class="btn btn-outline-success btn-sm mt-2" href="#reviews" role="button">Read Reviews</a>
+            <a class="btn btn-outline-success btn-sm mt-2" href="{{ pathFor('reviews') }}" role="button">Read Reviews</a>
           </div>
         </div>
       </div>
