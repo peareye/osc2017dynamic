@@ -8,7 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Blog\\Controllers\\AdminController' => $baseDir . '/app/Blog/Controllers/AdminController.php',
     'Blog\\Controllers\\BaseController' => $baseDir . '/app/Blog/Controllers/BaseController.php',
-    'Blog\\Controllers\\CommentController' => $baseDir . '/app/Blog/Controllers/CommentController.php',
+    'Blog\\Controllers\\ContactController' => $baseDir . '/app/Blog/Controllers/ContactController.php',
     'Blog\\Controllers\\FileController' => $baseDir . '/app/Blog/Controllers/FileController.php',
     'Blog\\Controllers\\IndexController' => $baseDir . '/app/Blog/Controllers/IndexController.php',
     'Blog\\Controllers\\LoginController' => $baseDir . '/app/Blog/Controllers/LoginController.php',
@@ -27,6 +27,8 @@ return array(
     'Blog\\Models\\DomainObjectAbstract' => $baseDir . '/app/Blog/Models/DomainObjectAbstract.php',
     'Blog\\Models\\Post' => $baseDir . '/app/Blog/Models/Post.php',
     'Blog\\Models\\PostMapper' => $baseDir . '/app/Blog/Models/PostMapper.php',
+    'Blog\\Models\\Review' => $baseDir . '/app/Blog/Models/Review.php',
+    'Blog\\Models\\ReviewMapper' => $baseDir . '/app/Blog/Models/ReviewMapper.php',
     'FastRoute\\BadRouteException' => $vendorDir . '/nikic/fast-route/src/BadRouteException.php',
     'FastRoute\\DataGenerator' => $vendorDir . '/nikic/fast-route/src/DataGenerator.php',
     'FastRoute\\DataGenerator\\CharCountBased' => $vendorDir . '/nikic/fast-route/src/DataGenerator/CharCountBased.php',

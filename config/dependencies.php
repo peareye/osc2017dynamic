@@ -80,6 +80,11 @@ $container['postMapper'] = $container->factory(function ($c) {
     return new Blog\Models\PostMapper($c['database'], $c['logger'], ['user_id' => 1]);
 });
 
+// Review Data Mapper
+$container['reviewMapper'] = $container->factory(function ($c) {
+    return new Blog\Models\ReviewMapper($c['database'], $c['logger'], ['user_id' => 1]);
+});
+
 // Comment Data Mapper
 $container['commentMapper'] = $container->factory(function ($c) {
     return new Blog\Models\CommentMapper($c['database'], $c['logger'], ['user_id' => 1]);
