@@ -44,6 +44,26 @@ $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}",
         return (new Blog\Controllers\AdminController($this))->previewPost($request, $response, $args);
     })->setName('previewPost');
 
+    // Add or edit review
+    $this->get('/editreview[/{id}]', function ($request, $response, $args) {
+        return (new Blog\Controllers\AdminController($this))->editReview($request, $response, $args);
+    })->setName('editReview');
+
+    // Save review
+    $this->post('/savereview', function ($request, $response, $args) {
+        return (new Blog\Controllers\AdminController($this))->saveReview($request, $response, $args);
+    })->setName('saveReview');
+
+    // Delete review
+    $this->get('/deletereview/{id}', function ($request, $response, $args) {
+        return (new Blog\Controllers\AdminController($this))->deleteReview($request, $response, $args);
+    })->setName('deleteReview');
+
+    // View all reviews
+    $this->get('/showreviews', function ($request, $response, $args) {
+        return (new Blog\Controllers\AdminController($this))->showReviews($request, $response, $args);
+    })->setName('showReviews');
+
     // Load files into gallery (Ajax)
     $this->get('/loadfiles', function ($request, $response, $args) {
         return (new Blog\Controllers\FileController($this))->loadFiles($request, $response, $args);

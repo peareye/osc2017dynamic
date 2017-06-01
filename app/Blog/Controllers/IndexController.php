@@ -13,11 +13,15 @@ class IndexController extends BaseController
     {
         // Get dependencies
         $postMapper = $this->container->get('postMapper');
+        $reviewMapper = $this->container->get('reviewMapper');
 
         $page['welcome'] = $postMapper->getSinglePost(1);
         $page['house'] = $postMapper->getSinglePost(2);
         $page['provide'] = $postMapper->getSinglePost(3);
         $page['comfort'] = $postMapper->getSinglePost(4);
+        $page['reviews'] = $reviewMapper->getReviews();
+
+        // Remove
         $page['review'] = $postMapper->getSinglePost(5);
 
         // Render view

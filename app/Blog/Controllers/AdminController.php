@@ -148,6 +148,79 @@ class AdminController extends BaseController
     }
 
     /**
+     * Add/Edit Review
+     */
+    public function editReview($request, $response, $args)
+    {
+        // Get dependencies
+        $reviewMapper = $this->container['reviewMapper'];
+
+        // Was an ID supplied?
+        $id = isset($args['id']) ? $args['id'] : null;
+
+        if (null === $review = $reviewMapper->findById($id)) {
+            $review = $reviewMapper->make();
+        }
+
+        return $this->container->view->render($response, '@admin/editReview.html', ['review' => $review]);
+    }
+
+    /**
+     * Save Review
+     */
+    public function saveReview($request, $response, $args)
+    {
+        // Get dependencies
+        $reviewMapper = $this->container['reviewMapper'];
+        $markdown = $this->container->get('markdownParser');
+
+        // Make review object
+        $review = $reviewMapper->make();
+
+        $review->id = $request->getParsedBodyParam('id');
+        $review->title = $request->getParsedBodyParam('title');
+        $review->content = $request->getParsedBodyParam('content');
+        $review->content_html = $markdown->text($request->getParsedBodyParam('content'));
+        $review->who = $request->getParsedBodyParam('who');
+        $review->review_date = $request->getParsedBodyParam('review_date');
+
+        // Save
+        $review = $reviewMapper->save($review);
+
+        // Display admin dashboard
+        return $response->withRedirect($this->container->router->pathFor('showReviews'));
+    }
+
+    /**
+     * Delete Review
+     */
+    public function deleteReview($request, $response, $args)
+    {
+        // Get dependencies
+        $reviewMapper = $this->container['reviewMapper'];
+
+        $review = $reviewMapper->make();
+        $review->id = (int) $args['id'];
+
+        $reviewMapper->delete($review);
+
+        return $response->withRedirect($this->container->router->pathFor('showReviews'));
+    }
+
+    /**
+     * Show all Reviews
+     */
+    public function showReviews($request, $response, $args)
+    {
+        // Get dependencies
+        $reviewMapper = $this->container['reviewMapper'];
+
+        $reviews = $reviewMapper->getReviews();
+
+        return $this->container->view->render($response, '@admin/showReviews.html', ['reviews' => $reviews]);
+    }
+
+    /**
      * Validate Unique URL
      *
      * @return JSON status

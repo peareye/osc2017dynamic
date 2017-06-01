@@ -1,0 +1,23 @@
+{% extends '@admin/_layout.html' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-6">
+        <h2>Reviews</h2>
+    </div>
+</div>
+
+{% for r in reviews %}
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ r.title }} ({{ r.who }})</h3>
+    </div>
+    <div class="panel-body">
+        <a href="{{ pathFor('editReview', {'id': r.id}) }}">Edit</a>  |
+        <a href="{{ pathFor('deleteReview', {'id': r.id}) }}" class="deleteButton"><span class="text-danger">Delete</span></a>
+        {{ r.content_html|raw }}
+    </div>
+</div>
+<hr> {% else %}
+<h4>No reviews found</h4> {% endfor %}
+{% endblock %}

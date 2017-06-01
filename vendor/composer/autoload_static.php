@@ -125,7 +125,7 @@ class ComposerStaticInitc37607f50114ce92f1502074a14fce46
     public static $classMap = array (
         'Blog\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Blog/Controllers/AdminController.php',
         'Blog\\Controllers\\BaseController' => __DIR__ . '/../..' . '/app/Blog/Controllers/BaseController.php',
-        'Blog\\Controllers\\CommentController' => __DIR__ . '/../..' . '/app/Blog/Controllers/CommentController.php',
+        'Blog\\Controllers\\ContactController' => __DIR__ . '/../..' . '/app/Blog/Controllers/ContactController.php',
         'Blog\\Controllers\\FileController' => __DIR__ . '/../..' . '/app/Blog/Controllers/FileController.php',
         'Blog\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Blog/Controllers/IndexController.php',
         'Blog\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Blog/Controllers/LoginController.php',
@@ -144,6 +144,8 @@ class ComposerStaticInitc37607f50114ce92f1502074a14fce46
         'Blog\\Models\\DomainObjectAbstract' => __DIR__ . '/../..' . '/app/Blog/Models/DomainObjectAbstract.php',
         'Blog\\Models\\Post' => __DIR__ . '/../..' . '/app/Blog/Models/Post.php',
         'Blog\\Models\\PostMapper' => __DIR__ . '/../..' . '/app/Blog/Models/PostMapper.php',
+        'Blog\\Models\\Review' => __DIR__ . '/../..' . '/app/Blog/Models/Review.php',
+        'Blog\\Models\\ReviewMapper' => __DIR__ . '/../..' . '/app/Blog/Models/ReviewMapper.php',
         'FastRoute\\BadRouteException' => __DIR__ . '/..' . '/nikic/fast-route/src/BadRouteException.php',
         'FastRoute\\DataGenerator' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator.php',
         'FastRoute\\DataGenerator\\CharCountBased' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator/CharCountBased.php',
