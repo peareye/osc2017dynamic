@@ -90,54 +90,33 @@
   <!-- End The Details -->
 </section>
 <!-- End Amenities Section -->
-{% if review.id %}
-<section id="reviews" class="container-fluid block-spacing">
-
-  <h2>Our Sand Castle Reviews</h2>
+<!-- {% if review.id %} -->
+<section id="review" class="container block-spacing">
 
 
-
-  <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-      <div class="carousel-item active">
-        <div class="carousel-item-wrapper">
-          <h3>The only home we'll rent again in Yachats</h3>
-          <p>I just want to give a sincere thank you to Don & Linda. We come out to Yachats every year, and this was the very first time our rental didn't disappoint. We've gone through rental agencies and private parties, but previous rentals couldn't compare.From
-            the moment we inquired about the rental, to the payment process, to the day we arrived; the level of customer service and immediate responses were impeccable. The best part..... an amazingly clean and well furnished rental awaited my family.
-            There was nothing lacking and all we can say is thank you. To anyone reading this and wondering whether they should stay here: My family had the best time ever in this home. It was very spacious, very comfortable beds, amazing ocean views,
-            and super clean.We highly recommend this rental and hope it is available the next time we come out ti visit. Thanks again for sharing your home, Don & Linda :)</p>
-          <p>srain33 on 11/05/2016</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="carousel-item-wrapper">
-          <h3>Fantastic!</h3>
-          <p>From the first call of inquiry throughout the intervening time until we arrived, our experience with OurSandCastle could not have been better. The owners were extremely responsive, helpful, friendly and forthright. The photos of the house are
-            lovely, but do not do it justice. The house is exceptionally well laid out, affording everyone privacy and comfort. In the living room both very comfortable couches have reclining end seats, as well as the single recliner between the couches.
-            The location is perfect for impromptu beach walking and a short drive to several interesting hikes. It's difficult to say whether the house or the owners were "more" perfect!!</p>
-          <p>Mark W on 01/03/2016</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="carousel-item-wrapper">
-          <h3>Loved It!</h3>
-          <p>OurSandCastle was the most perfect home away from home we could have imagined. From the very beginning, Don and Linda were incredible to work with. We had the chance to talk with them a bit while staying there, and they're very kind, warm, and
-            inviting people. The house itself is just amazing. From the time we walked in, we were elated.</p>
-          <p> Everything you could ever need is here, including a kitchen with all the cooking utensils and appliances you need, a comfortable and cozy living room with HD satellite TV, and three full bathrooms with a jetted tub in the master. The beds and
-            bedding are so incredibly comfortable, and there was a washer and dryer as well. The little extras such as board games, beach towels, sand toys, and the ping pong table were just icing on the cake. </p>
-          <p>The pictures don't even do this place justice. The decor and feel of the home are just amazing. This is all on top of a beautiful view of the ocean with private beach access. We stayed four nights, and it was hard to leave. We'll definitely
-            try to make it back. Thank you Don and Linda! We had an incredible vacation.</p>
-          <p>CorbinStandley on 07/29/2016
-
-          </p>
-        </div>
-      </div>
+  <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+    <div class="container">
+      <h2>Our Sand Castle Reviews</h2>
     </div>
+
+    <ol class="carousel-indicators">
+      <li data-target="#carousel" data-slide-to="0" class="active">text1</li>
+    <li data-target="#carousel" data-slide-to="1">text2</li>
+    <li data-target="#carousel" data-slide-to="2">text3</li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+      {% for r in reviews %}
+      <div class="carousel-item {% if loop.first %}active{% endif %}">
+        <div class="carousel-item-wrapper">
+          <h3>{{ r.title }}</h3>
+          {{ r.content_html|raw }}
+          <p>{{ r.who }} on {{ r.review_date }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
@@ -148,8 +127,6 @@
     </a>
   </div>
 </section>
+<!-- {% endif %} -->
 
-<hr>
-<hr> {{ review.content_html|raw }}
-<!-- End Reviews Section -->
-{% endif %} {% endblock %}
+{% endblock %}

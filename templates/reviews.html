@@ -1,0 +1,26 @@
+{% extends '_sidebarLayout.html' %}
+
+{% block headTitle%}in Yachats, Oregon - All Reviews{% endblock%}
+{% block sectionName %}reviews{% endblock %}
+{% block subTitleWrapper %}What people are saying!{% endblock %}
+
+{% block main %}
+  <h2>Our Sand Castle Reviews</h2>
+{% if review.id %}
+<section id="reviews" class="container-fluid block-spacing">
+
+        {% for r in reviews %}
+
+                  <h3>{{ r.title }}</h3>
+                  {{ r.content_html|raw }}
+                  <p>{{ r.who }} on {{ r.review_date }}</p>
+
+        {% endfor %}
+    </div>
+
+  <
+</section>
+{% endif %}
+
+
+{% endblock %}

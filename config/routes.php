@@ -128,6 +128,11 @@ $app->get('/calendar', function ($request, $response, $args) {
     return $this->view->render($response, 'calendar.html');
 })->setName('calendar');
 
+// Reviews
+$app->get('/reviews', function ($request, $response, $args) {
+    return $this->view->render($response, 'reviews.html');
+})->setName('reviews');
+
 // Rates and Policies
 $app->get('/rates', function ($request, $response, $args) {
     (new Blog\Controllers\IndexController($this))->rates($request, $response, $args);
