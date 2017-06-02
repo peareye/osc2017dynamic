@@ -6772,6 +6772,7 @@ iframe {
     #rates-header {
       background-attachment: inherit; } }
 
+/* Gallery Page */
 .gallery-item {
   display: flex;
   justify-content: center;
@@ -6904,6 +6905,16 @@ footer {
   align-items: center;
   align-content: center;
   flex: 1; }
+
+/* Reviews Page */
+#reviews-header {
+  background-image: url("../img/yachats-jumbo-3.jpg"); }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    #reviews-header {
+      background-attachment: inherit; } }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    #reviews-header {
+      background-attachment: inherit; } }
 
 @media (min-width: 576px) {
   .content {
