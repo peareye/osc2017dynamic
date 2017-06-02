@@ -15,11 +15,18 @@ class ReviewMapper extends DataMapperAbstract
     /**
      * Get Reviews
      *
+     * @param int|null $limit Number of reviews to return, returns all reviews if null
      * @return array
      */
-    public function getReviews()
+    public function getReviews($limit = null)
     {
         $this->sql = $this->defaultSelect . ' order by created_date desc';
+
+        // Is there a limit?
+        if ($limit !== null) {
+            $this->sql .= ' limit ?';
+            $this->bindValues[] = $limit;
+        }
 
         return $this->find();
     }

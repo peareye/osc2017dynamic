@@ -11,9 +11,11 @@
 
 {# Code for reviews:
 
+Where "reviews(3)" means the last three reviews.
+Leave empty "reviews()" for all reviews.
 
 
-	{% for r in reviews %}
+	{% for r in reviews(3) %}
 	  {{ r.title }}<br>
 	  {{ r.content_html|raw }}<br>
 	  {{ r.who }}<br>

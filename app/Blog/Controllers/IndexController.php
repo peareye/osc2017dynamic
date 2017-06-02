@@ -19,10 +19,6 @@ class IndexController extends BaseController
         $page['house'] = $postMapper->getSinglePost(2);
         $page['provide'] = $postMapper->getSinglePost(3);
         $page['comfort'] = $postMapper->getSinglePost(4);
-        $page['reviews'] = $reviewMapper->getReviews();
-
-        // Remove
-        $page['review'] = $postMapper->getSinglePost(5);
 
         // Render view
         $this->container->view->render($response, 'home.html', $page);

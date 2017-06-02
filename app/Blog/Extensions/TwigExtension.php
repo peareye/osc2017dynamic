@@ -84,6 +84,7 @@ class TwigExtension extends \Twig_Extension
             new \Twig_SimpleFunction('priorPost', array($this, 'getPriorPost')),
             new \Twig_SimpleFunction('postCommentCount', array($this, 'getCommentCountByPostId')),
             new \Twig_SimpleFunction('flashMessage', array($this, 'getFlashMessage')),
+            new \Twig_SimpleFunction('getReviews', array($this, 'getReviews')),
         ];
     }
 
@@ -396,5 +397,19 @@ class TwigExtension extends \Twig_Extension
 
         // Return all messages as unordered list
         return '<ul><li>' . implode('</li><li>', $messages) . '</li></ul>';
+    }
+
+    /**
+     * Get Reviews
+     *
+     * @param int|null $limit Number of recent reviews, all reviews if null
+     * @return array Array of reviews
+     */
+    public function getReviews($limit = null)
+    {
+        // Get dependencies
+        $reviewMapper = $this->container['reviewMapper'];
+
+        return $reviewMapper->getReviews($limit);
     }
 }

@@ -6,7 +6,8 @@
 
 {% block main %}
   <h2>Our Sand Castle Reviews</h2>
-{% if review.id %}
+{% set reviews = getReviews() %}
+{% if reviews %}
 <section id="reviews" class="container-fluid block-spacing">
 
         {% for r in reviews %}
@@ -18,7 +19,6 @@
         {% endfor %}
     </div>
 
-  <
 </section>
 {% endif %}
 

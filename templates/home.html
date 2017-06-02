@@ -90,7 +90,9 @@
   <!-- End The Details -->
 </section>
 <!-- End Amenities Section -->
-<!-- {% if review.id %} -->
+
+{% set reviews = getReviews(3) %}
+{% if reviews %}
 <section id="review" class="container block-spacing">
 
 
@@ -127,6 +129,6 @@
     </a>
   </div>
 </section>
-<!-- {% endif %} -->
+{% endif %}
 
 {% endblock %}
