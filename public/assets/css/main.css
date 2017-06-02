@@ -6895,7 +6895,7 @@ header {
   align-items: center;
   width: 100%; }
 
-footer {
+.footer {
   height: 200px;
   background: #336699;
   color: #fff;
@@ -6915,6 +6915,14 @@ footer {
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
     #reviews-header {
       background-attachment: inherit; } }
+
+#reviews h3 {
+  text-align: left;
+  margin-bottom: 0.8rem; }
+
+.review-wrapper {
+  padding: 0.5rem;
+  margin-bottom: 1rem; }
 
 @media (min-width: 576px) {
   .content {

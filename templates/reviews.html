@@ -5,21 +5,27 @@
 {% block subTitleWrapper %}What people are saying!{% endblock %}
 
 {% block main %}
-  <h2>Our Sand Castle Reviews</h2>
+
 {% set reviews = getReviews() %}
 {% if reviews %}
-<section id="reviews" class="container-fluid block-spacing">
 
-        {% for r in reviews %}
+<div class="block-spacing">
 
-                  <h3>{{ r.title }}</h3>
-                  {{ r.content_html|raw }}
-                  <p>{{ r.who }} on {{ r.review_date }}</p>
+  <h2>Our Sand Castle Reviews</h2>
 
-        {% endfor %}
-    </div>
+     {% for r in reviews %}
+        <div class="review-wrapper">
+          <h3>{{ r.title }}</h3>
+          <blockquote class="blockquote">
+{{ r.content_html|raw }}
+  <footer class="blockquote-footer">{{ r.who }} on {{ r.review_date }}</footer>
+</blockquote>
 
-</section>
+        </div>
+      {% endfor %}
+
+</div>
+
 {% endif %}
 
 
