@@ -145,15 +145,18 @@ $app->get('/contact', function ($request, $response, $args) {
 
 // Contact form submit
 $app->post('/contactsubmit', function ($request, $response, $args) {
-    (new Blog\Controllers\ContactController($this))->sendContactEmail($request, $response, $args);
-
-    return $this->view->render($response, '_thankYou.html');
+    return (new Blog\Controllers\ContactController($this))->sendContactEmail($request, $response, $args);
 })->setName('contactSubmit');
 
 // Reservation form
 $app->get('/reserve', function ($request, $response, $args) {
     return $this->view->render($response, 'reserve.html');
 })->setName('reserve');
+
+// Thank you page
+$app->get('/thankyou', function ($request, $response, $args) {
+    return $this->view->render($response, '_thankYou.html');
+})->setName('thankYou');
 
 // Home page (last route, the default)
 $app->get('/', function ($request, $response, $args) {

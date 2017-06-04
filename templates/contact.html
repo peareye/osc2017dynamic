@@ -12,7 +12,7 @@
 
   <div class="form-wrapper">
     {% if submitted %} {% include '_thankYou.html' %} {% else %}
-    <form action="" id="contact_form" method="post" accept-charset="utf-8">
+    <form action="{{ pathFor('contactSubmit') }}" id="contact_form" method="post" accept-charset="utf-8">
 
       <div class="form-group">
         <label for="contact_name">Name <span class="required">*</span></label>
@@ -30,7 +30,7 @@
         <textarea class="form-control" name="comment" id="message" required></textarea>
       </div>
 
-      <input type="text" class="form-control alt-email hide" name="alt_email" alt="Do not fill in" value="" autocomplete="off">
+      <input type="text" class="form-control alt-email" name="alt_email" alt="Do not fill in" value="" autocomplete="off" hidden>
 
       <button type="submit" class="btn btn-primary">Send Message</button>
 

@@ -14,29 +14,23 @@ class ContactController extends BaseController
      */
     public function sendContactEmail($request, $response, $args)
     {
+        // Get dependencies
+        $message = $this->container->mailMessage;
+
         // Check honeypot for spammers
         if ($request->getParsedBodyParam('alt-email') !== 'alt@example.com') {
             // Just return and say nothing
-            $this->container->view->render($response, '_thankYou.html');
+            return $response->withRedirect($this->container->router->pathFor('thankYou'));
         }
 
-        // Verify we have required fields
-        // if (!$request->getParsedBodyParam('name') || !$request->getParsedBodyParam('email') || !$request->getParsedBodyParam('comment')) {
-        //     // Return error
-        //     //return $r->write(json_encode(["status" => "1", "source" => "<p class=\"bg-danger\">Error</p>"]));
-        // }
-
         // Create message
-        $message = new \stdClass();
-        $message->name = $request->getParsedBodyParam('name');
-        $message->email = $request->getParsedBodyParam('email');
-        $message->comment = $request->getParsedBodyParam('comment');
+        $message->setSubject('Contact message')
+            ->setBody("Name: {$request->getParsedBodyParam('name')}\nEmail: {$request->getParsedBodyParam('email')}\n\n{$request->getParsedBodyParam('comment')}");
 
-        // Email admin with new comment and post title
-        $this->sendEmail('Contact message', "Name: {$message->name}\nEmail: {$message->email}\n\n{$message->comment}");
+        // Send email
+        $this->sendEmail($message);
 
-        // Return
-        return;
+        return $response->withRedirect($this->container->router->pathFor('thankYou'));
     }
 
     /**
@@ -46,12 +40,11 @@ class ContactController extends BaseController
      * @param string $subject
      * @return void
      */
-    protected function sendEmail($subject = '', $body = '')
+    protected function sendEmail($message)
     {
         // Get dependencies
-        $message = $this->container->get('mailMessage');
-        $mailer = $this->container->get('sendMailMessage');
-        $config = $this->container->get('settings');
+        $mailer = $this->container->sendMailMessage;
+        $config = $this->container->settings;
 
         // Set the "from" address based on host, and strip "www."
         $host = $this->container->request->getUri()->getHost();
@@ -62,11 +55,9 @@ class ContactController extends BaseController
             $host .= '.com';
         }
 
-        // Create message
+        // Set from and to addresses
         $message->setFrom("OurSandCastle <send@{$host}>")
-            ->addTo($config['user']['contactEmail'])
-            ->setSubject($subject)
-            ->setBody($body);
+            ->addTo($config['user']['contactEmail']);
 
         // Send
         $mailer->send($message);
