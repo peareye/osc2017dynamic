@@ -18,8 +18,9 @@ class ContactController extends BaseController
         $message = $this->container->mailMessage;
 
         // Check honeypot for spammers
-        if ($request->getParsedBodyParam('alt-email') !== 'alt@example.com') {
+        if ($request->getParsedBodyParam('alt_email') !== 'alt@example.com') {
             // Just return and say nothing
+            $this->container->logger->error('Honeypot caught a fly: ' . $request->getParsedBodyParam('alt-email'));
             return $response->withRedirect($this->container->router->pathFor('thankYou'));
         }
 
@@ -54,6 +55,9 @@ class ContactController extends BaseController
         if ($host === 'localhost') {
             $host .= '.com';
         }
+
+        // Log email should there be an issue
+        $this->container->logger->info('Sending email: ' . $message->subject . ', Body: ' . $message->body);
 
         // Set from and to addresses
         $message->setFrom("OurSandCastle <send@{$host}>")
