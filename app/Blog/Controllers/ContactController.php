@@ -25,8 +25,47 @@ class ContactController extends BaseController
         }
 
         // Create message
-        $message->setSubject('Contact message')
+        $message->setSubject('Contact Message')
             ->setBody("Name: {$request->getParsedBodyParam('name')}\nEmail: {$request->getParsedBodyParam('email')}\n\n{$request->getParsedBodyParam('comment')}");
+
+        // Send email
+        $this->sendEmail($message);
+
+        return $response->withRedirect($this->container->router->pathFor('thankYou'));
+    }
+
+    /**
+     * Send Reservation Email
+     *
+     */
+    public function sendReservationEmail($request, $response, $args)
+    {
+        // Get dependencies
+        $message = $this->container->mailMessage;
+
+        // Check honeypot for spammers
+        if ($request->getParsedBodyParam('alt_email') !== 'alt@example.com') {
+            // Just return and say nothing
+            $this->container->logger->error('Honeypot caught a fly: ' . $request->getParsedBodyParam('alt-email'));
+            return $response->withRedirect($this->container->router->pathFor('thankYou'));
+        }
+
+        // Create message
+        $message->setSubject('Reservation Request')
+            ->setBody(
+                "Last Name: {$request->getParsedBodyParam('last_name')}
+                Email: {$request->getParsedBodyParam('email')}
+                Phone Number: {$request->getParsedBodyParam('phone_number')}
+                Address: {$request->getParsedBodyParam('address1')}
+                Address: {$request->getParsedBodyParam('address2')}
+                City: {$request->getParsedBodyParam('city')}
+                State/Province: {$request->getParsedBodyParam('state')}
+                Zip/Postal Code: {$request->getParsedBodyParam('postal_code')}
+                Country: {$request->getParsedBodyParam('country')}\n
+                Number in Party: {$request->getParsedBodyParam('party_count')}
+                Arrival Date: {$request->getParsedBodyParam('arrival_date')}
+                Departure Date: {$request->getParsedBodyParam('departure_date')}\n
+                {$request->getParsedBodyParam('message')}");
 
         // Send email
         $this->sendEmail($message);

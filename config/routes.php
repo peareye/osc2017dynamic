@@ -153,6 +153,11 @@ $app->get('/reserve', function ($request, $response, $args) {
     return $this->view->render($response, 'reserve.html');
 })->setName('reserve');
 
+// Reservtion submit
+$app->post('/reservesubmit', function ($request, $response, $args) {
+    return (new Blog\Controllers\ContactController($this))->sendReservationEmail($request, $response, $args);
+})->setName('reserveSubmit');
+
 // Thank you page
 $app->get('/thankyou', function ($request, $response, $args) {
     return $this->view->render($response, '_thankYou.html');
