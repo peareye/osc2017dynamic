@@ -1,30 +1,23 @@
-{% extends '_sidebarLayout.html' %}
-
-{% block headTitle%}in Yachats, Oregon - All Reviews{% endblock%}
-{% block sectionName %}reviews{% endblock %}
-{% block subTitleWrapper %}What people are saying!{% endblock %}
-
-{% block main %}
-
-{% set reviews = getReviews() %}
-{% if reviews %}
+{% extends '_sidebarLayout.html' %} {% block headTitle%}in Yachats, Oregon - All Reviews{% endblock%} {% block sectionName %}reviews{% endblock %} {% block subTitleWrapper %}What people are saying!{% endblock %} {% block main %} {% set reviews = getReviews()
+%} {% if reviews %}
 
 <div class="block-spacing">
 
-  <h2>OurSandCastle Reviews</h2>
+  <h2>OurSandCastle Reviews</h2> {% for r in reviews %}
+  <div class="review-wrapper">
+    <div class="review-title">
+      <h3>{{ r.title }}</h3>
+    </div>
 
-     {% for r in reviews %}
-        <div class="review-wrapper">
-          <h3>{{ r.title }}</h3>
-          <blockquote class="blockquote">{{ r.content_html|raw }}
-             <footer class="blockquote-footer">{{ r.who }} on {{ r.review_date }}</footer>
-          </blockquote>
-        </div>
-      {% endfor %}
+    <div class="review-content">
+      {{ r.content_html|raw }}
+    </div>
+    <div class="review-meta">
+      <p><em>{{ r.who }} on {{ r.review_date }}</em></p>
+    </div>
+  </div>
+  <hr> {% endfor %}
 
 </div>
 
-{% endif %}
-
-
-{% endblock %}
+{% endif %} {% endblock %}

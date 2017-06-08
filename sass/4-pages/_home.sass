@@ -14,15 +14,28 @@
 #review
   .carousel-inner
     max-height: 500px
-    background: $lite-gray
+    background: rgba($blue, 0.3)
 
-    +margin(null null 100px)
+    +margin(30px null)
 
     .carousel-item-wrapper
-      +margin(0.5rem 6rem)
+      display: flex
+      flex-flow: column nowrap
+      justify-content: center
+      align-items: center
+      height: 500px
 
-.review-btn-wrapper
-  +margin(40px null 40px)
+      +margin(null 6rem)
+      +padding(null 2rem)
 
-  display: flex
-  justify-content: center
+      h3
+        +padding(null null 10px)
+
+      p
+        line-height: 180%
+
+.review-title
+
+.review-content
+
+.review-meta

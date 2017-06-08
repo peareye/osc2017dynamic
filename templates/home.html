@@ -106,8 +106,17 @@
       {% for r in reviews %}
       <div class="carousel-item {% if loop.first %}active{% endif %}">
         <div class="carousel-item-wrapper">
-          <h3>{{ r.title }}</h3> {{ r.content_html|raw }}
-          <p>{{ r.who }} on {{ r.review_date }}</p>
+          <div class="review-title">
+            <h3>{{ r.title }}</h3>
+          </div>
+
+          <div class="review-content">
+            {{ r.content_html|raw }}
+          </div>
+          <div class="review-meta">
+            <p><em>{{ r.who }} on {{ r.review_date }}</em></p>
+          </div>
+
         </div>
       </div>
       {% endfor %}
@@ -123,8 +132,8 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-  <div class="review-btn-wrapper">
-    <a class="btn btn-success" href="{{ pathFor('reviews') }}" role="button">Read All Reviews</a>
+  <div class="center-block">
+    <a class="btn btn-info" href="{{ pathFor('reviews') }}" role="button">Read All Reviews</a>
   </div>
 
 
