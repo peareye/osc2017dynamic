@@ -6871,7 +6871,7 @@ label {
 
 #review .carousel-inner {
   max-height: 500px;
-  background: tomato;
+  background: #ddd;
   margin-bottom: 100px; }
   #review .carousel-inner .carousel-item-wrapper {
     margin: 0.5rem 6rem; }
