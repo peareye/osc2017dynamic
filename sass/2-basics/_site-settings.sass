@@ -2,10 +2,10 @@
 
 body
   font-family: "Montserrat", sans-serif
-  background: #fff
+  background: $white
   font-size: 16px
   line-height: 1.6
-  color: #333
+  color: #black
   -webkit-font-smoothing: antialiased
   -webkit-text-size-adjust: 100%
 
@@ -53,7 +53,7 @@ hr
   clear: both
   display: block
   width: 96%
-  background-color: tint(#336699, 60%)
+  background-color: tint($blue, 60%)
   height: 1px
 
 .paypal-logo
@@ -64,3 +64,28 @@ hr
 
 .block-spacing
   +padding(30px null 50px)
+
+.form-control
+  border: 1px solid transparentize($blue, 0.5)
+  color: $black
+
+label
+  +margin(1rem null 0)
+
+#{$all-text-inputs}
+  border: 1px solid transparentize($blue, 0.5)
+  color: $black
+
+  +padding(0.5rem)
+  +margin(null null 0.5rem)
+
+  &:hover
+    box-shadow: 1px 1px 10px transparentize($lite-gray, 0.1) inset
+
+.required
+  color: $red
+
+.footnote
+  font-style: italic
+
+  +padding(1rem null 0)

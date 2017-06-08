@@ -19,7 +19,8 @@
 
   <body>
 
-    <nav class="navbar sticky-top navbar-toggleable-md navbar-light bg-faded">
+    <nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-primary">
+      <!-- <div class="container"> -->
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -43,15 +44,15 @@
           <a href="{{ pathFor('reserve') }}" class="btn btn-success" role="button" aria-pressed="true">Request Reservation Now!</a>
         </div>
 
-
       </div>
+      <!-- </div> -->
     </nav>
     <!-- End Nav Section -->
 
     <header id="{% block sectionName %}none{% endblock %}-header">
       <div class="welcome-wrapper">
         <div class="title-wrapper">
-          <h1>Our Sand Castle</h1>
+          <h1>OurSandCastle</h1>
           <h5>{% block subTitleWrapper %}none {% endblock %}</h5>
         </div>
       </div>
@@ -81,10 +82,51 @@
     <!-- End Header Section -->
     {% block body %} {# All content between the jumbo header and footer, including sidebar, goes here #} {% endblock %}
     <footer class="footer">
-      {% if not setting.production %}
-      <div class="content"></div>
-      {% endif %}
-      <p class="small-text">&copy;{{ now|date('Y') }} Wilfin LLC, All Rights Reserved.</p>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4 footer-section">
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="{{ pathFor('home') }}">Home</a>
+              </li>
+              <li>
+                <a href="{{ pathFor('rates') }}">Rates &amp; Policies</a>
+              </li>
+              <li>
+                <a href="{{ pathFor('calendar') }}">Calendar</a>
+              </li>
+              <li>
+                <a href="{{ pathFor('gallery') }}">Photos</a>
+              </li>
+              <li>
+                <a href="{{ pathFor('contact') }}">Contact Us</a>
+              </li>
+              <li>
+                <a href="{{ pathFor('reserve') }}">Request Reservation</a>
+              </li>
+              <li>
+                <a href="#0">FAQs / Support</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 footer-section">
+            <p class="footer-item">
+              &copy;{{ now|date('Y') }} OurSandCastle
+            </p>
+          </div>
+          <div class="col-md-4 footer-section">
+
+            <p class="footer-item">Design by
+              <a href="http://moritzmedia.com">Moritz Media</a>
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+
 
     </footer>
     <!-- End Footer  -->

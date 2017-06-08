@@ -1,52 +1,52 @@
-// Variables
-//
-// Copy settings from this file into the provided `_custom.scss` to override
-// the Bootstrap defaults without modifying key, versioned files.
+/* Variables*/
+/**/
+/* Copy settings from this file into the provided `_custom.scss` to override*/
+/* the Bootstrap defaults without modifying key, versioned files.*/
 
 
-// Table of Contents
-//
-// Colors
-// Options
-// Spacing
-// Body
-// Links
-// Grid breakpoints
-// Grid containers
-// Grid columns
-// Fonts
-// Components
-// Tables
-// Buttons
-// Forms
-// Dropdowns
-// Z-index master list
-// Navbar
-// Navs
-// Pagination
-// Jumbotron
-// Form states and alerts
-// Cards
-// Tooltips
-// Popovers
-// Badges
-// Modals
-// Alerts
-// Progress bars
-// List group
-// Image thumbnails
-// Figures
-// Breadcrumbs
-// Carousel
-// Close
-// Code
+/* Table of Contents*/
+/**/
+/* Colors*/
+/* Options*/
+/* Spacing*/
+/* Body*/
+/* Links*/
+/* Grid breakpoints*/
+/* Grid containers*/
+/* Grid columns*/
+/* Fonts*/
+/* Components*/
+/* Tables*/
+/* Buttons*/
+/* Forms*/
+/* Dropdowns*/
+/* Z-index master list*/
+/* Navbar*/
+/* Navs*/
+/* Pagination*/
+/* Jumbotron*/
+/* Form states and alerts*/
+/* Cards*/
+/* Tooltips*/
+/* Popovers*/
+/* Badges*/
+/* Modals*/
+/* Alerts*/
+/* Progress bars*/
+/* List group*/
+/* Image thumbnails*/
+/* Figures*/
+/* Breadcrumbs*/
+/* Carousel*/
+/* Close*/
+/* Code*/
 
 @mixin _assert-ascending($map, $map-name) {
   $prev-key: null;
   $prev-num: null;
   @each $key, $num in $map {
     @if $prev-num == null {
-      // Do nothing
+      /* Do nothing*/
     } @else if not comparable($prev-num, $num) {
       @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
     } @else if $prev-num >= $num {
@@ -57,12 +57,12 @@
   }
 }
 
-// Replace `$search` with `$replace` in `$string`
-// @author Hugo Giraudel
-// @param {String} $string - Initial string
-// @param {String} $search - Substring to replace
-// @param {String} $replace ('') - New value
-// @return {String} - Updated string
+/* Replace `$search` with `$replace` in `$string`*/
+/* @author Hugo Giraudel*/
+/* @param {String} $string - Initial string*/
+/* @param {String} $search - Substring to replace*/
+/* @param {String} $replace ('') - New value*/
+/* @return {String} - Updated string*/
 @function str-replace($string, $search, $replace: "") {
   $index: str-index($string, $search);
 
@@ -82,16 +82,16 @@
 }
 
 
-// General variable structure
-//
-// Variable format should follow the `$component-modifier-state-property` order.
+/* General variable structure*/
+/**/
+/* Variable format should follow the `$component-modifier-state-property` order.*/
 
 
-// Colors
-//
-// Grayscale and brand colors for use across Bootstrap.
+/* Colors*/
+/**/
+/* Grayscale and brand colors for use across Bootstrap.*/
 
-// Start with assigning color names to specific hex values.
+/* Start with assigning color names to specific hex values.*/
 $white:  #fff !default;
 $black:  #000 !default;
 $red:    #d9534f !default;
@@ -103,14 +103,14 @@ $teal:   #5bc0de !default;
 $pink:   #ff5b77 !default;
 $purple: #613d7c !default;
 
-// Create grayscale
+/* Create grayscale*/
 $gray-dark:                 #292b2c !default;
 $gray:                      #464a4c !default;
 $gray-light:                #636c72 !default;
 $gray-lighter:              #eceeef !default;
 $gray-lightest:             #f7f7f9 !default;
 
-// Reassign color vars to semantic color scheme
+/* Reassign color vars to semantic color scheme*/
 $brand-primary:             $blue !default;
 $brand-success:             $green !default;
 $brand-info:                $teal !default;
@@ -119,9 +119,9 @@ $brand-danger:              $red !default;
 $brand-inverse:             $gray-dark !default;
 
 
-// Options
-//
-// Quickly modify global styling by enabling or disabling optional features.
+/* Options*/
+/**/
+/* Quickly modify global styling by enabling or disabling optional features.*/
 
 $enable-rounded:            true !default;
 $enable-shadows:            false !default;
@@ -132,11 +132,11 @@ $enable-grid-classes:       true !default;
 $enable-print-styles:       true !default;
 
 
-// Spacing
-//
-// Control the default styling of most Bootstrap elements by modifying these
-// variables. Mostly focused on spacing.
-// You can add more entries to the $spacers map, should you need more variation.
+/* Spacing*/
+/**/
+/* Control the default styling of most Bootstrap elements by modifying these*/
+/* variables. Mostly focused on spacing.*/
+/* You can add more entries to the $spacers map, should you need more variation.*/
 
 $spacer:   1rem !default;
 $spacer-x: $spacer !default;
@@ -169,7 +169,7 @@ $spacers: (
 ) !default;
 $border-width: 1px !default;
 
-// This variable affects the `.h-*` and `.w-*` classes.
+/* This variable affects the `.h-*` and `.w-*` classes.*/
 $sizes: (
   25: 25%,
   50: 50%,
@@ -177,9 +177,9 @@ $sizes: (
   100: 100%
 ) !default;
 
-// Body
-//
-// Settings for the `<body>` element.
+/* Body*/
+/**/
+/* Settings for the `<body>` element.*/
 
 $body-bg:       $white !default;
 $body-color:    $gray-dark !default;
@@ -187,9 +187,9 @@ $inverse-bg:    $gray-dark !default;
 $inverse-color: $gray-lighter !default;
 
 
-// Links
-//
-// Style anchor elements.
+/* Links*/
+/**/
+/* Style anchor elements.*/
 
 $link-color:            $brand-primary !default;
 $link-decoration:       none !default;
@@ -197,10 +197,10 @@ $link-hover-color:      darken($link-color, 15%) !default;
 $link-hover-decoration: underline !default;
 
 
-// Grid breakpoints
-//
-// Define the minimum dimensions at which your layout will change,
-// adapting to different screen sizes, for use in media queries.
+/* Grid breakpoints*/
+/**/
+/* Define the minimum dimensions at which your layout will change,*/
+/* adapting to different screen sizes, for use in media queries.*/
 
 $grid-breakpoints: (
   xs: 0,
@@ -213,9 +213,9 @@ $grid-breakpoints: (
 @include _assert-starts-at-zero($grid-breakpoints);
 
 
-// Grid containers
-//
-// Define the maximum width of `.container` for different screen sizes.
+/* Grid containers*/
+/**/
+/* Define the maximum width of `.container` for different screen sizes.*/
 
 $container-max-widths: (
   sm: 540px,
@@ -226,9 +226,9 @@ $container-max-widths: (
 @include _assert-ascending($container-max-widths, "$container-max-widths");
 
 
-// Grid columns
-//
-// Set the number of columns and specify the width of the gutters.
+/* Grid columns*/
+/**/
+/* Set the number of columns and specify the width of the gutters.*/
 
 $grid-columns:               12 !default;
 $grid-gutter-width-base:     30px !default;
@@ -240,16 +240,16 @@ $grid-gutter-widths: (
   xl: $grid-gutter-width-base
 ) !default;
 
-// Fonts
-//
-// Font, line-height, and color for body text, headings, and more.
+/* Fonts*/
+/**/
+/* Font, line-height, and color for body text, headings, and more.*/
 
 $font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 $font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:       $font-family-sans-serif !default;
 
-$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-base: 1rem !default; /* Assumes the browser default, typically `16px`*/
 $font-size-lg:   1.25rem !default;
 $font-size-sm:   .875rem !default;
 $font-size-xs:   .75rem !default;
@@ -311,9 +311,9 @@ $nested-kbd-font-weight: $font-weight-bold !default;
 $list-inline-padding: 5px !default;
 
 
-// Components
-//
-// Define common padding and border radius sizes and more.
+/* Components*/
+/**/
+/* Define common padding and border radius sizes and more.*/
 
 $line-height-lg:         (4 / 3) !default;
 $line-height-sm:         1.5 !default;
@@ -332,9 +332,9 @@ $transition-fade:        opacity .15s linear !default;
 $transition-collapse:    height .35s ease !default;
 
 
-// Tables
-//
-// Customizes the `.table` component with basic values, each used across all table variations.
+/* Tables*/
+/**/
+/* Customizes the `.table` component with basic values, each used across all table variations.*/
 
 $table-cell-padding:            .75rem !default;
 $table-sm-cell-padding:         .3rem !default;
@@ -355,9 +355,9 @@ $table-border-width:            $border-width !default;
 $table-border-color:            $gray-lighter !default;
 
 
-// Buttons
-//
-// For each of Bootstrap's buttons, define text, background and border color.
+/* Buttons*/
+/**/
+/* For each of Bootstrap's buttons, define text, background and border color.*/
 
 $btn-padding-x:                  1rem !default;
 $btn-padding-y:                  .5rem !default;
@@ -402,7 +402,7 @@ $btn-padding-y-lg:               .75rem !default;
 $btn-block-spacing-y:            .5rem !default;
 $btn-toolbar-margin:             .5rem !default;
 
-// Allows for customizing button radius independently from global border radius
+/* Allows for customizing button radius independently from global border radius*/
 $btn-border-radius:              $border-radius !default;
 $btn-border-radius-lg:           $border-radius-lg !default;
 $btn-border-radius-sm:           $border-radius-sm !default;
@@ -410,7 +410,7 @@ $btn-border-radius-sm:           $border-radius-sm !default;
 $btn-transition:                 all .2s ease-in-out !default;
 
 
-// Forms
+/* Forms*/
 
 $input-padding-x:                .75rem !default;
 $input-padding-y:                .5rem !default;
@@ -421,7 +421,7 @@ $input-bg-disabled:              $gray-lighter !default;
 
 $input-color:                    $gray !default;
 $input-border-color:             rgba($black,.15) !default;
-$input-btn-border-width:         $border-width !default; // For form controls and buttons
+$input-btn-border-width:         $border-width !default; /* For form controls and buttons*/
 $input-box-shadow:               inset 0 1px 1px rgba($black,.075) !default;
 
 $input-border-radius:            $border-radius !default;
@@ -501,13 +501,13 @@ $custom-radio-checked-icon: str-replace(url("data:image/svg+xml;charset=utf8,%3C
 
 $custom-select-padding-x:          .75rem  !default;
 $custom-select-padding-y:          .375rem !default;
-$custom-select-indicator-padding:   1rem !default; // Extra padding to account for the presence of the background-image based indicator
+$custom-select-indicator-padding:   1rem !default; /* Extra padding to account for the presence of the background-image based indicator*/
 $custom-select-line-height:         $input-line-height !default;
 $custom-select-color:               $input-color !default;
 $custom-select-disabled-color:      $gray-light !default;
 $custom-select-bg:            $white !default;
 $custom-select-disabled-bg:   $gray-lighter !default;
-$custom-select-bg-size:       8px 10px !default; // In pixels because image dimensions
+$custom-select-bg-size:       8px 10px !default; /* In pixels because image dimensions*/
 $custom-select-indicator-color: #333 !default;
 $custom-select-indicator:     str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23") !default;
 $custom-select-border-width:  $input-btn-border-width !default;
@@ -545,7 +545,7 @@ $custom-file-text: (
 ) !default;
 
 
-// Form validation icons
+/* Form validation icons*/
 $form-icon-success-color: $brand-success !default;
 $form-icon-success: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='#{$form-icon-success-color}' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
@@ -556,9 +556,9 @@ $form-icon-danger-color: $brand-danger !default;
 $form-icon-danger: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$form-icon-danger-color}' viewBox='-2 -2 7 7'%3E%3Cpath stroke='%23d9534f' d='M0 0l3 3m0-3L0 3'/%3E%3Ccircle r='.5'/%3E%3Ccircle cx='3' r='.5'/%3E%3Ccircle cy='3' r='.5'/%3E%3Ccircle cx='3' cy='3' r='.5'/%3E%3C/svg%3E"), "#", "%23") !default;
 
 
-// Dropdowns
-//
-// Dropdown menu container and contents.
+/* Dropdowns*/
+/**/
+/* Dropdown menu container and contents.*/
 
 $dropdown-min-width:             10rem !default;
 $dropdown-padding-y:             .5rem !default;
@@ -583,10 +583,10 @@ $dropdown-item-padding-x:        1.5rem !default;
 $dropdown-header-color:          $gray-light !default;
 
 
-// Z-index master list
-//
-// Warning: Avoid customizing these values. They're used for a bird's eye view
-// of components dependent on the z-axis and are designed to all work together.
+/* Z-index master list*/
+/**/
+/* Warning: Avoid customizing these values. They're used for a bird's eye view*/
+/* of components dependent on the z-axis and are designed to all work together.*/
 
 $zindex-dropdown-backdrop:  990 !default;
 $zindex-navbar:             1000 !default;
@@ -599,7 +599,7 @@ $zindex-popover:            1060 !default;
 $zindex-tooltip:            1070 !default;
 
 
-// Navbar
+/* Navbar*/
 
 $navbar-border-radius:              $border-radius !default;
 $navbar-padding-x:                  $spacer !default;
@@ -626,7 +626,7 @@ $navbar-light-disabled-color:       rgba($black,.3) !default;
 $navbar-light-toggler-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"), "#", "%23") !default;
 $navbar-light-toggler-border:       rgba($black,.1) !default;
 
-// Navs
+/* Navs*/
 
 $nav-item-margin:               .2rem !default;
 $nav-item-inline-spacer:        1rem !default;
@@ -649,7 +649,7 @@ $nav-pills-active-link-color: $component-active-color !default;
 $nav-pills-active-link-bg:    $component-active-bg !default;
 
 
-// Pagination
+/* Pagination*/
 
 $pagination-padding-x:                .75rem !default;
 $pagination-padding-y:                .5rem !default;
@@ -677,15 +677,15 @@ $pagination-disabled-bg:               $white !default;
 $pagination-disabled-border:           #ddd !default;
 
 
-// Jumbotron
+/* Jumbotron*/
 
 $jumbotron-padding:              2rem !default;
 $jumbotron-bg:                   $gray-lighter !default;
 
 
-// Form states and alerts
-//
-// Define colors for form feedback states and, by default, alerts.
+/* Form states and alerts*/
+/**/
+/* Define colors for form feedback states and, by default, alerts.*/
 
 $state-success-text:             #3c763d !default;
 $state-success-bg:               #dff0d8 !default;
@@ -705,7 +705,7 @@ $state-danger-bg:                #f2dede !default;
 $state-danger-border:            darken($state-danger-bg, 5%) !default;
 
 
-// Cards
+/* Cards*/
 
 $card-spacer-x:            1.25rem !default;
 $card-spacer-y:            .75rem !default;
@@ -727,7 +727,7 @@ $card-columns-gap:          1.25rem !default;
 $card-columns-margin:       $card-spacer-y !default;
 
 
-// Tooltips
+/* Tooltips*/
 
 $tooltip-max-width:           200px !default;
 $tooltip-color:               $white !default;
@@ -741,7 +741,7 @@ $tooltip-arrow-width:         5px !default;
 $tooltip-arrow-color:         $tooltip-bg !default;
 
 
-// Popovers
+/* Popovers*/
 
 $popover-inner-padding:               1px !default;
 $popover-bg:                          $white !default;
@@ -764,7 +764,7 @@ $popover-arrow-outer-width:           ($popover-arrow-width + 1px) !default;
 $popover-arrow-outer-color:           fade-in($popover-border-color, .05) !default;
 
 
-// Badges
+/* Badges*/
 
 $badge-default-bg:            $gray-light !default;
 $badge-primary-bg:            $brand-primary !default;
@@ -781,14 +781,14 @@ $badge-padding-x:             .4em !default;
 $badge-padding-y:             .25em !default;
 
 $badge-pill-padding-x:        .6em !default;
-// Use a higher than normal value to ensure completely rounded edges when
-// customizing padding or font-size on labels.
+/* Use a higher than normal value to ensure completely rounded edges when*/
+/* customizing padding or font-size on labels.*/
 $badge-pill-border-radius:    10rem !default;
 
 
-// Modals
+/* Modals*/
 
-// Padding applied to the modal body
+/* Padding applied to the modal body*/
 $modal-inner-padding:         15px !default;
 
 $modal-dialog-margin:         10px !default;
@@ -817,9 +817,9 @@ $modal-sm:                    300px !default;
 $modal-transition:            transform .3s ease-out !default;
 
 
-// Alerts
-//
-// Define alert colors, border radius, and padding.
+/* Alerts*/
+/**/
+/* Define alert colors, border radius, and padding.*/
 
 $alert-padding-x:             1.25rem !default;
 $alert-padding-y:             .75rem !default;
@@ -845,7 +845,7 @@ $alert-danger-text:           $state-danger-text !default;
 $alert-danger-border:         $state-danger-border !default;
 
 
-// Progress bars
+/* Progress bars*/
 
 $progress-height:               1rem !default;
 $progress-font-size:            .75rem !default;
@@ -856,7 +856,7 @@ $progress-bar-color:            $white !default;
 $progress-bar-bg:               $brand-primary !default;
 $progress-bar-animation-timing: 1s linear infinite !default;
 
-// List group
+/* List group*/
 
 $list-group-color:               $body-color !default;
 $list-group-bg:                  $white !default;
@@ -885,7 +885,7 @@ $list-group-link-active-color:   $list-group-color !default;
 $list-group-link-active-bg:      $gray-lighter !default;
 
 
-// Image thumbnails
+/* Image thumbnails*/
 
 $thumbnail-padding:           .25rem !default;
 $thumbnail-bg:                $body-bg !default;
@@ -896,13 +896,13 @@ $thumbnail-box-shadow:        0 1px 2px rgba($black,.075) !default;
 $thumbnail-transition:        all .2s ease-in-out !default;
 
 
-// Figures
+/* Figures*/
 
 $figure-caption-font-size: 90% !default;
 $figure-caption-color:     $gray-light !default;
 
 
-// Breadcrumbs
+/* Breadcrumbs*/
 
 $breadcrumb-padding-y:          .75rem !default;
 $breadcrumb-padding-x:          1rem !default;
@@ -914,9 +914,9 @@ $breadcrumb-active-color:       $gray-light !default;
 $breadcrumb-divider:            "/" !default;
 
 
-// Carousel
+/* Carousel*/
 
-$carousel-control-color:                      $white !default;
+$carousel-control-color:                      $blue !default;
 $carousel-control-width:                      15% !default;
 $carousel-control-opacity:                    .5 !default;
 
@@ -936,7 +936,7 @@ $carousel-control-next-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8
 $carousel-transition:           transform .6s ease-in-out !default;
 
 
-// Close
+/* Close*/
 
 $close-font-size:             $font-size-base * 1.5 !default;
 $close-font-weight:           $font-weight-bold !default;
@@ -944,7 +944,7 @@ $close-color:                 $black !default;
 $close-text-shadow:           0 1px 0 $white !default;
 
 
-// Code
+/* Code*/
 
 $code-font-size:              90% !default;
 $code-padding-x:              .4rem !default;

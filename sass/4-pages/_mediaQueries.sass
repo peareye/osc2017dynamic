@@ -1,12 +1,5 @@
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px)
-  .content
-    height: 30px
-    background: purple
-    color: white
-
-    &::after
-      content: "Small Device"
 
   header
     background-attachment: fixed
@@ -22,13 +15,6 @@
 
 // Medium devices (tablets, 768px and up)
 @media only screen and (min-width: 768px)
-  .content
-    height: 30px
-    background: purple
-    color: white
-
-    &::after
-      content: "Medium Device"
 
   header
     height: 75vh
@@ -41,13 +27,6 @@
 
 // Large devices (desktops, 992px and up)
 @media only screen and (min-width: 992px)
-  .content
-    height: 30px
-    background: purple
-    color: white
-
-    &::after
-      content: "Large Device"
 
   .navbar
     +padding(0.5rem)
@@ -60,24 +39,12 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px)
-  .content
-    height: 30px
-    background: purple
-    color: white
-
-    &::after
-      content: "X-Large Device"
+  .container-fluid
+    width: 1140px
 
 // IPad 1 & 2 Portrait
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px)
-  .content
-    height: 30px
-    background: purple
-    color: white
-
-    &::after
-      content: "iPad Portrait"
 
   header
     background-attachment: inherit
@@ -92,13 +59,6 @@
 // IPad 1 & 2 Landscape
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)
-  .content
-    height: 30px
-    background: purple
-    color: white
-
-    &::after
-      content: "iPad Landscape"
 
   header
     background-attachment: inherit
@@ -112,13 +72,22 @@
 
 // iPhone 6 Plus
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px)
-  .content
-    height: 30px
-    background: purple
-    color: white
+  .welcome-wrapper
+    +margin(1rem null)
+  .more-amenities
+    +padding(0)
+    +margin(0)
+  .item-wrapper
+    background: transparentize($blue, .5)
+    +padding(0)
+  .title-wrapper
+    background: transparent
+    border: none
+    h1
+      font-size: 3rem
 
-    &::after
-      content: "iPhone 6+ Portrait"
+    h5
+      font-size: 1.5rem
 
   header
     height: 100vh
@@ -126,26 +95,15 @@
 // iPhone 6 Plus Landscape
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape)
-  .content
-    height: 30px
-    background: purple
-    color: white
-
-    &::after
-      content: "iPhone 6+ Landscape"
 
   header
     background-attachment: inherit
     height: 100vh
+  .more-amenities
+    +padding(0)
+    +margin(0)
 
 @media only screen and (max-width: 375px)
-  .content
-    height: 30px
-    background: purple
-    color: white
-
-    &::after
-      content: "Max-Width 375px"
 
   .iframe-wrapper
     height: 2250px

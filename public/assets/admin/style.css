@@ -2,7 +2,7 @@
 
 /* Left Nav styling */
 .list-group>.active a{
-    color: #fff;
+    color: $white;
 }
 
 /*

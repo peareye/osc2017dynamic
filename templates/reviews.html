@@ -11,16 +11,14 @@
 
 <div class="block-spacing">
 
-  <h2>Our Sand Castle Reviews</h2>
+  <h2>OurSandCastle Reviews</h2>
 
      {% for r in reviews %}
         <div class="review-wrapper">
           <h3>{{ r.title }}</h3>
-          <blockquote class="blockquote">
-{{ r.content_html|raw }}
-  <footer class="blockquote-footer">{{ r.who }} on {{ r.review_date }}</footer>
-</blockquote>
-
+          <blockquote class="blockquote">{{ r.content_html|raw }}
+             <footer class="blockquote-footer">{{ r.who }} on {{ r.review_date }}</footer>
+          </blockquote>
         </div>
       {% endfor %}
 

@@ -92,44 +92,43 @@
 </section>
 <!-- End Amenities Section -->
 
-{% set reviews = getReviews(3) %}
-{% if reviews %}
+{% set reviews = getReviews(3) %} {% if reviews %}
 <section id="review" class="container block-spacing">
-
-
-  <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
-    <div class="container">
-      <h2>Our Sand Castle Reviews</h2>
-    </div>
-
+  <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" data-ride="carousel">
     <ol class="carousel-indicators">
-      <li data-target="#carousel" data-slide-to="0" class="active">text1</li>
-    <li data-target="#carousel" data-slide-to="1">text2</li>
-    <li data-target="#carousel" data-slide-to="2">text3</li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
 
     <div class="carousel-inner" role="listbox">
+
       {% for r in reviews %}
       <div class="carousel-item {% if loop.first %}active{% endif %}">
         <div class="carousel-item-wrapper">
-          <h3>{{ r.title }}</h3>
-          {{ r.content_html|raw }}
+          <h3>{{ r.title }}</h3> {{ r.content_html|raw }}
           <p>{{ r.who }} on {{ r.review_date }}</p>
         </div>
       </div>
       {% endfor %}
+
     </div>
 
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <div class="review-btn-wrapper">
+    <a class="btn btn-success" href="{{ pathFor('reviews') }}" role="button">Read All Reviews</a>
+  </div>
+
+
+
   </div>
 </section>
-{% endif %}
-
-{% endblock %}
+{% endif %} {% endblock %}

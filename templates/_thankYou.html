@@ -1,27 +1,9 @@
-{% extends '_sidebarLayout.html' %}
+{% extends '_sidebarLayout.html' %} {% block headTitle%}in Yachats, Oregon - Thank You for Contacint Us{% endblock%} {% block sectionName %}contact{% endblock %} {% block subTitleWrapper %}Find your days to stay!{% endblock %} {% block main %}
 
-{% block sectionName %}contact{% endblock %}
+<div class="block-spacing">
 
-{% block main %}
+  <h2>Thank you</h2>
 
-        <h2>Thank you</h2>
-
+  <div class="p lead">Thank you for contacting us at OurSandCastle, a premiere vacation rental in Yachats, Oregon. We will respond to your inquiry very soon!</div>
+</div>
 {% endblock %}
-
-
-{# Code for reviews:
-
-Where "reviews(3)" means the last three reviews.
-Leave empty "reviews()" for all reviews.
-
-
-	{% for r in reviews(3) %}
-	  {{ r.title }}<br>
-	  {{ r.content_html|raw }}<br>
-	  {{ r.who }}<br>
-	  {{ r.review_date }}<br><hr>
-	{% endfor %}
-
-
-
-#}
