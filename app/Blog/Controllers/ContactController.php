@@ -50,22 +50,24 @@ class ContactController extends BaseController
             return $response->withRedirect($this->container->router->pathFor('thankYou'));
         }
 
+        $bodyText = <<<EOT
+Name: {$request->getParsedBodyParam('last_name')}\n
+Email: {$request->getParsedBodyParam('email')}
+Phone Number: {$request->getParsedBodyParam('phone_number')}\n
+Address: {$request->getParsedBodyParam('address1')}
+Address: {$request->getParsedBodyParam('address2')}
+City: {$request->getParsedBodyParam('city')}
+State/Province: {$request->getParsedBodyParam('state')}
+Zip/Postal Code: {$request->getParsedBodyParam('postal_code')}
+Country: {$request->getParsedBodyParam('country')}\n
+Number in Party: {$request->getParsedBodyParam('party_count')}\n
+Arrival Date: {$request->getParsedBodyParam('arrival_date')}
+Departure Date: {$request->getParsedBodyParam('departure_date')}\n
+{$request->getParsedBodyParam('message')}
+EOT;
+
         // Create message
-        $message->setSubject('Reservation Request')
-            ->setBody(
-                "Last Name: {$request->getParsedBodyParam('last_name')}
-                Email: {$request->getParsedBodyParam('email')}
-                Phone Number: {$request->getParsedBodyParam('phone_number')}
-                Address: {$request->getParsedBodyParam('address1')}
-                Address: {$request->getParsedBodyParam('address2')}
-                City: {$request->getParsedBodyParam('city')}
-                State/Province: {$request->getParsedBodyParam('state')}
-                Zip/Postal Code: {$request->getParsedBodyParam('postal_code')}
-                Country: {$request->getParsedBodyParam('country')}\n
-                Number in Party: {$request->getParsedBodyParam('party_count')}
-                Arrival Date: {$request->getParsedBodyParam('arrival_date')}
-                Departure Date: {$request->getParsedBodyParam('departure_date')}\n
-                {$request->getParsedBodyParam('message')}");
+        $message->setSubject('Reservation Request')->setBody($bodyText);
 
         // Send email
         $this->sendEmail($message);
