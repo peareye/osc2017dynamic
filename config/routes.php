@@ -64,6 +64,13 @@ $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}",
         return (new Blog\Controllers\AdminController($this))->showReviews($request, $response, $args);
     })->setName('showReviews');
 
+
+    // Help Page
+    $this->get('/help', function ($request, $response, $args) {
+        return (new Blog\Controllers\AdminController($this))->help($request, $response, $args);
+    })->setName('help');
+
+
     // Load files into gallery (Ajax)
     $this->get('/loadfiles', function ($request, $response, $args) {
         return (new Blog\Controllers\FileController($this))->loadFiles($request, $response, $args);

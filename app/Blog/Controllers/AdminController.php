@@ -37,6 +37,29 @@ class AdminController extends BaseController
 
         return $this->container->view->render($response, '@admin/dashboard.html', ['posts' => $posts]);
     }
+    /**
+     * Get Help Page
+     */
+    public function help($request, $response, $args)
+    {
+        // Get dependencies
+      //  $postMapper = $this->container['postMapper'];
+        //$pagination = $this->container->get('pagination');
+
+        // Get the page number and setup pagination
+        // $pageNumber = ($this->container->request->getParam('page')) ?: 1;
+        // $pagination->setPagePath($this->container->router->pathFor('adminDashboard'));
+        // $pagination->setCurrentPageNumber($pageNumber);
+
+        // Fetch posts
+        // $posts = $postMapper->getPosts($pagination->getRowsPerPage(), $pagination->getOffset(), false, false);
+
+        // Get total row count and add extension
+        // $pagination->setTotalRowsFound($postMapper->foundRows());
+        // $this->container->view->addExtension($pagination);
+
+        return $this->container->view->render($response, '@admin/help.html');
+    }
 
     /**
      * Add/Edit Post
