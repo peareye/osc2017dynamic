@@ -27,6 +27,12 @@
       <input type="text" class="form-control" name="review_date" maxlength="60" autocomplete="off" value="{{ review.review_date }}" required>
     </div>
 
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" name="approved" class="form-check-input" {{ checked(review.approved) }}> Approved
+      </label>
+    </div>
+
     <div class="form-group">
       <label for="content">Content</label>
       <textarea class="form-control" rows="20" name="content">{{ review.content|raw }}</textarea>

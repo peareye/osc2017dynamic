@@ -206,6 +206,7 @@ class AdminController extends BaseController
         $review->content_html = $markdown->text($request->getParsedBodyParam('content'));
         $review->who = $request->getParsedBodyParam('who');
         $review->review_date = $request->getParsedBodyParam('review_date');
+        $review->approved = ($request->getParsedBodyParam('approved')) ? 'Y' : 'N';
 
         // Save
         $review = $reviewMapper->save($review);
@@ -238,7 +239,8 @@ class AdminController extends BaseController
         // Get dependencies
         $reviewMapper = $this->container['reviewMapper'];
 
-        $reviews = $reviewMapper->getReviews();
+        // Get all reviews as an admin
+        $reviews = $reviewMapper->getAllReviews();
 
         return $this->container->view->render($response, '@admin/showReviews.html', ['reviews' => $reviews]);
     }
