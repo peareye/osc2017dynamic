@@ -83,7 +83,7 @@ $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}",
 
 })->add(function ($request, $response, $next) {
     // Authentication
-    $security = $this->get('securityHandler');
+    $security = $this->securityHandler;
 
     if (!$security->authenticated()) {
         // Failed authentication, redirect away
@@ -93,6 +93,14 @@ $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}",
 
     // Next call
     $response = $next($request, $response);
+
+    return $response;
+})->add(function ($request, $response, $next) {
+    // Add header to prevent back button access to admin
+    $newResponse = $response->withAddedHeader("Cache-Control", "private, no-cache, no-store, must-revalidate");
+
+    // Next call
+    $response = $next($request, $newResponse);
 
     return $response;
 });
