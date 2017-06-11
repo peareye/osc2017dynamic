@@ -1,35 +1,37 @@
-{% extends '@admin/_layout.html' %} {% block body %}
-<!-- <div class="row">
-  <div class="col-sm-6">
-    <h2>Pages</h2>
-  </div>
-  <div class="col-sm-6">
-    <form accept-charset="utf-8" class="u-m-t-2" action="{{ pathFor('adminSearch')}}" method="get">
-      <div class="form-group" style="display:inline;">
-        <div class="input-group">
-          <input type="text" name="terms" class="form-control" value="{{ search }}" autocomplete="off" placeholder="Search..." autocomplete="off">
+{% extends '@admin/_layout.html' %}
 
-          <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
-          </span>
-        </div>
-      </div>
-    </form>
-  </div>
-</div> -->
+{% block body %}
 
-{% for p in posts %}
-    <!-- | <a href="{{ pathFor('deletePost', {'id': p.id}) }}" class="deleteButton"><span class="text-danger">Delete</span></a> | Published: {% if p.published_date %}{{ p.published_date|date('F j, Y') }}{% else %}<span class="label label-warning">Not Published</span>{% endif %} {% if p.page == 'Y' %} | <span class="label label-info">Page</span>{% endif %} -->
+{% import _self as this %}
 
+{% if posts %}
+<h2>Home Page</h2>
+{% for p in posts if 'home' in p.title|lower %}
+  {{ this.rowToEdit(p) }}
+  <hr>
+{% endfor %}
+
+<h2>Rates Page</h2>
+{% for p in posts if 'rate' in p.title|lower %}
+  {{ this.rowToEdit(p) }}
+  <hr>
+{% endfor %}
+
+
+{% else %}
+  <h4>No posts found</h4>
+{% endif %}
+
+{% endblock %}
+
+
+{# This is a local HTML function so we do not have to repeat the oursevles #}
+{% macro rowToEdit(row) %}
     <div class="card">
-      <h3 class="card-header">{{ p.title }}</h3>
+      <h3 class="card-header">{{ row.title }}</h3>
       <div class="card-block">
-        <h4 class="card-title">  ID: {{ p.id }}</h4>
-
-        <a href="{{ pathFor('editPost', {'id': p.id}) }}" class="btn btn-primary">Edit</a>
+        <h4 class="card-title">  ID: {{ row.id }}</h4>
+        <a href="{{ pathFor('editPost', {'id': row.id}) }}" class="btn btn-primary">Edit</a>
       </div>
     </div>
-
-
-<hr> {% else %}
-<h4>No posts found</h4> {% endfor %} {{ pagination() }} {% endblock %}
+{% endmacro %}
