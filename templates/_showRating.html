@@ -1,0 +1,7 @@
+{# Show Rating (Static) #}
+
+  <div class="rating rating-static">
+    {% for i in 1..5 %}
+    <label {% if review.rating >= i %}class="rating-selected"{% endif %}></label>
+    {% endfor %}
+  </div>

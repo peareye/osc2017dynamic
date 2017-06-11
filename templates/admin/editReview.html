@@ -2,7 +2,7 @@
 
 {% block body %}
   <h2>Edit Review</h2>
-  <form action="{{ pathFor('saveReview') }}" method="post" accept-charset="utf-8">
+  <form class="submitReviewForm" action="{{ pathFor('saveReview') }}" method="post" accept-charset="utf-8">
     <input type="hidden" name="id" value="{{ review.id }}">
     <div class="form-group">
       <a href="{{ pathFor('adminDashboard') }}" class="btn btn-default">Cancel</a>
@@ -11,6 +11,8 @@
       <a href="{{ pathFor('deleteReview', {'id': review.id}) }}" class="btn btn-danger deleteButton">Delete</a>
       {% endif %}
     </div>
+
+    {% include "_editRating.html" %}
 
     <div class="form-group">
       <label>Title</label>

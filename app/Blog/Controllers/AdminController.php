@@ -207,6 +207,7 @@ class AdminController extends BaseController
         $review->who = $request->getParsedBodyParam('who');
         $review->review_date = $request->getParsedBodyParam('review_date');
         $review->approved = ($request->getParsedBodyParam('approved')) ? 'Y' : 'N';
+        $review->rating = $request->getParsedBodyParam('rating');
 
         // Save
         $review = $reviewMapper->save($review);
