@@ -12,12 +12,13 @@ Options -Indexes
 RewriteEngine On
 
 # Rewrite old routes to new routes
-#RewriteRule (.*)$/main/property/OurSandCastle/Home $1 [R=301,NC,L]
-#RewriteRule (.*)$/main/property/OurSandCastle/Rates-and-Policies $1/rates [R=301,NC,L]
-#RewriteRule (.*)$/main/property/OurSandCastle/Reservation-Request $1/reserve [R=301,NC,L]
-#RewriteRule (.*)$/main/property/OurSandCastle/Picture-Gallery $1/gallery [R=301,NC,L]
-#RewriteRule (.*)$/main/property/OurSandCastle/Calendar $1/calendar [R=301,NC,L]
-#RewriteRule (.*)$/main/property/OurSandCastle/Contact-Us $1/contact [R=301,NC,L]
+RewriteCond %{HTTP_HOST} !^localhost$ [NC]
+RewriteRule (.*)$/main/property/OurSandCastle/Home $1 [R=301,NC,L]
+RewriteRule (.*)$/main/property/OurSandCastle/Rates-and-Policies $1/rates [R=301,NC,L]
+RewriteRule (.*)$/main/property/OurSandCastle/Reservation-Request $1/reserve [R=301,NC,L]
+RewriteRule (.*)$/main/property/OurSandCastle/Picture-Gallery $1/gallery [R=301,NC,L]
+RewriteRule (.*)$/main/property/OurSandCastle/Calendar $1/calendar [R=301,NC,L]
+RewriteRule (.*)$/main/property/OurSandCastle/Contact-Us $1/contact [R=301,NC,L]
 
 # Final check to see if the user is attempting to access a valid file,
 # such as an image or css document, if this isn't true this sends the
