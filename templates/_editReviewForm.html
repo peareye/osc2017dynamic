@@ -1,0 +1,40 @@
+
+  <h2>{% if review.id %}Edit{% else %}Add{% endif %} Review</h2>
+  <form class="submitReviewForm" action="{{ pathFor('saveReview') }}" method="post" accept-charset="utf-8">
+    <input type="hidden" name="id" value="{{ review.id }}">
+    <div class="form-group">
+      <a href="{{ pathFor('adminDashboard') }}" class="btn btn-default">Cancel</a>
+      <button type="submit" class="btn btn-primary" name="button" value="save">Save</button>
+      {% if review.id %}
+      <a href="{{ pathFor('deleteReview', {'id': review.id}) }}" class="btn btn-danger deleteButton">Delete</a>
+      {% endif %}
+    </div>
+
+    {% include "_editRating.html" %}
+
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" class="form-control" name="title" maxlength="60" autocomplete="off" value="{{ review.title }}" required>
+    </div>
+
+    <div class="form-group">
+      <label>Who</label>
+      <input type="text" class="form-control" name="who" maxlength="60" autocomplete="off" value="{{ review.who }}" required>
+    </div>
+
+    <div class="form-group">
+      <label>Review Date</label>
+      <input type="text" class="form-control" name="review_date" maxlength="60" autocomplete="off" value="{{ review.review_date }}" required>
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" name="approved" class="form-check-input" {{ checked(review.approved) }}> Approved
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea class="form-control" rows="20" name="content">{{ review.content|raw }}</textarea>
+    </div>
+  </form>
