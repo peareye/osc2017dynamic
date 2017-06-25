@@ -1,9 +1,7 @@
 // Rating Widget
 var selectedRating = selectedRating || 0;
-console.log('selected rating: ' + selectedRating)
 $('.rating-active > input[type="radio"]').on('change',function() {
   selectedRating = $(this).filter(':checked').val();
-  console.log('selected rating changed: ' + selectedRating)
 });
 $('.rating-active > label').on({
   'mouseover': function() {
