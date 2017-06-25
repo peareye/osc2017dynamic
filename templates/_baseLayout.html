@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{{ metaDescription|default(setting.user.defaultMetaDescription) }}">
+    <meta name="description" content="{% block metaDescription %}none{% endblock %}{# {{ metaDescription|default(setting.user.defaultMetaDescription) }} #}">
     <meta name="google-site-verification" content="mIjoxU7xEK9kQA6fpfkLpHd4NCvwLMd0wccREUwzp8k" />
     <title>OurSandCastle - {% block headTitle %}none{% endblock %}</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">

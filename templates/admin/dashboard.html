@@ -28,9 +28,9 @@
 {# This is a local HTML function so we do not have to repeat the oursevles #}
 {% macro rowToEdit(row) %}
     <div class="card">
-      <h3 class="card-header">{{ row.title }}</h3>
+      <h4 class="card-header">{{ row.title }}</h4>
       <div class="card-block">
-        <h4 class="card-title">  ID: {{ row.id }}</h4>
+        <!-- <h4 class="card-title">  ID: {{ row.id }}</h4> -->
         <a href="{{ pathFor('editPost', {'id': row.id}) }}" class="btn btn-primary">Edit</a>
       </div>
     </div>
