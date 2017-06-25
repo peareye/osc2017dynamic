@@ -71,4 +71,26 @@ class IndexController extends BaseController
         // Render view
         return $this->container->view->render($response, 'home.html', ['posts' => $posts, 'search' => $terms]);
     }
+
+    /**
+     * Submit Guest Review
+     *
+     * Guests may submit a review in response to a request
+     */
+    public function guestReviewForm($request, $response, $args)
+    {
+        $reviewMapper = $this->container->reviewMapper;
+
+        // Verify we have a valid review request
+        $reviewRequestId = $request->getQueryParam('id');
+        $reviewRequestToken = $request->getQueryParam('token');
+        $review = $reviewMapper->findById($reviewRequestId);
+
+        if (is_int($review->id) && $review->token === $reviewRequestToken) {
+            return $this->container->view->render($response, 'submitGuestReview.html');
+        }
+
+        // Otherwise do nothing
+        return $response->withRedirect($this->container->router->pathFor('home'));
+    }
 }

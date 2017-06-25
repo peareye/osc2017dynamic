@@ -196,6 +196,9 @@ class AdminController extends BaseController
         // Get dependencies
         $reviewMapper = $this->container['reviewMapper'];
         $markdown = $this->container->get('markdownParser');
+        $message = $this->container->mailMessage;
+        $mailer = $this->container->sendMailMessage;
+        $config = $this->container->settings;
 
         // Make review object
         $review = $reviewMapper->make();
@@ -208,9 +211,44 @@ class AdminController extends BaseController
         $review->review_date = $request->getParsedBodyParam('review_date');
         $review->approved = ($request->getParsedBodyParam('approved')) ? 'Y' : 'N';
         $review->rating = $request->getParsedBodyParam('rating');
+        $review->email = $request->getParsedBodyParam('guest_email');
 
         // Save
         $review = $reviewMapper->save($review);
+
+        // Was this a review request?
+        if ($request->getParsedBodyParam('review_type') === 'request') {
+            $review->title = 'Review Request Sent';
+            $review->token = hash('sha256', time() . $config['session']['salt']);
+
+            // Add link to message body
+            $host = $request->getUri()->getHost();
+            $link = 'http://' . $host . $this->container->router->pathFor('guestReview') . "?id={$review->id}&token={$review->token}\n";
+            $messageBody = $request->getParsedBodyParam('request_message');
+            $messageBody .= "\n\nLink to review: {$link}";
+
+            // Set the "from" address based on host, and strip "www."
+            $host = preg_replace('/^www\./i', '', $host);
+
+            // If sending from localhost, add .com to the end to make mail happy
+            if ($host === 'localhost') {
+                $host .= '.com';
+            }
+
+            // Construct message
+            $message
+                ->setFrom("OurSandCastle <send@{$host}>")
+                ->addTo($request->getParsedBodyParam('guest_email'))
+                ->addCc($config['user']['contactEmail'])
+                ->setSubject('OurSandCastle Review')
+                ->setBody($messageBody);
+
+            // Send
+            $mailer->send($message);
+
+            // Update request
+            $review = $reviewMapper->save($review);
+        }
 
         // Display admin dashboard
         return $response->withRedirect($this->container->router->pathFor('showReviews'));

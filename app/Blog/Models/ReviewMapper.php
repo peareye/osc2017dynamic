@@ -8,7 +8,7 @@ class ReviewMapper extends DataMapperAbstract
 {
     protected $table = 'review';
     protected $tableAlias = 'r';
-    protected $modifyColumns = array('title', 'content', 'content_html', 'who', 'review_date', 'approved', 'rating');
+    protected $modifyColumns = array('title', 'content', 'content_html', 'who', 'review_date', 'approved', 'rating', 'email', 'token');
     protected $domainObjectClass = 'Review';
     protected $defaultSelect = 'select * from review r';
 

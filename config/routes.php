@@ -148,9 +148,14 @@ $app->get('/reviews', function ($request, $response, $args) {
     return $this->view->render($response, 'reviews.html');
 })->setName('reviews');
 
+// Link to guest review
+$app->get('/guestreview', function ($request, $response, $args){
+    return (new Blog\Controllers\IndexController($this))->guestReviewForm($request, $response, $args);
+})->setName('guestReview');
+
 // Rates and Policies
 $app->get('/rates', function ($request, $response, $args) {
-    (new Blog\Controllers\IndexController($this))->rates($request, $response, $args);
+    return (new Blog\Controllers\IndexController($this))->rates($request, $response, $args);
 })->setName('rates');
 
 // Contact form
@@ -180,5 +185,5 @@ $app->get('/thankyou', function ($request, $response, $args) {
 
 // Home page (last route, the default)
 $app->get('/', function ($request, $response, $args) {
-    (new Blog\Controllers\IndexController($this))->home($request, $response, $args);
+    return (new Blog\Controllers\IndexController($this))->home($request, $response, $args);
 })->setName('home');

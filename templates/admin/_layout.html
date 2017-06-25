@@ -54,15 +54,36 @@
   </head>
 
   <body>
-    <div class="modal thumbPathModal" id="admin-modal" tabindex="-1">
-      <div class="modal-dialog">
+    <div class="modal fade" id="reviewModel">
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title"></h4>
+            <h5 class="modal-title">Request Guest Review</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="modal-body">
-          </div>
+          <form action="{{ pathFor('saveReview') }}" method="post" accept-charset="utf-8">
+            <input type="hidden" name="review_type" value="request">
+            <div class="modal-body">
+              <div class="form-group">
+                  <label for="guestEmail">Email address</label>
+                  <input type="email" class="form-control" id="guestEmail" name="guest_email" placeholder="Enter guest email">
+              </div>
+              <div class="form-group">
+                <label for="requestMessage">Message to Guest</label>
+                <textarea class="form-control" name="request_message" id="requestMessage" rows="5">
+We hope you enjoyed your stay at OurSandCastle, and we would appreciate your leaving us a review.
+
+Sincerely, OurSandCastle
+                </textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Send</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -87,12 +108,12 @@
       <div class="row mt-3">
         <div class="col-md-3 mt-3">
           <div class="list-group">
-            <a href="{{ pathFor('adminDashboard') }}" class="list-group-item list-group-item-action {% if inUrl( 'dashboard') %} active{% endif %}">Edit Page</a>
+            <a href="{{ pathFor('adminDashboard') }}" class="list-group-item list-group-item-action {% if inUrl( 'dashboard') %} active{% endif %}">Page Content</a>
             <a href="{{ pathFor('showReviews') }}" class="list-group-item list-group-item-action {% if inUrl( 'showreviews') %} active{% endif %}">Reviews Page</a>
             <a href="{{ pathFor('editReview') }}" class="list-group-item list-group-item-action {% if inUrl( 'editreview') %} active{% endif %}">Add/Edit Review</a>
+            <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reviewModel">Request Review</button>
             <a href="{{ pathFor('help') }}" class="list-group-item list-group-item-action {% if inUrl( 'help') %} active{% endif %}">Help</a>
-
-            <a href="{{ pathFor('logout') }}" class="list-group-item list-group-item-action disabled">Logout</a>
+            <a href="{{ pathFor('logout') }}" class="list-group-item list-group-item-action">Logout</a>
           </div>
 
         </div>
@@ -117,6 +138,7 @@
     <script>
       var simplemde = new SimpleMDE({
         forceSync: true
+        ,element: document.getElementById("mde")
       });
     </script>
   </body>
