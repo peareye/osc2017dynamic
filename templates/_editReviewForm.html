@@ -1,11 +1,19 @@
 
+  {% set saveReview = inUrl('admin') ? pathFor('saveReview') : pathFor('saveGuestReview') %}
+  {% set cancelReview = inUrl('admin') ? pathFor('showReviews') : pathFor('home') %}
+
   <h2>{% if review.id %}Edit{% else %}Add{% endif %} Review</h2>
-  <form class="submitReviewForm" action="{{ pathFor('saveReview') }}" method="post" accept-charset="utf-8">
+  <form class="submitReviewForm" action="{{ saveReview }}" method="post" accept-charset="utf-8">
     <input type="hidden" name="id" value="{{ review.id }}">
+    <input type="hidden" name="token" value="{{ review.token }}">
+    {% if not inUrl('admin') %}
+    <input type="hidden" name="email" value="{{ review.email }}">
+    {% endif %}
+
     <div class="form-group">
-      <a href="{{ pathFor('adminDashboard') }}" class="btn btn-default">Cancel</a>
+      <a href="{{ cancelReview }}" class="btn btn-default">Cancel</a>
       <button type="submit" class="btn btn-primary" name="button" value="save">Save</button>
-      {% if review.id %}
+      {% if review.id and inUrl('admin') %}
       <a href="{{ pathFor('deleteReview', {'id': review.id}) }}" class="btn btn-danger deleteButton">Delete</a>
       {% endif %}
     </div>
@@ -14,27 +22,36 @@
 
     <div class="form-group">
       <label>Title</label>
-      <input type="text" class="form-control" name="title" maxlength="60" autocomplete="off" value="{{ review.title }}" required>
+      <input type="text" class="form-control" name="title" maxlength="60" autocomplete="off" value="{% if inUrl('admin') %}{{ review.title }}{% endif %}" required>
     </div>
 
     <div class="form-group">
-      <label>Who</label>
-      <input type="text" class="form-control" name="who" maxlength="60" autocomplete="off" value="{{ review.who }}" required>
+      <label>Display Name</label>
+      <input type="text" class="form-control" name="who" maxlength="60" autocomplete="off" value="{{ review.who }}" required placeholder="As shown on OurSandCastle, do not share personal information">
     </div>
+
+    {% if inUrl('admin') %}
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" name="email" maxlength="60" autocomplete="off" value="{{ review.email }}" required>
+    </div>
+    {% endif %}
 
     <div class="form-group">
       <label>Review Date</label>
       <input type="text" class="form-control" name="review_date" maxlength="60" autocomplete="off" value="{{ review.review_date }}" required>
     </div>
 
+    {% if inUrl('admin') %}
     <div class="form-check">
       <label class="form-check-label">
         <input type="checkbox" name="approved" class="form-check-input" {{ checked(review.approved) }}> Approved
       </label>
     </div>
+    {% endif %}
 
     <div class="form-group">
       <label for="content">Content</label>
-      <textarea class="form-control" rows="20" name="content">{{ review.content|raw }}</textarea>
+      <textarea class="form-control" id="mde" rows="20" name="content">{{ review.content|raw }}</textarea>
     </div>
   </form>

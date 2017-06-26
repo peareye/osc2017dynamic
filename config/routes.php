@@ -34,16 +34,6 @@ $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}",
         return (new Blog\Controllers\AdminController($this))->deletePost($request, $response, $args);
     })->setName('deletePost');
 
-    // Unpublish post
-    $this->get('/unpublishpost/{id}', function ($request, $response, $args) {
-        return (new Blog\Controllers\AdminController($this))->unpublishPost($request, $response, $args);
-    })->setName('unpublishPost');
-
-    // Preview unpublished post (Used in admin dashboard, the Edit Post Preview uses the savePost route)
-    $this->get('/previewpost/{url}', function ($request, $response, $args) {
-        return (new Blog\Controllers\AdminController($this))->previewPost($request, $response, $args);
-    })->setName('previewPost');
-
     // Add or edit review
     $this->get('/editreview[/{id}]', function ($request, $response, $args) {
         return (new Blog\Controllers\AdminController($this))->editReview($request, $response, $args);
@@ -63,7 +53,6 @@ $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}",
     $this->get('/showreviews', function ($request, $response, $args) {
         return (new Blog\Controllers\AdminController($this))->showReviews($request, $response, $args);
     })->setName('showReviews');
-
 
     // Help Page
     $this->get('/help', function ($request, $response, $args) {
@@ -152,6 +141,11 @@ $app->get('/reviews', function ($request, $response, $args) {
 $app->get('/guestreview', function ($request, $response, $args){
     return (new Blog\Controllers\IndexController($this))->guestReviewForm($request, $response, $args);
 })->setName('guestReview');
+
+// Submit guest review
+$app->post('/submitguestreview', function ($request, $response, $args){
+    return (new Blog\Controllers\IndexController($this))->submitGuestReview($request, $response, $args);
+})->setName('saveGuestReview');
 
 // Rates and Policies
 $app->get('/rates', function ($request, $response, $args) {

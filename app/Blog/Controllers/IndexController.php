@@ -81,16 +81,74 @@ class IndexController extends BaseController
     {
         $reviewMapper = $this->container->reviewMapper;
 
-        // Verify we have a valid review request
+        // Get parameters
         $reviewRequestId = $request->getQueryParam('id');
         $reviewRequestToken = $request->getQueryParam('token');
         $review = $reviewMapper->findById($reviewRequestId);
 
+        // Verify we have a valid review request
         if (is_int($review->id) && $review->token === $reviewRequestToken) {
-            return $this->container->view->render($response, 'submitGuestReview.html');
+            return $this->container->view->render($response, 'submitGuestReview.html', ['review' => $review]);
         }
 
         // Otherwise do nothing
         return $response->withRedirect($this->container->router->pathFor('home'));
+    }
+
+    /**
+     * Save Guest Review
+     */
+    public function submitGuestReview($request, $response, $args)
+    {
+        // Get dependencies
+        $reviewMapper = $this->container['reviewMapper'];
+        $markdown = $this->container->get('markdownParser');
+        $message = $this->container->mailMessage;
+        $mailer = $this->container->sendMailMessage;
+        $config = $this->container->settings;
+
+        // Get review object
+        $review = $reviewMapper->findById($request->getParsedBodyParam('id'));
+
+        // Save, but first verify token
+        if (is_int($review->id) && $review->token === $request->getParsedBodyParam('token')) {
+            $review->id = $request->getParsedBodyParam('id');
+            $review->title = $request->getParsedBodyParam('title');
+            $review->content = $request->getParsedBodyParam('content');
+            $review->content_html = $markdown->text($request->getParsedBodyParam('content'));
+            $review->who = $request->getParsedBodyParam('who');
+            $review->review_date = $request->getParsedBodyParam('review_date');
+            $review->approved = ($request->getParsedBodyParam('approved')) ? 'Y' : 'N';
+            $review->rating = $request->getParsedBodyParam('rating');
+            $review->email = $request->getParsedBodyParam('email');
+            $review->token = '';
+
+            $review = $reviewMapper->save($review);
+
+            // Add link to message body
+            $host = $request->getUri()->getHost();
+            $messageBody = "A guest review was submitted by {$review->email} is awaiting approval.";
+
+            // Set the "from" address based on host, and strip "www."
+            $host = preg_replace('/^www\./i', '', $host);
+
+            // If sending from localhost, add .com to the end to make mail happy
+            if ($host === 'localhost') {
+                $host .= '.com';
+            }
+
+            // Construct message
+            $message
+                ->setFrom("OurSandCastle <send@{$host}>")
+                ->addTo($config['user']['contactEmail'])
+                ->setSubject('A Guest Review Was Submitted')
+                ->setBody($messageBody);
+
+            // Send
+            $mailer->send($message);
+        }
+
+        // Display dashboard
+        return $response->withRedirect($this->container->router->pathFor('thankYou'));
     }
 }

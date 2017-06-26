@@ -211,7 +211,7 @@ class AdminController extends BaseController
         $review->review_date = $request->getParsedBodyParam('review_date');
         $review->approved = ($request->getParsedBodyParam('approved')) ? 'Y' : 'N';
         $review->rating = $request->getParsedBodyParam('rating');
-        $review->email = $request->getParsedBodyParam('guest_email');
+        $review->email = $request->getParsedBodyParam('email');
 
         // Save
         $review = $reviewMapper->save($review);
@@ -238,7 +238,7 @@ class AdminController extends BaseController
             // Construct message
             $message
                 ->setFrom("OurSandCastle <send@{$host}>")
-                ->addTo($request->getParsedBodyParam('guest_email'))
+                ->addTo($request->getParsedBodyParam('email'))
                 ->addCc($config['user']['contactEmail'])
                 ->setSubject('OurSandCastle Review')
                 ->setBody($messageBody);

@@ -8,15 +8,16 @@
 </div>
 
 {% for review in reviews %}
-<div class="panel panel-success">
-    <div class="panel-heading">
-        <h3 class="panel-title">{{ review.title }}</h3>
+<div class="card">
+    <div class="card-header {% if review.approved == 'N' %}card-inverse card-warning{% endif %}">
+        <h3 class="card-title">{{ review.title }}</h3>
         {% include '_showRating.html' %}
         {% if review.email %}Email: <a href="mailto:{{ review.email }}" title="Email guest">{{ review.email }}</a>{% endif %}
         {% if review.who %}Display name: <strong>{{ review.who }}</strong>{% endif %}
         Submitted: <strong>{{ review.created_date|date("m/d/Y") }}</strong>
+        {% if review.approved == 'N' %}<strong>Not Approved</strong>{% endif %}
     </div>
-    <div class="panel-body">
+    <div class="card-block">
         <a href="{{ pathFor('editReview', {'id': review.id}) }}">Edit</a>  |
         <a href="{{ pathFor('deleteReview', {'id': review.id}) }}" class="deleteButton"><span class="text-danger">Delete</span></a>
         {{ review.content_html|raw }}

@@ -5,7 +5,7 @@
   <div class="rating rating-active">
   	<script type="text/javascript">var selectedRating = {{ review.rating }};</script>
   	{% for i in 1..5 %}
-    <input type="radio" id="rating-{{ loop.index }}" name="rating" value="{{ loop.index }}">
+    <input type="radio" id="rating-{{ loop.index }}" name="rating" value="{{ loop.index }}" {% if review.rating == loop.index %}checked{% endif %}>
     <label {% if review.rating >= i %}class="rating-selected"{% endif %} for="rating-{{ loop.index }}" title="{{ loop.index }} Star"></label>
     {% endfor %}
   </div>
