@@ -189,6 +189,24 @@ class AdminController extends BaseController
     }
 
     /**
+     * Approve Review
+     *
+     * Quickly approve review
+     */
+    public function approveReview($request, $response, $args)
+    {
+        // Get dependencies
+        $reviewMapper = $this->container->reviewMapper;
+
+        if (null !== $review = $reviewMapper->findById($args['id'])) {
+            $review->approved = 'Y';
+            $review = $reviewMapper->save($review);
+        }
+
+        return $response->withRedirect($this->container->router->pathFor('showReviews'));
+    }
+
+    /**
      * Save Review
      */
     public function saveReview($request, $response, $args)

@@ -44,6 +44,11 @@ $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}",
         return (new Blog\Controllers\AdminController($this))->saveReview($request, $response, $args);
     })->setName('saveReview');
 
+    // Approve review
+    $this->get('/approvereview/{id}', function ($request, $response, $args) {
+        return (new Blog\Controllers\AdminController($this))->approveReview($request, $response, $args);
+    })->setName('approveReview');
+
     // Delete review
     $this->get('/deletereview/{id}', function ($request, $response, $args) {
         return (new Blog\Controllers\AdminController($this))->deleteReview($request, $response, $args);
