@@ -54,6 +54,16 @@ $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}",
         return (new App\Controllers\AdminController($this))->showReviews($request, $response, $args);
     })->setName('showReviews');
 
+    // View mail messages
+    $this->get('/showmessages', function ($request, $response, $args) {
+        return (new App\Controllers\AdminController($this))->showMessages($request, $response, $args);
+    })->setName('showMessages');
+
+    // Delete mail message
+    $this->get('/deletemessage/{id}', function ($request, $response, $args) {
+        return (new App\Controllers\AdminController($this))->deleteMessage($request, $response, $args);
+    })->setName('deleteMessage');
+
     // Help Page
     $this->get('/help', function ($request, $response, $args) {
         return (new App\Controllers\AdminController($this))->help($request, $response, $args);

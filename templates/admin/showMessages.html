@@ -1,0 +1,20 @@
+{% extends '@admin/_layout.html' %}
+
+{% block body %}
+{% for message in messages %}
+<div class="card">
+    <div class="card-header">
+        <span class="card-title h3">{{ message.name }}</span>
+        <a href="{{ pathFor('deleteMessage', {'id': message.id}) }}" class="btn btn-danger btn-sm deleteButton float-right">Delete</a><br>
+        Email: <a href="mailto:{{ message.email }}">{{ message.email }}</a><br>
+        Sent: {{ message.created_date|date('F j, Y g:i a') }}
+    </div>
+    <div class="card-block">
+        {{ message.text|nl2br }}<br>
+    </div>
+</div>
+<hr>
+{% else %}
+<h4>No messages found</h4>
+{% endfor %}
+{% endblock %}

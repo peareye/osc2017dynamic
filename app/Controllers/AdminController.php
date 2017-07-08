@@ -302,34 +302,35 @@ class AdminController extends BaseController
         return $this->container->view->render($response, '@admin/showReviews.html', ['reviews' => $reviews]);
     }
 
+
     /**
-     * Validate Unique URL
-     *
-     * @return JSON status
+     * Show all Messages
      */
-    public function validateUniqueUrl($request, $response, $args)
+    public function showMessages($request, $response, $args)
     {
-        // Get toolbox to clean URL
-        $toolbox = $this->container['toolbox'];
-        $postMapper = $this->container['postMapper'];
-        $title = $request->getParsedBodyParam('title');
+        // Get dependencies
+        $messageMapper = $this->container['messageMapper'];
 
-        // Set the response type
-        $r = $response->withHeader('Content-Type', 'application/json');
+        // Get all reviews as an admin
+        $messages = $messageMapper->find();
 
-        // Prep title string
-        $url = $toolbox->cleanUrl($title);
+        return $this->container->view->render($response, '@admin/showMessages.html', ['messages' => $messages]);
+    }
 
-        // Check table to see if this URL exists
-        $urlIsUnique = $postMapper->postUrlIsUnique($url);
+    /**
+     * Delete Message
+     */
+    public function deleteMessage($request, $response, $args)
+    {
+        // Get dependencies
+        $messageMapper = $this->container['messageMapper'];
 
-        if ($urlIsUnique) {
-            $status = 'success';
-        } else {
-            $status = 'fail';
-        }
+        $message = $messageMapper->make();
+        $message->id = (int) $args['id'];
 
-        return $r->write(json_encode(["status" => "$status", "url" => $url]));
+        $messageMapper->delete($message);
+
+        return $response->withRedirect($this->container->router->pathFor('showMessages'));
     }
 
     /**

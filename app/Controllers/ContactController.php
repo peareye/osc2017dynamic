@@ -16,6 +16,8 @@ class ContactController extends BaseController
     {
         // Get dependencies
         $message = $this->container->mailMessage;
+        $messageMapper = $this->container->messageMapper;
+        $messageDb = $messageMapper->make();
 
         // Check honeypot for spammers
         if ($request->getParsedBodyParam('alt_email') !== 'alt@example.com') {
@@ -27,6 +29,12 @@ class ContactController extends BaseController
         // Create message
         $message->setSubject('Contact Message')
             ->setBody("Name: {$request->getParsedBodyParam('name')}\nEmail: {$request->getParsedBodyParam('email')}\n\n{$request->getParsedBodyParam('comment')}");
+
+        // Save to database
+        $messageDb->name = $request->getParsedBodyParam('name');
+        $messageDb->email = $request->getParsedBodyParam('email');
+        $messageDb->text = $message->getBody();
+        $messageMapper->save($messageDb);
 
         // Send email
         $this->sendEmail($message);
@@ -42,6 +50,8 @@ class ContactController extends BaseController
     {
         // Get dependencies
         $message = $this->container->mailMessage;
+        $messageMapper = $this->container->messageMapper;
+        $messageDb = $messageMapper->make();
 
         // Check honeypot for spammers
         if ($request->getParsedBodyParam('alt_email') !== 'alt@example.com') {
@@ -68,6 +78,12 @@ EOT;
 
         // Create message
         $message->setSubject('Reservation Request')->setBody($bodyText);
+
+        // Save to database
+        $messageDb->name = $request->getParsedBodyParam('last_name');
+        $messageDb->email = $request->getParsedBodyParam('email');
+        $messageDb->text = $message->getBody();
+        $messageMapper->save($messageDb);
 
         // Send email
         $this->sendEmail($message);

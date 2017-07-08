@@ -100,6 +100,11 @@ $container['sendMailMessage'] = function ($c) {
     return new Nette\Mail\SendmailMailer();
 };
 
+// Message Mapper
+$container['messageMapper'] = $container->factory(function ($c) {
+    return new App\Models\MessageMapper($c['database'], $c['logger'], ['user_id' => 1]);
+});
+
 // Security Handler
 $container['securityHandler'] = function ($c) {
     return new App\Library\SecurityHandler($c->get('sessionHandler'));
