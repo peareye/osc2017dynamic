@@ -7143,6 +7143,11 @@ body {
 .rating .rating-selected {
   color: gold; }
 
+#reviewModal .modal-dialog {
+  background-color: #fff; }
+  #reviewModal .modal-dialog .modal-content {
+    background: #fff; }
+
 @media (min-width: 576px) {
   header {
     background-attachment: fixed; }
