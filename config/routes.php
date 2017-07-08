@@ -9,11 +9,6 @@
 
 $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}", function () {
 
-    // Validate unique post URL (Ajax request)
-    $this->post('/validateurl', function ($request, $response, $args) {
-        return (new App\Controllers\AdminController($this))->validateUniqueUrl($request, $response, $args);
-    });
-
     // Main dashboard
     $this->get('/dashboard', function ($request, $response, $args) {
         return (new App\Controllers\AdminController($this))->dashboard($request, $response, $args);
@@ -63,17 +58,6 @@ $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}",
     $this->get('/help', function ($request, $response, $args) {
         return (new App\Controllers\AdminController($this))->help($request, $response, $args);
     })->setName('help');
-
-
-    // Load files into gallery (Ajax)
-    $this->get('/loadfiles', function ($request, $response, $args) {
-        return (new App\Controllers\FileController($this))->loadFiles($request, $response, $args);
-    })->setName('loadImages');
-
-    // Search posts and pages
-    $this->get('/search', function ($request, $response, $args) {
-        return (new App\Controllers\AdminController($this))->search($request, $response, $args);
-    })->setName('adminSearch');
 
 })->add(function ($request, $response, $next) {
     // Authentication
