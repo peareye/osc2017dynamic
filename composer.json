@@ -22,7 +22,7 @@
     },
     "autoload": {
       "psr-4": {
-          "Blog\\": "app/Blog/"
+          "Blog\\": "app/"
       }
     },
     "config": {
