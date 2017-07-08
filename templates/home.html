@@ -1,9 +1,10 @@
 {% extends '_baseLayout.html' %}
+
 {% block headTitle%}A Premiere Vacation Rental in Yachats, Oregon{% endblock%}
 {% block sectionName %}home{% endblock %}
 {% block subTitleWrapper %}a very special vacation rental in Yachats, OR{% endblock %}
 
-{% block metaDescription %}OurSandCastle, is a spacious and comfortable 5-star premiere luxury vacation rental in Yachats, Oregon. Here you will enjoy fabulous ocean views, spectacular sunsets, and shared private access to 7 miles of ocean beach.{% endblock %} 
+{% block metaDescription %}OurSandCastle, is a spacious and comfortable 5-star premiere luxury vacation rental in Yachats, Oregon. Here you will enjoy fabulous ocean views, spectacular sunsets, and shared private access to 7 miles of ocean beach.{% endblock %}
 
 {% block body %}
 
@@ -33,6 +34,7 @@
   </div>
 </section>
 <!-- End Welcome Section -->
+
 <section id="ads" class="container block-spacing">
   <div class="row flex-wrapper-row">
     <div class="col-xs-4 flex-wrapper-col">
@@ -65,6 +67,7 @@
 
 </section>
 <!-- End Ads Section -->
+
 <section id="amenities" class="container block-spacing">
   <h2>House Amenities</h2>
 
@@ -98,52 +101,7 @@
 </section>
 <!-- End Amenities Section -->
 
-{% set reviews = getReviews(3) %} {% if reviews %}
-<section id="review" class="container block-spacing">
-  <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
 
-    <div class="carousel-inner" role="listbox">
+{%  include '_homeReviews.html' %}
 
-      {% for r in reviews %}
-      <div class="carousel-item {% if loop.first %}active{% endif %}">
-        <div class="carousel-item-wrapper">
-          <div class="review-title">
-            <h3>{{ r.title }}</h3>
-          </div>
-
-          <div class="review-content">
-            {{ r.content_html|raw }}
-          </div>
-          <div class="review-meta">
-            <p><em>{{ r.who }} on {{ r.review_date }}</em></p>
-          </div>
-
-        </div>
-      </div>
-      {% endfor %}
-
-    </div>
-
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-  <div class="center-block">
-    <a class="btn btn-info" href="{{ pathFor('reviews') }}" role="button">Read All Reviews</a>
-  </div>
-
-
-
-  </div>
-</section>
-{% endif %} {% endblock %}
+{% endblock %}

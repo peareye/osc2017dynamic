@@ -6865,18 +6865,10 @@ label {
   padding-top: 1rem;
   padding-bottom: 0; }
 
-#home-header {
-  background-image: url("../img/osc_viewfrom_deck.jpg"); }
-
-#ads .container .row .col-md-4 {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  margin: 0.5rem; }
-
+/* Home Page Review Widget */
 #review .carousel-inner {
   max-height: 500px;
-  background: rgba(51, 102, 153, 0.3);
+  background: rgba(46, 204, 64, 0.3);
   margin-top: 30px;
   margin-bottom: 30px; }
   #review .carousel-inner .carousel-item-wrapper {
@@ -6893,6 +6885,15 @@ label {
       padding-bottom: 10px; }
     #review .carousel-inner .carousel-item-wrapper p {
       line-height: 180%; }
+
+#home-header {
+  background-image: url("../img/osc_viewfrom_deck.jpg"); }
+
+#ads .container .row .col-md-4 {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 0.5rem; }
 
 /* _calendar */
 #calendar-header {
@@ -6944,19 +6945,19 @@ iframe {
       background-attachment: inherit; } }
 
 /* Gallery Page */
+#gallery-header {
+  background-image: url("../img/jumbo6.jpg"); }
+
 .gallery-item {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0.5rem; }
-
-#gallery-header {
-  background-image: url("../img/jumbo6.jpg"); }
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    #gallery-header {
+    .gallery-item {
       background-attachment: inherit; } }
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-    #gallery-header {
+    .gallery-item {
       background-attachment: inherit; } }
 
 #reserve-header {
@@ -6995,6 +6996,7 @@ iframe {
 
 /* header */
 header {
+  background-color: #336699;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

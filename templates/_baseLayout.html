@@ -16,37 +16,10 @@
 
   <body>
 
-    <nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-primary">
-      <!-- <div class="container"> -->
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item {% if inUrl('/') %}active{% endif %}">
-            <a class="nav-link" href="{{ pathFor('home') }}">Home {% if inUrl('/') %}<span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item {% if inUrl('rates') %}active{% endif %}">
-            <a class="nav-link" href="{{ pathFor('rates') }}">Rates &amp; Policies {% if inUrl('rates') %}<span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item {% if inUrl('calendar') %}active{% endif %}">
-            <a class="nav-link" href="{{ basePath() }}/calendar">Calendar {% if inUrl('calendar') %}<span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item {% if inUrl('gallery') %}active{% endif %}">
-            <a class="nav-link" href="{{ pathFor('gallery') }}">Photos {% if inUrl('gallery') %}<span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item {% if inUrl('contact') %}active{% endif %}">
-            <a class="nav-link" href="{{ pathFor('contact') }}">Contact Us {% if inUrl('contact') %}<span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-        </ul>
-        <div class="nav-reservation-button">
-          <a href="{{ pathFor('reserve') }}" class="btn btn-info" role="button" aria-pressed="true">Request Reservation Now!</a>
-        </div>
-
-      </div>
-      <!-- </div> -->
-    </nav>
+    {%  include '_nav.html' %}
     <!-- End Nav Section -->
 
-    <header id="{% block sectionName %}none{% endblock %}-header">
+    <header id="{% block sectionName %}&nbsp;{% endblock %}-header">
       <div class="welcome-wrapper">
         <div class="title-wrapper">
           <h1>OurSandCastle</h1>
@@ -76,10 +49,12 @@
         </div>
       </div>
     </header>
+
     <!-- End Header Section -->
+
     {% block body %} {# All content between the jumbo header and footer, including sidebar, goes here #} {% endblock %}
     <footer class="footer">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
 
           <div class="col-md-4 footer-section">

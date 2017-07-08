@@ -1,7 +1,12 @@
 {% extends '_baseLayout.html' %}
 
+{% block headTitle%}Admin Login{% endblock%}
+{% block sectionName %}login{% endblock %}
+{% block subTitleWrapper %}Admin Login{% endblock %}
+
 {% block body %}
-  <h2>Login</h2>
+<div class="container block-spacing">
+  <h2 class="display-3">Login</h2>
   <form action="{{ pathFor('sendLoginToken') }}" method="post" accept-charset="utf-8">
     <div class="form-group">
       <label for="post-title">Email</label>
@@ -9,4 +14,8 @@
     </div>
     <button type="submit" class="btn btn-default" name="button" value="requestToken">Request Login Token</button>
   </form>
+
+
+
+</div>
 {% endblock %}
