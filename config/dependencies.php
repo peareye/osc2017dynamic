@@ -105,26 +105,7 @@ $container['securityHandler'] = function ($c) {
     return new App\Library\SecurityHandler($c->get('sessionHandler'));
 };
 
-// Sitemap
-$container['sitemapHandler'] = function ($c) {
-    return new App\Library\SitemapHandler($c->get('logger'), [
-        'sitemapFilePath' => ROOT_DIR . 'public/',
-        'baseUrl' => $c->get('settings')['baseUrl'],
-        'alertSearchEngines' => $c->get('settings')['production'],
-    ]);
-};
-
 // Markdown parser
 $container['markdownParser'] = function ($c) {
     return new Parsedown();
-};
-
-// File uploader
-$container['fileUploader'] = function ($c) {
-    return new App\Library\FileUploader($c['request']->getUploadedFiles(), $c['settings']['file']);
-};
-
-// Image manipulation
-$container['imageManipulator'] = function ($c) {
-    return new Intervention\Image\ImageManager();
 };
