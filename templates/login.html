@@ -1,21 +1,122 @@
-{% extends '_baseLayout.html' %}
+<!-- {# extends '_baseLayout.html' #}
 
-{% block headTitle%}Admin Login{% endblock%}
-{% block sectionName %}login{% endblock %}
-{% block subTitleWrapper %}Admin Login{% endblock %}
+{# block headTitle #}Admin Login{# endblock #}
+{# block sectionName #}login{# endblock #}
+{# block subTitleWrapper #}Admin Login{# endblock #} -->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{% block metaDescription %}none{% endblock %}{# {{ metaDescription|default(setting.user.defaultMetaDescription) }} #}">
+    <meta name="google-site-verification" content="mIjoxU7xEK9kQA6fpfkLpHd4NCvwLMd0wccREUwzp8k" />
+    <title>OurSandCastle - Admin Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <script src="https://use.fontawesome.com/0e492d299f.js"></script>
+    <link rel="stylesheet" href="{{ basePath() }}/assets/css/main.css">
+    <link rel="stylesheet" href="{{ basePath() }}/assets/css/lightbox.css">
+  </head>
+
+  <body>
+
+
+{%  include '_nav.html' %}
+<!-- End Nav Section -->
 
 {% block body %}
+
 <div class="container block-spacing">
-  <h2 class="display-3">Login</h2>
+  <h2 class="display-3">Log in</h2>
   <form action="{{ pathFor('sendLoginToken') }}" method="post" accept-charset="utf-8">
     <div class="form-group">
       <label for="post-title">Email</label>
       <input type="email" class="form-control" name="email" maxlength="60" value="" autocomplete="off" autofocus="autofocus" required>
     </div>
-    <button type="submit" class="btn btn-default" name="button" value="requestToken">Request Login Token</button>
+    <button type="submit" class="btn btn-default" name="button" value="requestToken">Request Log in Token</button>
   </form>
 
 
 
 </div>
 {% endblock %}
+
+<footer class="footer">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-4 footer-section">
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="{{ pathFor('home') }}">Home</a>
+          </li>
+          <li>
+            <a href="{{ pathFor('rates') }}">Rates &amp; Policies</a>
+          </li>
+          <li>
+            <a href="{{ pathFor('calendar') }}">Calendar</a>
+          </li>
+          <li>
+            <a href="{{ pathFor('gallery') }}">Photos</a>
+          </li>
+          <li>
+            <a href="{{ pathFor('contact') }}">Contact Us</a>
+          </li>
+          <li>
+            <a href="{{ pathFor('reserve') }}">Request Reservation</a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-4 footer-section">
+        <p class="footer-item">
+          &copy;{{ now|date('Y') }} OurSandCastle
+        </p>
+      </div>
+      <div class="col-md-4 footer-section">
+
+        <p class="footer-item">Design by
+          <a href="http://moritzmedia.com">Moritz Media</a>
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</footer>
+<!-- End Footer  -->
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="{{ basePath() }}/assets/js/lightbox-plus-jquery.min.js"></script>
+<script src="{{ basePath() }}/assets/js/rating.js"></script>
+
+{% if setting.production %}
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+  var sc_project = 11344598;
+  var sc_invisible = 1;
+  var sc_security = "2d74541d";
+  var scJsHost = (("https:" == document.location.protocol) ?
+    "https://secure." : "http://www.");
+  document.write("<sc" + "ript type='text/javascript' src='" +
+    scJsHost +
+    "statcounter.com/counter/counter.js'></" + "script>");
+
+</script>
+<noscript><div class="statcounter"><a title="free web stats"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="//c.statcounter.com/11344598/0/2d74541d/1/" alt="free
+web stats"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+{% endif %}
+</body>
+
+</html>

@@ -1,19 +1,34 @@
-{% extends '_sidebarLayout.html' %} {% block headTitle%}in Yachats, Oregon - All Reviews{% endblock%} {% block sectionName %}reviews{% endblock %} {% block subTitleWrapper %}What people are saying!{% endblock %} {% block main %} {% set reviews = getReviews()
-%} {% if reviews %}
+{% extends '_sidebarLayout.html' %}
+
+{% block headTitle%}in Yachats, Oregon - All Reviews{% endblock%}
+{% block sectionName %}reviews{% endblock %}
+{% block subTitleWrapper %}What people are saying!{% endblock %}
+
+{% block main %}
+
+{% set reviews = getReviews() %}
+
+{% if reviews %}
 
 <div class="block-spacing">
 
-  <h2>OurSandCastle Reviews</h2> {% for r in reviews %}
+  <h2>OurSandCastle Reviews</h2>
+
+  {% for review in reviews %}
   <div class="review-wrapper">
     <div class="review-title">
-      <h3>{{ r.title }}</h3>
+      <h3>{{ review.title }}</h3>
+
+    </div>
+    <div class="review-stars">
+      {% include '_showRating.html' %}
     </div>
 
     <div class="review-content">
-      {{ r.content_html|raw }}
+      {{ review.content_html|raw }}
     </div>
     <div class="review-meta">
-      <p><em>{{ r.who }} on {{ r.review_date }}</em></p>
+      <p><em>{{ review.who }} on {{ review.review_date }}</em></p>
     </div>
   </div>
   <hr> {% endfor %}
