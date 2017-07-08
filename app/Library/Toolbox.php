@@ -4,7 +4,7 @@
  *
  *  Misc methods
  */
-namespace Blog\Library;
+namespace App\Library;
 
 class Toolbox
 {

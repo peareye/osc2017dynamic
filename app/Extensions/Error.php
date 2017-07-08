@@ -2,7 +2,7 @@
 /**
  * Custom Error Handler
  */
-namespace Blog\Extensions;
+namespace App\Extensions;
 
 use Monolog\Logger;
 use Psr\Http\Message\ResponseInterface as Response;

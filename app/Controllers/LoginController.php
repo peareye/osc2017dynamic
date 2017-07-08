@@ -2,7 +2,7 @@
 /**
  * Login Controller
  */
-namespace Blog\Controllers;
+namespace App\Controllers;
 
 class LoginController extends BaseController
 {

@@ -2,7 +2,7 @@
 /**
  * Post Domain Object
  */
-namespace Blog\Models;
+namespace App\Models;
 
 class Post extends DomainObjectAbstract
 {}

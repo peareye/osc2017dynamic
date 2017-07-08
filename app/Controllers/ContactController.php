@@ -2,9 +2,9 @@
 /**
  * Contact Controller
  */
-namespace Blog\Controllers;
+namespace App\Controllers;
 
-use Blog\Models\Comment;
+use App\Models\Comment;
 
 class ContactController extends BaseController
 {
@@ -78,7 +78,7 @@ EOT;
     /**
      * Send Email Message
      *
-     * @param Blog\Models\Comment $comment
+     * @param App\Models\Comment $comment
      * @param string $subject
      * @return void
      */

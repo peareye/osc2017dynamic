@@ -2,7 +2,7 @@
 /**
  * File Upload Controller
  */
-namespace Blog\Controllers;
+namespace App\Controllers;
 
 use \FilesystemIterator;
 use \RecursiveDirectoryIterator;

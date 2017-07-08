@@ -4,7 +4,7 @@
  *
  *  Generates or updates sitemap
  */
-namespace Blog\Library;
+namespace App\Library;
 
 class SitemapHandler
 {

@@ -2,7 +2,7 @@
 /**
  * Post Mapper
  */
-namespace Blog\Models;
+namespace App\Models;
 
 class PostMapper extends DataMapperAbstract
 {

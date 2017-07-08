@@ -16,6 +16,6 @@ $config = [
     'matchRoutePattern' => '/media\/small\/(?<dims>[0-9]*x[0-9]*)\/(?<subdir>..)\/(?<image>.*)$/i',
 ];
 
-$img = new Blog\Library\Thumbnailer($config, new Intervention\Image\ImageManager());
+$img = new App\Library\Thumbnailer($config, new Intervention\Image\ImageManager());
 
 $img->make();

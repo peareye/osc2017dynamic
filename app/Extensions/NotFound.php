@@ -4,7 +4,7 @@
  *
  * Extends the Slim NotFound handler
  */
-namespace Blog\Extensions;
+namespace App\Extensions;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

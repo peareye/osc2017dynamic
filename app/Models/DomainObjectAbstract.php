@@ -4,7 +4,7 @@
  *
  * Base class for all domain models
  */
-namespace Blog\Models;
+namespace App\Models;
 
 abstract class DomainObjectAbstract
 {

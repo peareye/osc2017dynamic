@@ -4,7 +4,7 @@
  *
  * All domain data mapper classes extend this class
  */
-namespace Blog\Models;
+namespace App\Models;
 
 use \PDO;
 

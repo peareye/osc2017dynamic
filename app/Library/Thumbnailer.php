@@ -28,7 +28,7 @@
  * Create thumbnails on-the-fly
  * @version 1.0.0
  */
-namespace Blog\Library;
+namespace App\Library;
 
 use Intervention\Image\ImageManager;
 

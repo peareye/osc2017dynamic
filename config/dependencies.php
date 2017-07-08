@@ -15,7 +15,7 @@ $container['view'] = function ($c) {
         'debug' => !$c->get('settings')['production'],
     ]);
 
-    $view->addExtension(new Blog\Extensions\TwigExtension($c));
+    $view->addExtension(new App\Extensions\TwigExtension($c));
 
     if ($c->get('settings')['production'] === false) {
         $view->addExtension(new Twig_Extension_Debug());
@@ -26,7 +26,7 @@ $container['view'] = function ($c) {
 
 // Twig pagination extenion
 $container['pagination'] = function ($c) {
-    return new Blog\Extensions\PaginationExtension($c->get('settings')['pagination']);
+    return new App\Extensions\PaginationExtension($c->get('settings')['pagination']);
 };
 
 // Monolog logging
@@ -57,7 +57,7 @@ $container['database'] = function ($c) {
 
 // Custom error handling (overwrite Slim errorHandler to add logging)
 $container['errorHandler'] = function ($c) {
-    return new \Blog\Extensions\Error($c->get('settings')['displayErrorDetails'], $c['logger']);
+    return new \App\Extensions\Error($c->get('settings')['displayErrorDetails'], $c['logger']);
 };
 
 // Sessions
@@ -67,27 +67,27 @@ $container['sessionHandler'] = function ($c) {
 
 // Load Toolbox
 $container['toolbox'] = function ($c) {
-    return new Blog\Library\Toolbox();
+    return new App\Library\Toolbox();
 };
 
 // Override the default Not Found Handler
 $container['notFoundHandler'] = function ($c) {
-    return new Blog\Extensions\NotFound($c->get('view'), $c->get('logger'));
+    return new App\Extensions\NotFound($c->get('view'), $c->get('logger'));
 };
 
 // Post Data Mapper
 $container['postMapper'] = $container->factory(function ($c) {
-    return new Blog\Models\PostMapper($c['database'], $c['logger'], ['user_id' => 1]);
+    return new App\Models\PostMapper($c['database'], $c['logger'], ['user_id' => 1]);
 });
 
 // Review Data Mapper
 $container['reviewMapper'] = $container->factory(function ($c) {
-    return new Blog\Models\ReviewMapper($c['database'], $c['logger'], ['user_id' => 1]);
+    return new App\Models\ReviewMapper($c['database'], $c['logger'], ['user_id' => 1]);
 });
 
 // Comment Data Mapper
 $container['commentMapper'] = $container->factory(function ($c) {
-    return new Blog\Models\CommentMapper($c['database'], $c['logger'], ['user_id' => 1]);
+    return new App\Models\CommentMapper($c['database'], $c['logger'], ['user_id' => 1]);
 });
 
 // Mail message
@@ -102,12 +102,12 @@ $container['sendMailMessage'] = function ($c) {
 
 // Security Handler
 $container['securityHandler'] = function ($c) {
-    return new Blog\Library\SecurityHandler($c->get('sessionHandler'));
+    return new App\Library\SecurityHandler($c->get('sessionHandler'));
 };
 
 // Sitemap
 $container['sitemapHandler'] = function ($c) {
-    return new Blog\Library\SitemapHandler($c->get('logger'), [
+    return new App\Library\SitemapHandler($c->get('logger'), [
         'sitemapFilePath' => ROOT_DIR . 'public/',
         'baseUrl' => $c->get('settings')['baseUrl'],
         'alertSearchEngines' => $c->get('settings')['production'],
@@ -121,7 +121,7 @@ $container['markdownParser'] = function ($c) {
 
 // File uploader
 $container['fileUploader'] = function ($c) {
-    return new Blog\Library\FileUploader($c['request']->getUploadedFiles(), $c['settings']['file']);
+    return new App\Library\FileUploader($c['request']->getUploadedFiles(), $c['settings']['file']);
 };
 
 // Image manipulation

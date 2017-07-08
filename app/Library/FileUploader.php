@@ -3,7 +3,7 @@
  * File Uploader Class
  *
  */
-namespace Blog\Library;
+namespace App\Library;
 
 use \Exception;
 

@@ -2,7 +2,7 @@
 /**
  * Pagination Extension for Twig Templates
  */
-namespace Blog\Extensions;
+namespace App\Extensions;
 
 class PaginationExtension extends \Twig_Extension
 {

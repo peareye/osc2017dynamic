@@ -2,7 +2,7 @@
 /**
  * Review Domain Object
  */
-namespace Blog\Models;
+namespace App\Models;
 
 class Review extends DomainObjectAbstract
 {}

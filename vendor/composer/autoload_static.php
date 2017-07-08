@@ -44,9 +44,9 @@ class ComposerStaticInitc37607f50114ce92f1502074a14fce46
         array (
             'FastRoute\\' => 10,
         ),
-        'B' => 
+        'A' => 
         array (
-            'Blog\\' => 5,
+            'App\\' => 4,
         ),
     );
 
@@ -95,7 +95,7 @@ class ComposerStaticInitc37607f50114ce92f1502074a14fce46
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
-        'Blog\\' => 
+        'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
@@ -123,29 +123,29 @@ class ComposerStaticInitc37607f50114ce92f1502074a14fce46
     );
 
     public static $classMap = array (
-        'Blog\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Controllers/AdminController.php',
-        'Blog\\Controllers\\BaseController' => __DIR__ . '/../..' . '/app/Controllers/BaseController.php',
-        'Blog\\Controllers\\ContactController' => __DIR__ . '/../..' . '/app/Controllers/ContactController.php',
-        'Blog\\Controllers\\FileController' => __DIR__ . '/../..' . '/app/Controllers/FileController.php',
-        'Blog\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Controllers/IndexController.php',
-        'Blog\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Controllers/LoginController.php',
-        'Blog\\Extensions\\Error' => __DIR__ . '/../..' . '/app/Extensions/Error.php',
-        'Blog\\Extensions\\NotFound' => __DIR__ . '/../..' . '/app/Extensions/NotFound.php',
-        'Blog\\Extensions\\PaginationExtension' => __DIR__ . '/../..' . '/app/Extensions/PaginationExtension.php',
-        'Blog\\Extensions\\TwigExtension' => __DIR__ . '/../..' . '/app/Extensions/TwigExtension.php',
-        'Blog\\Library\\FileUploader' => __DIR__ . '/../..' . '/app/Library/FileUploader.php',
-        'Blog\\Library\\SecurityHandler' => __DIR__ . '/../..' . '/app/Library/SecurityHandler.php',
-        'Blog\\Library\\SitemapHandler' => __DIR__ . '/../..' . '/app/Library/SitemapHandler.php',
-        'Blog\\Library\\Thumbnailer' => __DIR__ . '/../..' . '/app/Library/Thumbnailer.php',
-        'Blog\\Library\\Toolbox' => __DIR__ . '/../..' . '/app/Library/Toolbox.php',
-        'Blog\\Models\\Comment' => __DIR__ . '/../..' . '/app/Models/Comment.php',
-        'Blog\\Models\\CommentMapper' => __DIR__ . '/../..' . '/app/Models/CommentMapper.php',
-        'Blog\\Models\\DataMapperAbstract' => __DIR__ . '/../..' . '/app/Models/DataMapperAbstract.php',
-        'Blog\\Models\\DomainObjectAbstract' => __DIR__ . '/../..' . '/app/Models/DomainObjectAbstract.php',
-        'Blog\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
-        'Blog\\Models\\PostMapper' => __DIR__ . '/../..' . '/app/Models/PostMapper.php',
-        'Blog\\Models\\Review' => __DIR__ . '/../..' . '/app/Models/Review.php',
-        'Blog\\Models\\ReviewMapper' => __DIR__ . '/../..' . '/app/Models/ReviewMapper.php',
+        'App\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Controllers/AdminController.php',
+        'App\\Controllers\\BaseController' => __DIR__ . '/../..' . '/app/Controllers/BaseController.php',
+        'App\\Controllers\\ContactController' => __DIR__ . '/../..' . '/app/Controllers/ContactController.php',
+        'App\\Controllers\\FileController' => __DIR__ . '/../..' . '/app/Controllers/FileController.php',
+        'App\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Controllers/IndexController.php',
+        'App\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Controllers/LoginController.php',
+        'App\\Extensions\\Error' => __DIR__ . '/../..' . '/app/Extensions/Error.php',
+        'App\\Extensions\\NotFound' => __DIR__ . '/../..' . '/app/Extensions/NotFound.php',
+        'App\\Extensions\\PaginationExtension' => __DIR__ . '/../..' . '/app/Extensions/PaginationExtension.php',
+        'App\\Extensions\\TwigExtension' => __DIR__ . '/../..' . '/app/Extensions/TwigExtension.php',
+        'App\\Library\\FileUploader' => __DIR__ . '/../..' . '/app/Library/FileUploader.php',
+        'App\\Library\\SecurityHandler' => __DIR__ . '/../..' . '/app/Library/SecurityHandler.php',
+        'App\\Library\\SitemapHandler' => __DIR__ . '/../..' . '/app/Library/SitemapHandler.php',
+        'App\\Library\\Thumbnailer' => __DIR__ . '/../..' . '/app/Library/Thumbnailer.php',
+        'App\\Library\\Toolbox' => __DIR__ . '/../..' . '/app/Library/Toolbox.php',
+        'App\\Models\\Comment' => __DIR__ . '/../..' . '/app/Models/Comment.php',
+        'App\\Models\\CommentMapper' => __DIR__ . '/../..' . '/app/Models/CommentMapper.php',
+        'App\\Models\\DataMapperAbstract' => __DIR__ . '/../..' . '/app/Models/DataMapperAbstract.php',
+        'App\\Models\\DomainObjectAbstract' => __DIR__ . '/../..' . '/app/Models/DomainObjectAbstract.php',
+        'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
+        'App\\Models\\PostMapper' => __DIR__ . '/../..' . '/app/Models/PostMapper.php',
+        'App\\Models\\Review' => __DIR__ . '/../..' . '/app/Models/Review.php',
+        'App\\Models\\ReviewMapper' => __DIR__ . '/../..' . '/app/Models/ReviewMapper.php',
         'FastRoute\\BadRouteException' => __DIR__ . '/..' . '/nikic/fast-route/src/BadRouteException.php',
         'FastRoute\\DataGenerator' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator.php',
         'FastRoute\\DataGenerator\\CharCountBased' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator/CharCountBased.php',

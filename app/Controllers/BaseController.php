@@ -5,7 +5,7 @@
  * All other controllers should extend this class.
  * Loads the Slim Container to $this->container
  */
-namespace Blog\Controllers;
+namespace App\Controllers;
 
 use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;

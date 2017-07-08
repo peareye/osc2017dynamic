@@ -2,7 +2,7 @@
 /**
  * Comment Mapper
  */
-namespace Blog\Models;
+namespace App\Models;
 
 class CommentMapper extends DataMapperAbstract
 {

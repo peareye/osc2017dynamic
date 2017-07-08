@@ -2,7 +2,7 @@
 /**
  * Index Controller
  */
-namespace Blog\Controllers;
+namespace App\Controllers;
 
 class IndexController extends BaseController
 {

@@ -2,7 +2,7 @@
 /**
  * Review Mapper
  */
-namespace Blog\Models;
+namespace App\Models;
 
 class ReviewMapper extends DataMapperAbstract
 {

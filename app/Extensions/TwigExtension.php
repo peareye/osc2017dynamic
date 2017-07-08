@@ -2,7 +2,7 @@
 /**
  * Custom Extensions for Twig
  */
-namespace Blog\Extensions;
+namespace App\Extensions;
 
 use Interop\Container\ContainerInterface;
 

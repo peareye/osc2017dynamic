@@ -2,7 +2,7 @@
 /**
  * Comment Domain Object
  */
-namespace Blog\Models;
+namespace App\Models;
 
 class Comment extends DomainObjectAbstract
 {}

@@ -2,7 +2,7 @@
 /**
  * Index Controller
  */
-namespace Blog\Controllers;
+namespace App\Controllers;
 
 use \Exception;
 
@@ -10,7 +10,7 @@ class AdminController extends BaseController
 {
     /**
      * Post Domain Object
-     * @var Blog\Models\DomainObjectAbstract
+     * @var App\Models\DomainObjectAbstract
      */
     protected $post;
 

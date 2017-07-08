@@ -4,7 +4,7 @@
  *
  * Manages Authorization and Authentication
  */
-namespace Blog\Library;
+namespace App\Library;
 
 class SecurityHandler
 {
