@@ -2,9 +2,7 @@
 
 #review
   .carousel-inner
-    max-height: 500px
-    background: rgba($green, 0.3)
-
+    background-color: rgba($gray, .1)
     +margin(30px null)
 
     .carousel-item-wrapper
@@ -12,13 +10,19 @@
       flex-flow: column nowrap
       justify-content: center
       align-items: center
-      height: 500px
 
       +margin(null 6rem)
-      +padding(null 2rem)
-
-      h3
-        +padding(null null 10px)
+      +padding(2rem)
 
       p
         line-height: 180%
+
+.review-stars
+  .rating-static
+    +margin(5px null null)
+    // display: flex
+    // flex-flow: row nowrap
+    // align-items: center
+    // justify-content: space-between
+    label
+      +margin(0 null 20px)

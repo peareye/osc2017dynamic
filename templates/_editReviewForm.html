@@ -2,7 +2,7 @@
   {% set saveReview = inUrl('admin') ? pathFor('saveReview') : pathFor('saveGuestReview') %}
   {% set cancelReview = inUrl('admin') ? pathFor('showReviews') : pathFor('home') %}
 
-  <h2>{% if review.id %}Edit{% else %}Add{% endif %} Review</h2>
+  <h2>{% if review.id and inUrl('admin') %}Edit{% else %}Add{% endif %} Review</h2>
   <form class="submitReviewForm" action="{{ saveReview }}" method="post" accept-charset="utf-8">
     <input type="hidden" name="id" value="{{ review.id }}">
     <input type="hidden" name="token" value="{{ review.token }}">
@@ -37,10 +37,12 @@
     </div>
     {% endif %}
 
+
     <div class="form-group">
       <label>Review Date</label>
-      <input type="text" class="form-control" name="review_date" maxlength="60" autocomplete="off" value="{{ review.review_date }}" required>
+      <input type="text" class="form-control" name="review_date" maxlength="60" autocomplete="off" value="{{ review.review_date|default(now|date('F j, Y')) }}" required>
     </div>
+
 
     {% if inUrl('admin') %}
     <div class="form-check">
