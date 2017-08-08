@@ -13,6 +13,17 @@
     width: 519px
     height: 800px
 
+  .review-stars
+    .rating-static
+      +margin(5px null null)
+      // display: flex
+      // flex-flow: row nowrap
+      // align-items: center
+      // justify-content: space-between
+      label
+        +margin(0 null 20px)
+
+
 // Medium devices (tablets, 768px and up)
 @media only screen and (min-width: 768px)
 
@@ -24,6 +35,15 @@
       .row
         .col-md-4
           +margin(0)
+
+  header
+    h1
+      font-size: 5em
+    h2
+      font-weight: 700
+      font-size: 2em
+
+
 
 // Large devices (desktops, 992px and up)
 @media only screen and (min-width: 992px)

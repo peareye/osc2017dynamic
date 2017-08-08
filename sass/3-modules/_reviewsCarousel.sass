@@ -3,7 +3,12 @@
 #review
   .carousel-inner
     background-color: rgba($gray, .1)
-    +margin(30px null)
+    +margin(300px null)
+
+    .carousel-item.active
+      align-items: center
+      justify-content: center
+
 
     .carousel-item-wrapper
       display: flex
@@ -11,8 +16,8 @@
       justify-content: center
       align-items: center
 
-      +margin(null 6rem)
-      +padding(2rem)
+      +margin(null 2.5rem)
+      +padding(.5rem)
 
       p
         line-height: 180%
@@ -20,9 +25,5 @@
 .review-stars
   .rating-static
     +margin(5px null null)
-    // display: flex
-    // flex-flow: row nowrap
-    // align-items: center
-    // justify-content: space-between
     label
       +margin(0 null 20px)
