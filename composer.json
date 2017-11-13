@@ -18,7 +18,8 @@
         "wolfmoritz/session": "^1.0",
         "nette/mail": "^2.3",
         "erusev/parsedown": "^1.6",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "twbs/bootstrap": "4.0.0-beta.2"
     },
     "autoload": {
       "psr-4": {
