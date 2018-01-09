@@ -908,23 +908,23 @@
     },
     {
         "name": "twbs/bootstrap",
-        "version": "v4.0.0-beta.2",
-        "version_normalized": "4.0.0.0-beta2",
+        "version": "v4.0.0-beta.3",
+        "version_normalized": "4.0.0.0-beta3",
         "source": {
             "type": "git",
             "url": "https://github.com/twbs/bootstrap.git",
-            "reference": "fc94de5b8b5b329a298eeeb76174b146ff17af2d"
+            "reference": "ced70da441d487efb8589acbff445d6b5fa68bb9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/fc94de5b8b5b329a298eeeb76174b146ff17af2d",
-            "reference": "fc94de5b8b5b329a298eeeb76174b146ff17af2d",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/ced70da441d487efb8589acbff445d6b5fa68bb9",
+            "reference": "ced70da441d487efb8589acbff445d6b5fa68bb9",
             "shasum": ""
         },
         "replace": {
             "twitter/bootstrap": "self.version"
         },
-        "time": "2017-10-19T19:23:29+00:00",
+        "time": "2017-12-28T17:50:04+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
