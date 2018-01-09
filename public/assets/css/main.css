@@ -6360,6 +6360,7 @@ a.text-dark:focus, a.text-dark:hover {
 .invisible {
   visibility: hidden !important; }
 
+@imoprt 2-basics/baselayout;
 /* Default styles */
 body {
   font-family: "Montserrat", sans-serif;
@@ -6369,6 +6370,10 @@ body {
   color: #black;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%; }
+
+section {
+  padding-top: 50px;
+  margin-bottom: 50px; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700; }
@@ -6395,6 +6400,7 @@ h3 {
   justify-content: space-around; }
 
 .flex-wrapper-col {
+  margin: 1px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center; }
@@ -6443,24 +6449,25 @@ label {
   padding-top: 1rem;
   padding-bottom: 0; }
 
-/* Home Page Review Widget */
 #review .carousel-inner {
   background-color: rgba(170, 170, 170, 0.1);
-  margin-top: 300px;
-  margin-bottom: 300px; }
-  #review .carousel-inner .carousel-item.active {
-    align-items: center;
-    justify-content: center; }
-  #review .carousel-inner .carousel-item-wrapper {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    margin-right: 2.5rem;
-    margin-left: 2.5rem;
-    padding: 0.5rem; }
-    #review .carousel-inner .carousel-item-wrapper p {
-      line-height: 180%; }
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px; }
+#review .carousel-indicators li {
+  background-color: tomato;
+    background-color-cursor: pointer; }
+#review .carousel-item-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2.5rem;
+  margin-left: 2.5rem;
+  padding: 0.5rem; }
+  #review .carousel-item-wrapper p {
+    line-height: 180%; }
 
 .review-stars .rating-static {
   margin-top: 5px; }
@@ -6559,23 +6566,6 @@ iframe {
     background: rgba(255, 255, 255, 0.2); }
 
 /* navbar */
-.navbar {
-  padding: 0; }
-
-.navbar-nav {
-  align-items: center; }
-
-.nav-reservation-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 0.5rem;
-  padding-bottom: 1rem; }
-
-.navbar-toggler {
-  margin-top: 1rem;
-  background: rgba(17, 17, 17, 0.2); }
-
 /* header */
 header {
   background-color: #336699;
@@ -6641,21 +6631,6 @@ header {
 
 #rates-header .btn, #calendar-header .btn, #contact-header .btn, #gallery-header .btn, #reserve-header .btn {
   margin-bottom: 1rem; }
-
-.sidebar-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  background-color: #ddd;
-  padding-top: 1rem;
-  padding-bottom: 1rem; }
-
-.sidebar-item {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  width: 100%; }
 
 .footer {
   min-height: 200px;

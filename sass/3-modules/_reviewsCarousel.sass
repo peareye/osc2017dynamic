@@ -1,26 +1,27 @@
-/* Home Page Review Widget */
+// /* Home Page Review Widget */
 
 #review
   .carousel-inner
     background-color: rgba($gray, .1)
-    +margin(300px null)
+    +margin(30px null)
+    +padding(30px null)
 
-    .carousel-item.active
-      align-items: center
-      justify-content: center
+  .carousel-indicators li
+    background-color: tomato
+      cursor: pointer
 
 
-    .carousel-item-wrapper
-      display: flex
-      flex-flow: column nowrap
-      justify-content: center
-      align-items: center
+  .carousel-item-wrapper
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    align-items: center
 
-      +margin(null 2.5rem)
-      +padding(.5rem)
+    +margin(null 2.5rem)
+    +padding(.5rem)
 
-      p
-        line-height: 180%
+    p
+      line-height: 180%
 
 .review-stars
   .rating-static
