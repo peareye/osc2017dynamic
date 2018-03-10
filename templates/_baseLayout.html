@@ -9,8 +9,8 @@
   <meta name="google-site-verification" content="mIjoxU7xEK9kQA6fpfkLpHd4NCvwLMd0wccREUwzp8k" />
   <title>OurSandCastle - {% block headTitle %}none{% endblock %}</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
-  <script src="https://use.fontawesome.com/0e492d299f.js"></script>
-  <link rel="stylesheet" href="{{ basePath() }}/assets/css/main.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="stylesheet" href="{{ basePath() }}/assets/css/main.css">
   <link rel="stylesheet" href="{{ basePath() }}/assets/css/lightbox.css">
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicon/apple-icon-60x60.png">
@@ -57,6 +57,7 @@
         <div class="item">
           <i class="fa fa-wifi fa-2x"></i> Wireless Internet</div>
       </div>
+    
       {% endif %}
       <div class="more-amenities">
         {% if inUrl('/') %}
