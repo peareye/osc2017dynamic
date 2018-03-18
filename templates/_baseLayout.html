@@ -10,7 +10,7 @@
   <title>OurSandCastle - {% block headTitle %}none{% endblock %}</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-    <link rel="stylesheet" href="{{ basePath() }}/assets/css/main.css">
+  <link rel="stylesheet" href="{{ basePath() }}/assets/css/main.css">
   <link rel="stylesheet" href="{{ basePath() }}/assets/css/lightbox.css">
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicon/apple-icon-60x60.png">
@@ -57,12 +57,12 @@
         <div class="item">
           <i class="fa fa-wifi fa-2x"></i> Wireless Internet</div>
       </div>
-    
+
       {% endif %}
       <div class="more-amenities">
         {% if inUrl('/') %}
         <a href="#amenities" class="btn btn-primary btn-lg" role="button" aria-pressed="true">More House Amenities</a> {% endif %}
-        <a href="{{ pathFor('reserve') }}" class="btn btn-info btn-lg" role="button" aria-pressed="true">Request Reservation Now!</a>
+
       </div>
     </div>
   </header>
@@ -117,10 +117,12 @@
 
   </footer>
   <!-- End Footer  -->
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <script src="{{ basePath() }}/assets/js/lightbox-plus-jquery.min.js"></script>
   <script src="{{ basePath() }}/assets/js/rating.js"></script>
 
@@ -136,11 +138,14 @@
       scJsHost +
       "statcounter.com/counter/counter.js'></" + "script>");
   </script>
-  <noscript><div class="statcounter"><a title="free web stats"
-  href="http://statcounter.com/" target="_blank"><img
-  class="statcounter"
-  src="//c.statcounter.com/11344598/0/2d74541d/1/" alt="free
-  web stats"></a></div></noscript>
+  <noscript>
+    <div class="statcounter">
+      <a title="free web stats" href="http://statcounter.com/" target="_blank">
+        <img class="statcounter" src="//c.statcounter.com/11344598/0/2d74541d/1/" alt="free
+  web stats">
+      </a>
+    </div>
+  </noscript>
   <!-- End of StatCounter Code for Default Guide -->
   {% endif %}
 </body>
