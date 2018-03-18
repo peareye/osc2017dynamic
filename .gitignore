@@ -1,6 +1,5 @@
 # Things to ignore
 
-*.sql
 config/config.local.php
 logs/
 twigcache/
