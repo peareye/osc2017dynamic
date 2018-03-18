@@ -19,7 +19,7 @@
     {% endif %}
 
     {% if not loop.first and not loop.last and p.link != 'ellipsis' %} {# For all other working links #}
-    <li {% if currentPage==p .link %}class="active" class="page-item" {% endif %}>
+    <li class="page-item {% if currentPage == p.link %}active{% endif %}">
       <a href="{{ p.href }}" class="page-link">{{ p.link }}</a>
     </li>
     {% endif %}
