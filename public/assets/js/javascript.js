@@ -7,11 +7,11 @@ $('#review-set').on('click', '.pagination a', function(e) {
 	$.ajax({
 	  url: this.href,
 	  success: function(response) {
-	  	$('#review-set').fadeOut('fast', function() {
+	  	$('#review-set').fadeOut(250, function() {
 	  		$('html, body').animate({
 	  			scrollTop: resetTopOffset
-	  		}, 500);
-	  		$(this).html(response).fadeIn('fast');
+	  		}, 250);
+	  		$(this).html(response).fadeIn(500);
 	  	})
 	  }
 	});
