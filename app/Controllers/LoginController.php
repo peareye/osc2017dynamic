@@ -53,9 +53,10 @@ class LoginController extends BaseController
         }
 
         // Send message
-        $message->setFrom("My Blog <send@{$host}>")
+        $fromName = ($config['user']['blogTitle'] != '') ? $config['user']['blogTitle'] : 'Login';
+        $message->setFrom("{$fromName} <send@{$host}>")
             ->addTo($userEmail)
-            ->setSubject('Blog Login')
+            ->setSubject('Login Link')
             ->setBody("Click to login\n\n http://{$link}");
 
         try {
