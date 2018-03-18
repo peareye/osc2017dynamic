@@ -1,16 +1,17 @@
 {% extends '_baseLayout.html' %} {% block body %}
 
 <section id="{% block sectionName %}none{% endblock %}">
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-lg-9">
 
         {% block main %} {# All left column content goes here #} {% endblock main %}
 
       </div>
-      <!-- Begin Sidebar Layout  -->
-      <div class="col-lg-4 sidebar-wrapper">
-        <div class="sidebar-item"><!-- How to reserve --->
+      <!-- Begin Sidebar Layout-->
+      <div class="col-lg-3 sidebar-wrapper">
+        <div class="sidebar-item">
+          <!-- How to reserve -->
           <h3 class="">How to Reserve</h3>
           <ol class="">
             <li>Check
@@ -21,18 +22,23 @@
             <li>We Will Contact You.</li>
           </ol>
         </div>
-        <div class="sidebar-item"><!-- Read Reviews Button --->
+        <div class="sidebar-item">
+
+          <!-- Read Reviews Button -->
 
           <div class="more-amenities">
-            <a class="btn btn-info  my-3 py-3 px-3" href="{{ pathFor('reviews') }}" role="button">Read Reviews</a>
+            <a class="btn btn-info my-3 py-3 px-3" href="{{ pathFor('reviews') }}" role="button">Read Reviews</a>
           </div>
         </div>
-        <div class="sidebar-item"><!-- PayPal Logo --->
+        <div class="sidebar-item center-block">
+          <!-- PayPal Logo -->
           <h6>We accept credit card payment via PayPal</h6>
           <img src="assets/img/paypalmini.png" alt="PayPal Logo">
           <p class="small-text">Click logo for information about PayPal.</p>
         </div>
-        <div class="sidebar-item"><!-- HomeAway --->
+        <div class="sidebar-item center-block">
+
+          <!-- HomeAway -->
           <div class="homeaway-img">
             <a href="http://www.homeaway.com/vacation-rental/p117917" rel="nofollow">
               <img src="http://www.homeaway.com/haow/api/image/homeaway_us/trips/117917/reviews" alt="HomeAway Property" rel="nofollow">
@@ -44,15 +50,16 @@
           </div>
 
         </div>
-        <div class="sidebar-item"><!-- FlipKey --->
-          <div id="FK_Property_Badge539c83b3924a1">
-            <a href="http://www.flipkey.com/">
-              <img alt="FlipKey" src="http://www.flipkey.com/img/logos/FlipKey_TA_Color_Logo.svg">
-            </a>
-            <script src="http://www.flipkey.com/widgets/badges/property/428568/539c83b3924a1/92570"></script>
-          </div>
+        <!-- <div class="sidebar-item"> -->
+          <!-- FlipKey -->
+          <!-- <div id="FK_Property_Badge539c83b3924a1">
+<a href="http://www.flipkey.com/">
+<img alt="FlipKey" src="http://www.flipkey.com/img/logos/FlipKey_TA_Color_Logo.svg">
+</a>
+<script src="http://www.flipkey.com/widgets/badges/property/428568/539c83b3924a1/92570"></script>
+</div> -->
 
-        </div>
+        <!-- </div> -->
       </div>
     </div>
     <!-- End calendar container row -->
