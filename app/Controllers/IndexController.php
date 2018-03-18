@@ -72,6 +72,31 @@ class IndexController extends BaseController
         return $this->container->view->render($response, 'home.html', ['posts' => $posts, 'search' => $terms]);
     }
 
+   /**
+     * Show Reviews
+     */
+    public function showReviews($request, $response, $args)
+    {
+        // Get dependencies
+        $reviewMapper = $this->container['reviewMapper'];
+        $pagination = $this->container->get('reviewPagination');
+
+        // Get the page number and setup pagination
+        $pageNumber = ($this->container->request->getParam('page')) ?: 1;
+        $pagination->setPagePath($this->container->router->pathFor('reviews'));
+        $pagination->setCurrentPageNumber($pageNumber);
+
+        // Fetch approved reviews with limit and offset
+        $reviews = $reviewMapper->getApprovedReviews($pagination->getRowsPerPage(), $pagination->getOffset());
+
+        // Get total row count from query and add extension
+        $pagination->setTotalRowsFound($reviewMapper->foundRows());
+        $this->container->view->addExtension($pagination);
+
+        // Render view
+        return $this->container->view->render($response, 'reviews.html', ['reviews' => $reviews]);
+    }
+
     /**
      * Submit Guest Review
      *
