@@ -6499,7 +6499,6 @@ a.text-dark:hover, a.text-dark:focus {
 
 /* Custom CSS */
 /* Default styles */
-/* Default styles */
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
@@ -6518,10 +6517,7 @@ h3 {
   text-align: center; }
 
 .center-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
+  text-align: center; }
 
 .small-text {
   font-size: 0.8em; }
@@ -6539,9 +6535,10 @@ hr {
   height: 1px; }
 
 .block-spacing {
-  margin-top: 30px;
-  padding-top: 30px;
-  padding-bottom: 50px; }
+  margin-top: 30px; }
+
+img {
+  max-width: 100%; }
 
 /* Section Specific */
 #rates-header .btn,
@@ -6635,14 +6632,22 @@ header h2 {
 /* Sidebar Wrapper*/
 .sidebar-wrapper {
   display: flex;
-  flex-direction: column;
-  padding: 30px 10px;
-  margin-top: 20px;
-  border-left: solid 1px rgba(0, 0, 0, 0.09); }
+  flex-flow: column;
+  margin-bottom: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: rgba(0, 0, 0, 0.07); }
 
 .sidebar-item {
-  margin: 1rem;
-  padding: 0.5rem 1rem; }
+  display: block;
+  width: 100%;
+  align-items: center;
+  margin-top: 1rem;
+  border-radius: 7px;
+  background: #fff;
+  padding: 1rem;
+  border: solid 1px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px 3px 5px 0px rgba(167, 167, 167, 0.3); }
 
 /* Hero Background Images */
 #home-header {
@@ -6667,9 +6672,8 @@ header h2 {
   background-image: url("../img/yachats-jumbo-3.jpg"); }
 
 /* _calendar */
-#calendar div[class^="col-"] {
-  padding-right: 0;
-  padding-left: 0; }
+#calendar h2 {
+  margin-left: 15px; }
 
 .iframe-wrapper {
   display: flex;
@@ -6684,7 +6688,6 @@ header h2 {
   line-height: 50px; }
 
 iframe {
-  flex: 1;
   height: 1150px;
   width: 100%;
   border: none;
@@ -6792,9 +6795,16 @@ textarea:hover {
 /* Media Queries */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-  section {
+  #calendar div[class^="col-"] {
+    padding-right: 0px;
+    padding-left: 0px; }
+
+  section .amenities-buffer {
     padding-top: 15px;
     margin-bottom: 50px; }
+
+  #calendar h2 {
+    margin-left: initial; }
 
   h2 {
     text-align: left; }
@@ -6802,6 +6812,10 @@ textarea:hover {
   header h2 {
     text-align: center; } }
 /* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #calendar div[class^="col-"] {
+    padding-right: 15px;
+    padding-left: 15px; } }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   header h1 {
@@ -6811,8 +6825,11 @@ textarea:hover {
     font-size: 3vw; }
 
   .iframe-wrapper {
-    background: green;
-    height: 800px; } }
+    height: 800px; }
+
+  .sidebar-wrapper {
+    border-left: solid 1px rgba(0, 0, 0, 0.09);
+    border-right: solid 1px rgba(0, 0, 0, 0.09); } }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   header h1 {

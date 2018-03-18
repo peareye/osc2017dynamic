@@ -1,5 +1,5 @@
 /* Default styles */
-/* Default styles */
+
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
@@ -8,7 +8,13 @@ body {
   -webkit-text-size-adjust: 100%;
   color: $main-txt-color;
 }
-
+// nav:before {
+//   content: "Extra small device";
+//   position: absolute;
+//   top: 0;
+//   left: 50%;
+//   z-index: 200;
+// }
 h2 {
   padding-bottom: 20px;
   margin-bottom: 20px;
@@ -20,10 +26,7 @@ h3 {
   text-align: center;
 }
 .center-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 .small-text {
   font-size: 0.8em;
@@ -43,10 +46,10 @@ hr {
 
 .block-spacing {
   margin-top: 30px;
-  padding-top: 30px;
-  padding-bottom: 50px;
 }
- 
+img {
+  max-width: 100%;
+}
 /* Section Specific */
 #rates-header .btn,
 #calendar-header .btn,
@@ -149,17 +152,28 @@ header h2 {
   padding-bottom: 1rem;
 }
 /* Sidebar Wrapper*/
+
 .sidebar-wrapper {
-  display: flex;
-  flex-direction: column;
-  padding: 30px 10px;
-  margin-top: 20px;
-  border-left: solid 1px rgba(0, 0, 0, 0.09);
+ display: flex;
+ flex-flow: column;
+  margin-bottom: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: rgba(0, 0, 0, 0.07);
 }
+
 .sidebar-item {
-  margin: 1rem;
-  padding: 0.5rem 1rem;
+  display: block;
+  width: 100%;
+  align-items: center;
+  margin-top: 1rem;
+  border-radius: 7px;
+  background: $white;
+  padding: 1rem;
+  border: solid 1px rgba(0,0,0,.09);
+  box-shadow: 0px 3px 5px 0px rgba(167, 167, 167, .3);
 }
+
 /* Hero Background Images */
 #home-header {
   background-image: url("../img/osc_viewfrom_deck.jpg");
@@ -183,15 +197,14 @@ header h2 {
   background-image: url("../img/yachats-jumbo-3.jpg");
 }
 /* _calendar */
-#calendar div[class^="col-"]{
-  padding-right: 0;
-  padding-left: 0;
+
+
+#calendar h2 {
+  margin-left: 15px;
 }
 .iframe-wrapper {
   display: flex;
   flex-flow: column nowrap;
-  // align-items: center;
-  // justify-content: center;
   height: 1300px;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -203,22 +216,12 @@ header h2 {
 }
 
 iframe {
-  flex: 1;
   height: 1150px;
   width: 100%;
   border: none;
   margin-bottom: 1rem;
 }
-// .iframe-wrapper a {
-//   display: block;
-//   text-align: center;
-//   line-height: 50px;
-//   margin-top: 1rem;
-// }
 
-// iframe {
-//   min-width: 100%;
-// }
 .homeaway-text {
   display: block;
   text-align: right;
@@ -330,9 +333,23 @@ textarea:hover {
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-  section {
+//   nav:before {
+//     content: "Small device";
+//     position: absolute;
+//     top: 0;
+//     left: 50%;
+//     z-index: 200;
+//   }
+  #calendar div[class^="col-"] {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  section .amenities-buffer {
     padding-top: 15px;
     margin-bottom: 50px;
+  }
+  #calendar h2 {
+    margin-left: initial;
   }
   h2 {
     text-align: left;
@@ -343,30 +360,59 @@ textarea:hover {
 }
 
 /* Medium devices (tablets, 768px and up) */
+
 @media (min-width: 768px) {
+
+  #calendar div[class^="col-"] {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  // nav:before {
+  //   content: "medium device";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 50%;
+  //   z-index: 200;
+  // }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  // nav:before {
+  //   content: "large device";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 50%;
+  //   z-index: 200;
+  // }
   header h1 {
     font-size: 8vw;
   }
   header h2 {
     font-size: 3vw;
   }
-  .iframe-wrapper{
-    background: green;
+  .iframe-wrapper {
     height: 800px;
+  }
+  .sidebar-wrapper {
+    border-left: solid 1px rgba(0, 0, 0, 0.09);
+    border-right: solid 1px rgba(0, 0, 0, 0.09);
   }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+  // nav:before {
+  //   content: "Extra Large device";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 50%;
+  //   z-index: 200;
+  // }
   header h1 {
     font-size: 8vw;
   }
   header h2 {
     font-size: 3vw;
   }
-
 }
