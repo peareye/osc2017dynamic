@@ -70,3 +70,9 @@ $config['file']['fileThumbUri'] = 'media/small/';
  */
 $config['reviewPagination']['rowsPerPage'] = 3;
 $config['reviewPagination']['numberOfLinks'] = 2;
+
+/**
+ * Pagination Options
+ */
+$config['pagination']['rowsPerPage'] = 10;
+$config['pagination']['numberOfLinks'] = 2;

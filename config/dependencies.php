@@ -24,9 +24,14 @@ $container['view'] = function ($c) {
     return $view;
 };
 
-// Twig pagination extenion
+// Twig reviews pagination extenion
 $container['reviewPagination'] = function ($c) {
     return new App\Extensions\PaginationExtension($c->get('settings')['reviewPagination']);
+};
+
+// Twig pagination extenion
+$container['pagination'] = function ($c) {
+    return new App\Extensions\PaginationExtension($c->get('settings')['pagination']);
 };
 
 // Monolog logging
