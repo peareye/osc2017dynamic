@@ -10,23 +10,30 @@ class ReviewMapper extends DataMapperAbstract
     protected $tableAlias = 'r';
     protected $modifyColumns = array('title', 'content', 'content_html', 'who', 'review_date', 'approved', 'rating', 'email', 'token');
     protected $domainObjectClass = 'Review';
-    protected $defaultSelect = 'select * from review r';
+    protected $defaultSelect = 'select SQL_CALC_FOUND_ROWS r.* from review r';
 
     /**
      * Get Approved Reviews
      *
      * @param int|null $limit Number of reviews to return, returns all approved reviews if null
+     * @param int|null $offset Offset
      * @return array
      */
-    public function getReviews($limit = null)
+    public function getApprovedReviews($limit = null, $offset = null)
     {
         $this->sql = $this->defaultSelect . ' where approved = ? order by created_date desc';
         $this->bindValues[] = 'Y';
 
-        // Is there a limit?
-        if ($limit !== null) {
-            $this->sql .= ' limit ?';
+        // Add query limit
+        if ($limit) {
+            $this->sql .= " limit ?";
             $this->bindValues[] = $limit;
+        }
+
+        // Add query offset
+        if ($offset) {
+            $this->sql .= " offset ?";
+            $this->bindValues[] = $offset;
         }
 
         return $this->find();

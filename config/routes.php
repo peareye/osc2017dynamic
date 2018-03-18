@@ -133,7 +133,7 @@ $app->get('/calendar', function ($request, $response, $args) {
 
 // Reviews
 $app->get('/reviews', function ($request, $response, $args) {
-    return $this->view->render($response, 'reviews.html');
+    return (new App\Controllers\IndexController($this))->showReviews($request, $response, $args);
 })->setName('reviews');
 
 // Link to guest review

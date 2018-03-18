@@ -410,6 +410,6 @@ class TwigExtension extends \Twig_Extension
         // Get dependencies
         $reviewMapper = $this->container['reviewMapper'];
 
-        return $reviewMapper->getReviews($limit);
+        return $reviewMapper->getApprovedReviews($limit);
     }
 }
