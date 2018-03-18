@@ -1,103 +1,145 @@
-{% extends '_baseLayout.html' %} {% block headTitle%}A Premiere Vacation Rental in Yachats, Oregon{% endblock%} {% block sectionName %}home{% endblock %} {% block subTitleWrapper %}a very special vacation rental in Yachats, OR{% endblock %} {% block metaDescription
-%}OurSandCastle, is a spacious and comfortable 5-star premiere luxury vacation rental in Yachats, Oregon. Here you will enjoy fabulous ocean views, spectacular sunsets, and shared private access to 7 miles of ocean beach.{% endblock %} {% block body %}
-
-<section id="welcome" class="block-spacing">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-9">
-        <h2>Welcome Home!</h2> {{ welcome.content_html|raw }}
-      </div>
-      <div class="col-md-3">
-        <div class="">
-          <h3 class="">How to Reserve</h3>
-          <ol class="">
-            <li>Check
-              <a href="{{ basePath() }}/calendar">Calendar</a> for Availability.</li>
-            <li>Submit a
-              <a href="{{ basePath() }}/reserve">Reservation Request.</a>
-            </li>
-            <li>We Will Contact You.</li>
-          </ol>
+{% extends '_baseLayout.html' %} {% block headTitle%}A Premiere Vacation Rental in Yachats, Oregon{% endblock%} {% block
+  sectionName %}home{% endblock %} {% block subTitleWrapper %}a very special vacation rental in Yachats, OR{% endblock %} {%
+  block metaDescription%} OurSandCastle, is a spacious and comfortable 5-star premiere luxury vacation rental in Yachats, Oregon.
+  Here you will enjoy fabulous ocean views, spectacular sunsets, and shared private access to 7 miles of ocean beach.{% endblock
+  %} {% block body %}
+  
+  <section id="welcome" class="block-spacing">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <h2>Welcome Home!</h2> {{ welcome.content_html|raw }}
         </div>
-        <div class="more-amenities">
-          <a class="btn btn-outline-success btn-sm mt-2" href="{{ pathFor('reviews') }}" role="button">Read Reviews</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End Welcome Section -->
-<div class="container-fluid">
-  <div class="card-deck">
-    <div class="card bg-light text-center">
-      <div class="card-body">
-
-        <div class="homeaway-img">
-          <a href="http://www.homeaway.com/vacation-rental/p117917" rel="nofollow">
-            <img src="http://www.homeaway.com/haow/api/image/homeaway_us/trips/117917/reviews" alt="HomeAway Property" rel="nofollow">
-          </a>
-        </div>
-        <div class="homeaway-content">
-          <a href="http://www.homeaway.com/vacation-rental/reviews/p117917" rel="nofollow">Read</a> or
-          <a href="http://www.homeaway.com/vacation-rental/reviews/write/p117917" rel="nofollow">Write</a> Reviews
-        </div>
-
-      </div>
-    </div>
-    <div class="card bg-light text-center">
-      <div class="card-body">
-
-        <div id="FK_Property_Badge539c83b3924a1">
-          <a href="https://www.flipkey.com/properties/2281011/">
-        <img alt="FlipKey" src="http://www.flipkey.com/img/logos/FlipKey_TA_Color_Logo.svg" />
-      </a>
-          <script src="http://www.flipkey.com/widgets/badges/property/428568/539c83b3924a1/92570"></script>
+        <div class="col-md-3">
+          <div class="">
+            <h3 class="">How to Reserve</h3>
+            <ol class="">
+              <li>Check
+                <a href="{{ basePath() }}/calendar">Calendar</a> for Availability.</li>
+              <li>Submit a
+                <a href="{{ basePath() }}/reserve">Reservation Request.</a>
+              </li>
+              <li>We Will Contact You.</li>
+            </ol>
+          </div>
+          <div class="more-amenities">
+            <a class="btn btn-info my-3 py-3 px-3" href="{{ pathFor('reviews') }}" role="button">Read Reviews</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="card bg-light text-center">
-      <div class="card-body">
-        <h6>We accept credit card payment<br>via PayPal</h6>
-        <img src="assets/img/paypalmini.png" class="paypal-logo" alt="PayPal Logo">
-        <p class="small-text">Click logo for information about PayPal.</p>
+  </section>
+  <!-- End Welcome Section -->
+  <div class="container">
+    <div class="card-deck">
+      <div class="card bg-light text-center">
+        <div class="card-body">
+  
+          <div class="homeaway-img">
+            <a href="http://www.homeaway.com/vacation-rental/p117917" rel="nofollow">
+              <img src="http://www.homeaway.com/haow/api/image/homeaway_us/trips/117917/reviews" alt="HomeAway Property" rel="nofollow">
+            </a>
+          </div>
+          <div class="homeaway-content">
+            <a href="http://www.homeaway.com/vacation-rental/reviews/p117917" rel="nofollow">Read</a> or
+            <a href="http://www.homeaway.com/vacation-rental/reviews/write/p117917" rel="nofollow">Write</a> Reviews
+          </div>
+  
+        </div>
+      </div>
+      <!-- TripAdvisor Widget Needs new code or removed -->
+      <!-- <div class="card bg-light text-center">
+        <div class="card-body">
+  
+          <div id="FK_Property_Badge539c83b3924a1">
+            <a href="https://www.flipkey.com/properties/2281011/">
+          <img alt="FlipKey" src="http://www.flipkey.com/img/logos/FlipKey_TA_Color_Logo.svg" />
+        </a>
+            <script src="http://www.flipkey.com/widgets/badges/property/428568/539c83b3924a1/92570"></script>
+          </div>
+        </div>
+      </div> -->
+      <div class="card bg-light text-center">
+        <div class="card-body">
+          <h6>We accept credit card payment
+            <br>via PayPal</h6>
+          <img src="assets/img/paypalmini.png" class="paypal-logo" alt="PayPal Logo">
+          <p class="small-text">Click logo for information about PayPal.</p>
+        </div>
       </div>
     </div>
+  
   </div>
-
-</div>
-
-<section id="amenities" class="container">
-  <h2>House Amenities</h2>
-
-  <div class="row">
-    <div class="col-md-4">
-      <h4>The House</h4>
+  <section id="amenities-buffer" class=""></section>
+  <section id="amenities" class="block-spacing">
+    <div class="container">
+      <h2>House Amenities</h2>
+  
+      <div class="row">
+        <div class="col-md-4">
+          <h4>The House</h4>
+        </div>
+        <div class="col-md-8">
+          {{ house.content_html|raw }}
+        </div>
+      </div>
+      <!-- End The House -->
+      <hr>
+      <div class="row">
+        <div class="col-md-4">
+          <h4>Comforts of Home</h4>
+        </div>
+        <div class="col-md-8">
+          {{ comfort.content_html|raw }}
+        </div>
+      </div>
+      <!-- End Comforts of Home -->
+      <hr>
+      <div class="row">
+        <div class="col-md-4">
+          <h4>We Provide</h4>
+        </div>
+        <div class="col-md-8">
+          {{ provide.content_html|raw }}
+        </div>
+      </div>
+      <!-- End The Details -->
     </div>
-    <div class="col-md-8">
-      {{ house.content_html|raw }}
+  
+  </section>
+  <!-- End Amenities Section -->
+  
+  {% set reviews = getReviews(1) %} {% if reviews %}
+  
+  
+  <section id="review" class="block-spacing">
+  
+    <div class="container">
+  
+      <h2>Latest Review</h2>
+      {% for review in reviews %}
+      <div class="review-title">
+        <h3>{{ review.title }}</h3>
+      </div>
+      <div class="review-stars">
+        {% include '_showRating.html' %}
+      </div>
+      <div class="review-content">
+        {{ review.content_html|raw }}
+      </div>
+      <div class="review-meta">
+        <p>
+          <em>{{ review.who }} on {{ review.review_date }}</em>
+        </p>
+      </div>
+  
+      {% endfor %}
+  
+      <div class="review-btn center-block pb-5">
+        <a class="btn btn-info" href="{{ pathFor('reviews') }}" role="button">Read All Reviews</a>
+      </div>
     </div>
-  </div>
-  <!-- End The House -->
-  <hr>
-  <div class="row">
-    <div class="col-md-4">
-      <h4>Comforts of Home</h4></div>
-    <div class="col-md-8">
-      {{ comfort.content_html|raw }}
-    </div>
-  </div>
-  <!-- End Comforts of Home -->
-  <hr>
-  <div class="row">
-    <div class="col-md-4">
-      <h4>We Provide</h4></div>
-    <div class="col-md-8">
-      {{ provide.content_html|raw }}
-    </div>
-  </div>
-  <!-- End The Details -->
-</section>
-<!-- End Amenities Section -->
-
-
-{% include '_homeReviews.html' %} {% endblock %}
+  
+  </section>
+  
+  {% endif %} {% endblock %}
