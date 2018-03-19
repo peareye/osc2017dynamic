@@ -49,8 +49,7 @@ class TwigExtension extends \Twig_Extension
     public function getGlobals()
     {
         return [
-            'setting' => $this->settings,
-            'theme' => $this->getThemeName(),
+            'setting' => $this->settings
         ];
     }
 

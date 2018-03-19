@@ -93,7 +93,12 @@ class IndexController extends BaseController
         $pagination->setTotalRowsFound($reviewMapper->foundRows());
         $this->container->view->addExtension($pagination);
 
-        // Render view
+        // Check if this an Ajax request and return appropriate pagelet
+        if ($request->isXhr()) {
+            return $this->container->view->render($response, '_reviewSet.html', ['reviews' => $reviews]);
+        }
+
+        // Otherwise return normal reviews page
         return $this->container->view->render($response, 'reviews.html', ['reviews' => $reviews]);
     }
 
