@@ -6619,6 +6619,9 @@ header h2 {
   margin: 0.25rem; }
 
 /* Navbar */
+.navbar {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3); }
+
 .navbar-nav {
   align-items: center; }
 
@@ -6651,25 +6654,25 @@ header h2 {
 
 /* Hero Background Images */
 #home-header {
-  background-image: url("../img/osc_viewfrom_deck.jpg"); }
+  background-image: url("../img/jumbo1.jpg"); }
+
+#calendar-header {
+  background-image: url("../img/jumbo2.jpg"); }
+
+#reserve-header {
+  background-image: url("../img/jumbo3.jpg"); }
+
+#reviews-header {
+  background-image: url("../img/jumbo5.jpg"); }
+
+#gallery-header {
+  background-image: url("../img/jumbo6.jpg"); }
 
 #contact-header {
   background-image: url("../img/jumbo8.jpg"); }
 
 #rates-header {
-  background-image: url("../img/osc_viewfrom_kitchen.jpg"); }
-
-#gallery-header {
-  background-image: url("../img/jumbo6.jpg"); }
-
-#reserve-header {
-  background-image: url("../img/jumbo3.jpg"); }
-
-#calendar-header {
-  background-image: url("../img/jumbo2.jpg"); }
-
-#reviews-header {
-  background-image: url("../img/yachats-jumbo-3.jpg"); }
+  background-image: url("../img/jumbo9.jpg"); }
 
 /* _calendar */
 #calendar h2 {
@@ -6793,6 +6796,7 @@ textarea:hover {
   text-decoration: none; }
 
 /* Media Queries */
+/* Extra Small devices, entry used only for adding content for development */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   #calendar div[class^="col-"] {
@@ -6815,7 +6819,30 @@ textarea:hover {
 @media (min-width: 768px) {
   #calendar div[class^="col-"] {
     padding-right: 15px;
-    padding-left: 15px; } }
+    padding-left: 15px; }
+
+  /* Hero Background Images */
+  #calendar-header {
+    max-height: 500px; }
+
+  #reserve-header {
+    max-height: 500px; }
+
+  #reviews-header {
+    max-height: 500px; }
+
+  #gallery-header {
+    max-height: 500px; }
+
+  #contact-header {
+    max-height: 500px; }
+
+  #rates-header {
+    max-height: 500px; }
+
+  .hero-img {
+    background-attachment: fixed;
+    background-position: bottom; } }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   header h1 {
