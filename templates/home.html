@@ -1,9 +1,11 @@
-{% extends '_baseLayout.html' %} {% block headTitle%}A Premiere Vacation Rental in Yachats, Oregon{% endblock%} {% block
-  sectionName %}home{% endblock %} {% block subTitleWrapper %}a very special vacation rental in Yachats, OR{% endblock %} {%
-  block metaDescription%} OurSandCastle, is a spacious and comfortable 5-star premiere luxury vacation rental in Yachats, Oregon.
-  Here you will enjoy fabulous ocean views, spectacular sunsets, and shared private access to 7 miles of ocean beach.{% endblock
-  %} {% block body %}
-  
+{% extends '_baseLayout.html' %}
+{% block headTitle %}A Premiere Vacation Rental in Yachats, Oregon{% endblock%}
+{% block sectionName %}home{% endblock %}
+{% block subTitleWrapper %}a very special vacation rental in Yachats, OR{% endblock %}
+{% block metaDescription%} OurSandCastle, is a spacious and comfortable 5-star premiere luxury vacation rental in Yachats, Oregon. Here you will enjoy fabulous ocean views, spectacular sunsets, and shared private access to 7 miles of ocean beach.{% endblock %}
+
+{% block body %}
+
   <section id="welcome" class="block-spacing">
     <div class="container">
       <div class="row">
@@ -34,7 +36,7 @@
     <div class="card-deck">
       <div class="card bg-light text-center">
         <div class="card-body">
-  
+
           <div class="homeaway-img">
             <a href="http://www.homeaway.com/vacation-rental/p117917" rel="nofollow">
               <img src="http://www.homeaway.com/haow/api/image/homeaway_us/trips/117917/reviews" alt="HomeAway Property" rel="nofollow">
@@ -44,13 +46,13 @@
             <a href="http://www.homeaway.com/vacation-rental/reviews/p117917" rel="nofollow">Read</a> or
             <a href="http://www.homeaway.com/vacation-rental/reviews/write/p117917" rel="nofollow">Write</a> Reviews
           </div>
-  
+
         </div>
       </div>
       <!-- TripAdvisor Widget Needs new code or removed -->
       <!-- <div class="card bg-light text-center">
         <div class="card-body">
-  
+
           <div id="FK_Property_Badge539c83b3924a1">
             <a href="https://www.flipkey.com/properties/2281011/">
           <img alt="FlipKey" src="http://www.flipkey.com/img/logos/FlipKey_TA_Color_Logo.svg" />
@@ -68,13 +70,13 @@
         </div>
       </div>
     </div>
-  
+
   </div>
   <section id="amenities-buffer" class=""></section>
   <section id="amenities" class="block-spacing">
     <div class="container">
       <h2>House Amenities</h2>
-  
+
       <div class="row">
         <div class="col-md-4">
           <h4>The House</h4>
@@ -105,17 +107,17 @@
       </div>
       <!-- End The Details -->
     </div>
-  
+
   </section>
   <!-- End Amenities Section -->
-  
+
   {% set reviews = getReviews(1) %} {% if reviews %}
-  
-  
+
+
   <section id="review" class="block-spacing">
-  
+
     <div class="container">
-  
+
       <h2>Latest Review</h2>
       {% for review in reviews %}
       <div class="review-title">
@@ -132,14 +134,14 @@
           <em>{{ review.who }} on {{ review.review_date }}</em>
         </p>
       </div>
-  
+
       {% endfor %}
-  
+
       <div class="review-btn center-block pb-5">
         <a class="btn btn-info" href="{{ pathFor('reviews') }}" role="button">Read All Reviews</a>
       </div>
     </div>
-  
+
   </section>
-  
+
   {% endif %} {% endblock %}
