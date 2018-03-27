@@ -1,7 +1,18 @@
-{% extends '_baseLayout.html' %}
+{% extends '_sidebarLayout.html' %}
 
-      {% block body %}
+{% block headTitle%}in Yachats, Oregon - Ooops{% endblock%}
+{% block sectionName %}lost404{% endblock %}
+{% block subTitleWrapper %}404 Error {% endblock %}
 
+{% block metaDescription %}The page you are looking for does not exists.{% endblock %}
+
+
+      {% block main %}
+      <div class="block-spacing">
         <h2>Lost? Try another link.</h2>
+        <p>It seems the page you are looking for is not here. Either click the back button on your browser, or select another menu item from the navigation bar above.</p>
 
+      </div>
+
+        
       {% endblock %}
