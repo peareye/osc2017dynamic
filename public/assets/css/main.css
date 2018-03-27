@@ -6555,7 +6555,7 @@ img {
 
 label {
   margin-top: 1rem;
-  margin-bottom: 0; }
+  margin-bottom: .5rem; }
 
 /* header */
 header {
@@ -6676,6 +6676,21 @@ header h2 {
 
 #rates-header {
   background-image: url("../img/jumbo9.jpg"); }
+
+/* login */
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-top: 5rem;
+  padding: 20px 1rem 50px; }
+
+.login-wrapper h2 {
+  display: block;
+  text-align: center; }
+
+.login-wrapper form {
+  background: tomoato; }
 
 /* _calendar */
 #calendar h2 {
