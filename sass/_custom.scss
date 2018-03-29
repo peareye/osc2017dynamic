@@ -62,7 +62,7 @@ img {
 
 label {
   margin-top: 1rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 /* header */
@@ -345,25 +345,8 @@ textarea:hover {
 
 /* Media Queries */
 
-/* Extra Small devices, entry used only for adding content for development */
-@media (max-width: 575px) {
-  //   nav:before {
-  //   content: "Extra small device";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 50%;
-  //   z-index: 200;
-  // }
-}
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-  // nav:before {
-  //   content: "Small device";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 50%;
-  //   z-index: 200;
-  // }
   #calendar div[class^="col-"] {
     padding-right: 0px;
     padding-left: 0px;
@@ -390,51 +373,24 @@ textarea:hover {
     padding-right: 15px;
     padding-left: 15px;
   }
-  // nav:before {
-  //   content: "medium device";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 50%;
-  //   z-index: 200;
-  // }
-  /* Hero Background Images */
 
-  #calendar-header {
-    max-height: 500px;
-  }
-  #reserve-header {
-    max-height: 500px;
-  }
-  #reviews-header {
-    max-height: 500px;
-  }
-  #gallery-header {
-    max-height: 500px;
-  }
-  #contact-header {
-    max-height: 500px;
-  }
-  #lost404-header {
-    max-height: 500px;
-  }
-  #rates-header {
-    max-height: 500px;
-  }
-  .hero-img {
-    background-attachment: fixed;
-    background-position: bottom;
+  #calendar-header, 
+  #lost404-header, 
+  #reserve-header, 
+  #reviews-header, 
+  #gallery-header, 
+  #contact-header, 
+  #rates-header  {
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
   }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  // nav:before {
-  //   content: "large device";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 50%;
-  //   z-index: 200;
-  // }
   header h1 {
     font-size: 8vw;
   }
@@ -452,17 +408,32 @@ textarea:hover {
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  // nav:before {
-  //   content: "Extra Large device";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 50%;
-  //   z-index: 200;
-  // }
   header h1 {
     font-size: 8vw;
   }
   header h2 {
     font-size: 3vw;
+  }
+}
+/* ipad */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  header {
+    max-height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+  }
+  /* ipad portrait */
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  body {
+    margin-top: 70px;
+  }
+}
+/* ipad landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  body {
+    margin-top: 35px;
   }
 }

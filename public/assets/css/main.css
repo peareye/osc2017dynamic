@@ -6555,7 +6555,7 @@ img {
 
 label {
   margin-top: 1rem;
-  margin-bottom: .5rem; }
+  margin-bottom: 0.5rem; }
 
 /* header */
 header {
@@ -6814,7 +6814,6 @@ textarea:hover {
   text-decoration: none; }
 
 /* Media Queries */
-/* Extra Small devices, entry used only for adding content for development */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   #calendar div[class^="col-"] {
@@ -6839,31 +6838,18 @@ textarea:hover {
     padding-right: 15px;
     padding-left: 15px; }
 
-  /* Hero Background Images */
-  #calendar-header {
-    max-height: 500px; }
-
-  #reserve-header {
-    max-height: 500px; }
-
-  #reviews-header {
-    max-height: 500px; }
-
-  #gallery-header {
-    max-height: 500px; }
-
-  #contact-header {
-    max-height: 500px; }
-
-  #lost404-header {
-    max-height: 500px; }
-
+  #calendar-header,
+  #lost404-header,
+  #reserve-header,
+  #reviews-header,
+  #gallery-header,
+  #contact-header,
   #rates-header {
-    max-height: 500px; }
-
-  .hero-img {
-    background-attachment: fixed;
-    background-position: bottom; } }
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll; } }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   header h1 {
@@ -6885,6 +6871,23 @@ textarea:hover {
 
   header h2 {
     font-size: 3vw; } }
+/* ipad */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  header {
+    max-height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll; }
+
+  /* ipad portrait */ }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  body {
+    margin-top: 70px; } }
+/* ipad landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  body {
+    margin-top: 35px; } }
 /* Ratings Styles */
 /* CSS below is for the rating widget, both static (old reviews), and new reviews */
 body {
