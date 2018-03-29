@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="{% block metaDescription %}none{% endblock %}{# {{ metaDescription|default(setting.user.defaultMetaDescription) }} #}">
+  <meta name="description" content="{% block metaDescription %}{% endblock %}">
   <meta name="google-site-verification" content="mIjoxU7xEK9kQA6fpfkLpHd4NCvwLMd0wccREUwzp8k" />
-  <title>OurSandCastle - {% block headTitle %}none{% endblock %}</title>
+  <title>OurSandCastle - {% block headTitle %}{% endblock %}</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   <link rel="stylesheet" href="{{ basePath() }}/assets/css/main.css">
@@ -147,6 +147,16 @@
     </div>
   </noscript>
   <!-- End of StatCounter Code for Default Guide -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-32809554-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-32809554-1');
+  </script>
+
   {% endif %}
 </body>
 

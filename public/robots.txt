@@ -1,3 +1,9 @@
 User-agent: *
 Disallow: /
 Disallow: /thankyou
+Disallow: /letmein
+Disallow: /logintoken
+Disallow: /logout
+Disallow: /guestreview
+
+Sitemap: http://oursandcastle.com/sitemap.txt
