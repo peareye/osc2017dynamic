@@ -342,6 +342,17 @@ textarea:hover {
   color: yellow;
   text-decoration: none;
 }
+/* Admin Pages */
+
+.admin-help h2 {
+  padding-top: 20px;
+}
+.admin-help pre {
+  background: #999;
+  color: #efefef;
+  padding: 10px 0 10px 10px;
+  font-weight: 700;
+}
 
 /* Media Queries */
 
