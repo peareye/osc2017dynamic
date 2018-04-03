@@ -23,7 +23,7 @@ return call_user_func(
     function () {
 
         // Load default and local configuration settings
-        require ROOT_DIR . 'config/config.default.php';
+/*         require ROOT_DIR . 'config/config.default.php'; */
         require ROOT_DIR . 'config/config.local.php';
 
         // Set error reporting level
