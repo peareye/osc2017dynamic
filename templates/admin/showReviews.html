@@ -1,29 +1,65 @@
 {% extends '@admin/_layout.html' %}
 
 {% block body %}
-<div class="row">
-    <div class="col-sm-6">
-        <h2>Reviews</h2>
-    </div>
-</div>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="approved-tab" data-toggle="tab" href="#approved" role="tab" aria-controls="approved" aria-selected="true">Approved Reviews</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="false">Pending Reviews <span class="badge badge-danger"> {{ reviews|length }} </span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="add-tab" data-toggle="tab" href="#add" role="tab" aria-controls="add" aria-selected="false">Add Review</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false">Request Review</a>
+      </li>
+  </ul>
+  <div class="tab-content mt-4" id="myTabContent">
+    <div class="tab-pane fade show active" id="approved" role="tabpanel" aria-labelledby="approved-tab">
+     
+        {% include 'admin/_approvedReviews.html' %}
 
-{% for review in reviews %}
-<div class="card">
-    <div class="card-header {% if review.approved == 'N' %}card-inverse card-warning{% endif %}">
-        <h3 class="card-title">{{ review.title }}</h3>
-        {% include '_showRating.html' %}
-        {% if review.email %}Email: <a href="mailto:{{ review.email }}" title="Email guest">{{ review.email }}</a>{% endif %}
-        {% if review.who %}Display name: <strong>{{ review.who }}</strong>{% endif %}
-        Submitted: <strong>{{ review.created_date|date("m/d/Y") }}</strong>
-        {% if review.approved == 'N' %}<strong>Not Approved</strong>{% endif %}
+
+
     </div>
-    <div class="card-block">
-        <a href="{{ pathFor('editReview', {'id': review.id}) }}">Edit</a>  |
-        <a href="{{ pathFor('deleteReview', {'id': review.id}) }}" class="deleteButton"><span class="text-danger">Delete</span></a>
-        {% if review.approved == 'N' %}| <a href="{{ pathFor('approveReview', {'id': review.id}) }}" title="Approve review">Approve</a>{% endif %}
-        {{ review.content_html|raw }}
+    <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+     
+   {% include 'admin/_pendingReviews.html' %}
+        
     </div>
-</div>
-<hr> {% else %}
-<h4>No reviews found</h4> {% endfor %}
+    <div class="tab-pane fade" id="add" role="tabpanel" aria-labelledby="add-tab">
+      
+        {% include '_editReviewForm.html' %}
+    </div>
+    <div class="tab-pane fade" id="request" role="tabpanel" aria-labelledby="request-tab">
+    
+                <form action="{{ pathFor('saveReview') }}" method="post" accept-charset="utf-8">
+                  <input type="hidden" name="review_type" value="request">
+                  <div class="modal-body">
+                    <div class="form-group">
+                        <label for="guestEmail">Email address</label>
+                        <input type="email" class="form-control" id="guestEmail" name="email" placeholder="Enter guest email">
+                    </div>
+                    <div class="form-group">
+                      <label for="requestMessage">Message to Guest</label>
+                      <textarea class="form-control" name="request_message" id="requestMessage" rows="7">
+
+We hope you enjoyed your stay at OurSandCastle, and we would appreciate you leaving us a review.
+
+Sincerely,
+Don &amp; Linda Williams
+OurSandCastle
+                      </textarea>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  </div>
+                </form>
+    
+      
+    </div>
+  </div>
 {% endblock %}

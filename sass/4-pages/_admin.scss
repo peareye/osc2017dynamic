@@ -1,0 +1,75 @@
+/* Ratings Styles */
+/* CSS below is for the rating widget, both static (old reviews), and new reviews */
+body {
+  @include margin(100px null null);
+}
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating-active,
+.rating-active label {
+  cursor: pointer;
+}
+
+.rating-static,
+.rating-static label,
+.rating-static label:hover {
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.rating label {
+  font-size: 2rem;
+  color: #ddd;
+}
+
+.rating label:before {
+  content: "\2605";
+}
+
+.rating .rating-selected {
+  color: gold;
+}
+.admin-help h2 {
+  padding-top: 20px;
+}
+.admin-block-spacing {
+  @include margin(100px null null);
+}
+.admin-help pre {
+  background: #999;
+  color: #efefef;
+  padding: 10px 0 10px 10px;
+  font-weight: 700;
+}
+
+.content-admin {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  min-height: 200px;
+}
+.content-admin-title {
+  display: block;
+  text-align: center;
+  min-height: 100px;
+  min-width: 100%;
+  font-size: 1.5rem;
+  background: #eee;
+  border-bottom: solid 1px #ccc;
+  @include padding(0.5rem 0.25rem);
+}
+.content-admin-item {
+  border: solid 1px #ccc;
+  border-radius: 7px;
+  padding: 0.25rem;
+}
+.content-admin-item p {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+.content-admin-button {
+  text-align: center;
+}

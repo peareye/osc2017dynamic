@@ -2,7 +2,7 @@
   {% set saveReview = inUrl('admin') ? pathFor('saveReview') : pathFor('saveGuestReview') %}
   {% set cancelReview = inUrl('admin') ? pathFor('showReviews') : pathFor('home') %}
 
-  <h2>{% if review.id and inUrl('admin') %}Edit{% else %}Add{% endif %} Review</h2>
+  
   <form class="submitReviewForm" action="{{ saveReview }}" method="post" accept-charset="utf-8">
     <input type="hidden" name="id" value="{{ review.id }}">
     <input type="hidden" name="token" value="{{ review.token }}">
@@ -10,13 +10,7 @@
     <input type="hidden" name="email" value="{{ review.email }}">
     {% endif %}
 
-    <div class="form-group">
-      <a href="{{ cancelReview }}" class="btn btn-default">Cancel</a>
-      <button type="submit" class="btn btn-primary" name="button" value="save">Save</button>
-      {% if review.id and inUrl('admin') %}
-      <a href="{{ pathFor('deleteReview', {'id': review.id}) }}" class="btn btn-danger deleteButton">Delete</a>
-      {% endif %}
-    </div>
+
 
     {% include "_editRating.html" %}
 
@@ -56,4 +50,11 @@
       <label for="content">Content</label>
       <textarea class="form-control" id="mde" rows="20" name="content">{{ review.content|raw }}</textarea>
     </div>
+    <div class="form-group">
+        <a href="{{ cancelReview }}" class="btn btn-default">Cancel</a>
+        <button type="submit" class="btn btn-primary" name="button" value="save">Save</button>
+        {% if review.id and inUrl('admin') %}
+        <a href="{{ pathFor('deleteReview', {'id': review.id}) }}" class="btn btn-danger deleteButton">Delete</a>
+        {% endif %}
+      </div>
   </form>

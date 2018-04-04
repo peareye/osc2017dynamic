@@ -16,9 +16,6 @@ h2 {
   border-bottom: solid 0.03rem rgba(0, 0, 0, 0.5);
 }
 
-h3 {
-  text-align: center;
-}
 .center-block {
   text-align: center;
 }
@@ -255,15 +252,6 @@ iframe {
 }
 /* Contact Page */
 
-.modal-content {
-  background: transparent;
-  border: none;
-  text-align: center;
-}
-.modal-content a {
-  background: rgba(255, 255, 255, 1);
-}
-
 [type="color"],
 [type="date"],
 [type="datetime"],
@@ -344,14 +332,9 @@ textarea:hover {
 }
 /* Admin Pages */
 
-.admin-help h2 {
-  padding-top: 20px;
-}
-.admin-help pre {
-  background: #999;
-  color: #efefef;
-  padding: 10px 0 10px 10px;
-  font-weight: 700;
+
+#reviewModal > .modal-content{
+  text-align: left;
 }
 
 /* Media Queries */

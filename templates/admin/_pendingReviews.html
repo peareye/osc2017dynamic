@@ -1,0 +1,48 @@
+{% extends '@admin/showReviews.html' %} 
+
+{% block body %} 
+
+{% for review in reviews %} 
+
+
+{% if review.approved == 'N' %}
+
+<div class="card">
+    <div class="card-header {% if review.approved == 'N' %}border-danger{% endif %}">
+            {% if review.approved == 'N' %}
+        <strong>Not Approved</strong>{% endif %}
+            {% include '_showRating.html' %} 
+        <h3 class="card-title">{{ review.title }}</h3>
+        {% if review.email %}Email:
+        <a href="mailto:{{ review.email }}" title="Email guest">{{ review.email }}</a>{% endif %} {% if review.who %}
+        <br>
+        Display name:  <strong>{{ review.who }}</strong>{% endif %} 
+        <br>
+        Submitted: <strong>{{ review.created_date|date("m/d/Y") }}</strong>
+        <br>
+    
+    </div>
+    <div class="card-body">
+
+        <div class="card-text">
+            {{ review.content_html|raw }}
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <a href="{{ pathFor('editReview', {'id': review.id}) }}">Edit</a> |
+        <a href="{{ pathFor('deleteReview', {'id': review.id}) }}" class="deleteButton">
+            <span class="text-danger">Delete</span>
+        </a>
+        {% if review.approved == 'N' %}|
+        <a href="{{ pathFor('approveReview', {'id': review.id}) }}" title="Approve review">Approve</a>{% endif %}
+    </div>
+</div>
+<hr> 
+
+{% else %}
+
+{% endif %}
+
+{% endfor %} 
+
+{% endblock %}

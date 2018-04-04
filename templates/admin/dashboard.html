@@ -1,37 +1,44 @@
-{% extends '@admin/_layout.html' %}
+{% extends '@admin/_layout.html' %} 
 
 {% block body %}
 
-{% import _self as this %}
+<h2>Content Management </h2>
 
-{% if posts %}
-<h2>Home Page</h2>
-{% for p in posts if 'home' in p.title|lower %}
-  {{ this.rowToEdit(p) }}
-  <hr>
-{% endfor %}
+{% import _self as this %} {% if posts %}
 
-<h2>Rates Page</h2>
-{% for p in posts if 'rate' in p.title|lower %}
-  {{ this.rowToEdit(p) }}
-  <hr>
-{% endfor %}
+<h3>Home Page</h3>
+
+<div class="content-admin">
+  {% for p in posts if 'home' in p.title|lower %}
+
+  <div class="content-admin-item">
+    {{ this.rowToEdit(p) }}
+  </div>
+  {% endfor %}
+</div>
+<hr>
+<h3>Rates Page</h3>
+
+<div class="content-admin">
+  {% for p in posts if 'rate' in p.title|lower %}
+
+  <div class="content-admin-item">
+    {{ this.rowToEdit(p) }}
+  </div>
+  {% endfor %}
+</div>
+
+
 
 
 {% else %}
-  <h4>No posts found</h4>
-{% endif %}
+<h4>No posts found</h4>
+{% endif %} {% endblock %} {# This is a local HTML function so we do not have to repeat the oursevles #} {% macro rowToEdit(row)
+%}
 
-{% endblock %}
+<h5 class="content-admin-title">{{ row.title }}</h5>
+<p class="content-admin-button">
+  <a href="{{ pathFor('editPost', {'id': row.id}) }}" class="btn btn-primary">Edit</a>
+</p>
 
-
-{# This is a local HTML function so we do not have to repeat the oursevles #}
-{% macro rowToEdit(row) %}
-    <div class="card">
-      <h4 class="card-header">{{ row.title }}</h4>
-      <div class="card-block">
-        <!-- <h4 class="card-title">  ID: {{ row.id }}</h4> -->
-        <a href="{{ pathFor('editPost', {'id': row.id}) }}" class="btn btn-primary">Edit</a>
-      </div>
-    </div>
 {% endmacro %}
