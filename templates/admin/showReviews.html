@@ -1,12 +1,19 @@
 {% extends '@admin/_layout.html' %}
 
+
 {% block body %}
+
+{% set reviewCount = 0 %}
+{% for r in reviews if r.approved == 'N' %}
+{% set reviewCount = reviewCount + 1 %}
+{% endfor %}
+
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="approved-tab" data-toggle="tab" href="#approved" role="tab" aria-controls="approved" aria-selected="true">Approved Reviews</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="false">Pending Reviews <span class="badge badge-danger"> {{ reviews|length }} </span></a>
+      <a class="nav-link" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="false">Pending Reviews <span class="badge badge-danger"> {{ reviewCount }} </span></a>
     </li>
     <li class="nav-item">
       <a class="nav-link" id="add-tab" data-toggle="tab" href="#add" role="tab" aria-controls="add" aria-selected="false">Add Review</a>

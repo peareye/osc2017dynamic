@@ -6502,30 +6502,6 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   margin-top: 100px; }
 
-.rating input[type="radio"] {
-  display: none; }
-
-.rating-active,
-.rating-active label {
-  cursor: pointer; }
-
-.rating-static,
-.rating-static label,
-.rating-static label:hover {
-  cursor: default;
-  -webkit-user-select: none;
-  user-select: none; }
-
-.rating label {
-  font-size: 2rem;
-  color: #ddd; }
-
-.rating label:before {
-  content: "\2605"; }
-
-.rating .rating-selected {
-  color: gold; }
-
 .admin-help h2 {
   padding-top: 20px; }
 
@@ -6565,5 +6541,29 @@ body {
 
 .content-admin-button {
   text-align: center; }
+
+.rating input[type="radio"] {
+  display: none; }
+
+.rating-active,
+.rating-active label {
+  cursor: pointer; }
+
+.rating-static,
+.rating-static label,
+.rating-static label:hover {
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none; }
+
+.rating label {
+  font-size: 2rem;
+  color: #ddd; }
+
+.rating label:before {
+  content: "\2605"; }
+
+.rating .rating-selected {
+  color: gold; }
 
 /*# sourceMappingURL=admin.css.map */

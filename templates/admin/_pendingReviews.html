@@ -7,12 +7,12 @@
 
 {% if review.approved == 'N' %}
 
-<div class="card">
-    <div class="card-header {% if review.approved == 'N' %}border-danger{% endif %}">
+<div class="card mb-3">
+    <div class="card-header {% if review.approved == 'N' %}bg-primary text-white{% endif %}">
             {% if review.approved == 'N' %}
         <strong>Not Approved</strong>{% endif %}
             {% include '_showRating.html' %} 
-        <h3 class="card-title">{{ review.title }}</h3>
+        <h3 class="card-title text-danger">{{ review.title }}</h3>
         {% if review.email %}Email:
         <a href="mailto:{{ review.email }}" title="Email guest">{{ review.email }}</a>{% endif %} {% if review.who %}
         <br>
@@ -37,11 +37,11 @@
         <a href="{{ pathFor('approveReview', {'id': review.id}) }}" title="Approve review">Approve</a>{% endif %}
     </div>
 </div>
-<hr> 
-
-{% else %}
 
 {% endif %}
+
+{% else %}
+<h4>No Approved reviews found</h4>
 
 {% endfor %} 
 

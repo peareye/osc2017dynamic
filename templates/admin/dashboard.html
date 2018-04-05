@@ -1,33 +1,47 @@
-{% extends '@admin/_layout.html' %} 
+{% extends '@admin/_layout.html' %} {% block body %} {% import _self as this %} {% if posts %}
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home Page</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="rates-tab" data-toggle="tab" href="#rates" role="tab" aria-controls="rates" aria-selected="false">Rates Page</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="help-tab" data-toggle="tab" href="#help" role="tab" aria-controls="help" aria-selected="false">Help</a>
+  </li>
+</ul>
 
-{% block body %}
+<!-- Tab panes -->
+<div class="tab-content mt-3">
+  <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="content-admin">
+      {% for p in posts if 'home' in p.title|lower %}
 
-<h2>Content Management </h2>
+      <div class="content-admin-item">
+        {{ this.rowToEdit(p) }}
+      </div>
+      {% endfor %}
+    </div>
 
-{% import _self as this %} {% if posts %}
-
-<h3>Home Page</h3>
-
-<div class="content-admin">
-  {% for p in posts if 'home' in p.title|lower %}
-
-  <div class="content-admin-item">
-    {{ this.rowToEdit(p) }}
   </div>
-  {% endfor %}
-</div>
-<hr>
-<h3>Rates Page</h3>
+  <div class="tab-pane" id="rates" role="tabpanel" aria-labelledby="rates-tab">
+    <div class="content-admin">
+      {% for p in posts if 'rate' in p.title|lower %}
 
-<div class="content-admin">
-  {% for p in posts if 'rate' in p.title|lower %}
+      <div class="content-admin-item">
+        {{ this.rowToEdit(p) }}
+      </div>
+      {% endfor %}
+    </div>
 
-  <div class="content-admin-item">
-    {{ this.rowToEdit(p) }}
   </div>
-  {% endfor %}
-</div>
+  <div class="tab-pane" id="help" role="tabpanel" aria-labelledby="help-tab">
+    {% include 'admin/_content-help.html' %}
 
+  </div>
+
+</div>
 
 
 

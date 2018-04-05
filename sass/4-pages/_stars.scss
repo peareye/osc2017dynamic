@@ -1,0 +1,29 @@
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating-active,
+.rating-active label {
+  cursor: pointer;
+}
+
+.rating-static,
+.rating-static label,
+.rating-static label:hover {
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.rating label {
+  font-size: 2rem;
+  color: #ddd;
+}
+
+.rating label:before {
+  content: "\2605";
+}
+
+.rating .rating-selected {
+  color: gold;
+}

@@ -6880,11 +6880,6 @@ textarea:hover {
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   body {
     margin-top: 35px; } }
-/* Ratings Styles */
-/* CSS below is for the rating widget, both static (old reviews), and new reviews */
-body {
-  margin-top: 100px; }
-
 .rating input[type="radio"] {
   display: none; }
 
@@ -6908,45 +6903,5 @@ body {
 
 .rating .rating-selected {
   color: gold; }
-
-.admin-help h2 {
-  padding-top: 20px; }
-
-.admin-block-spacing {
-  margin-top: 100px; }
-
-.admin-help pre {
-  background: #999;
-  color: #efefef;
-  padding: 10px 0 10px 10px;
-  font-weight: 700; }
-
-.content-admin {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 1rem;
-  min-height: 200px; }
-
-.content-admin-title {
-  display: block;
-  text-align: center;
-  min-height: 100px;
-  min-width: 100%;
-  font-size: 1.5rem;
-  background: #eee;
-  border-bottom: solid 1px #ccc;
-  padding: 0.5rem 0.25rem; }
-
-.content-admin-item {
-  border: solid 1px #ccc;
-  border-radius: 7px;
-  padding: 0.25rem; }
-
-.content-admin-item p {
-  margin-top: auto;
-  padding-top: 1rem; }
-
-.content-admin-button {
-  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
