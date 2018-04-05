@@ -144,6 +144,7 @@ header h2 {
   padding-top: 0.5rem;
   padding-bottom: 1rem;
 }
+
 /* Sidebar Wrapper*/
 
 .sidebar-wrapper {
@@ -191,6 +192,9 @@ header h2 {
 }
 #rates-header {
   background-image: url("../img/jumbo9.jpg");
+}
+#guest-review-header {
+  background-image: url("../img/jumbo3.jpg");
 }
 /* login */
 
@@ -332,8 +336,7 @@ textarea:hover {
 }
 /* Admin Pages */
 
-
-#reviewModal > .modal-content{
+#reviewModal > .modal-content {
   text-align: left;
 }
 
@@ -368,13 +371,14 @@ textarea:hover {
     padding-left: 15px;
   }
 
-  #calendar-header, 
-  #lost404-header, 
-  #reserve-header, 
-  #reviews-header, 
-  #gallery-header, 
-  #contact-header, 
-  #rates-header  {
+  #calendar-header,
+  #lost404-header,
+  #reserve-header,
+  #reviews-header,
+  #gallery-header,
+  #contact-header,
+  #rates-header,
+  #guest-review-header {
     height: 500px;
     background-size: cover;
     background-repeat: no-repeat;

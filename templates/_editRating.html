@@ -1,7 +1,7 @@
 {# Edit Rating Widget #}
 
 <div class="form-group">
-  <label class="control-label">Rate Visit</label>
+  <label class="control-label"><h3>How many Stars?</h3></label>
   <div class="rating rating-active">
   	<script type="text/javascript">var selectedRating = {{ review.rating }};</script>
   	{% for i in 1..5 %}
@@ -9,4 +9,5 @@
     <label {% if review.rating >= i %}class="rating-selected"{% endif %} for="rating-{{ loop.index }}" title="{{ loop.index }} Star"></label>
     {% endfor %}
   </div>
+  <p>Hover over the stars above and select the number of stars for your review.</p>
 </div>

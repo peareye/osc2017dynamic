@@ -157,7 +157,7 @@ class IndexController extends BaseController
 
             // Add link to message body
             $host = $request->getUri()->getHost();
-            $messageBody = "A guest review was submitted by {$review->email} is awaiting approval.";
+            $messageBody = "A guest review was submitted by {$review->email} and is awaiting approval.";
 
             // Set the "from" address based on host, and strip "www."
             $host = preg_replace('/^www\./i', '', $host);

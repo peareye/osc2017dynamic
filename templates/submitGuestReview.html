@@ -1,7 +1,20 @@
-{% extends '_baseLayout.html' %}
+{% extends '_sidebarLayout.html' %}
+{% block headTitle%}in Yachats, Oregon - Customer Review Submission Form{% endblock%}
+{% block sectionName %}guest-review{% endblock %}
+{% block subTitleWrapper %}Tell us how your stay was!{% endblock %}
 
-{% block body %}
-  <div class="block-spacing">
+
+{% block metaDescription %}Submit a review for us at OurSandCastle, in Yachats, Oregon.{% endblock %}
+
+{% block main %}
+
+<div class="block-spacing">
+
     {% include '_editReviewForm.html' %}
-  </div>
+
+
+
+</div>
+
 {% endblock %}
+

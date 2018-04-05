@@ -72,7 +72,7 @@
     </div>
   
   </div>
-  <div id="amenities-buffer" class=""></div>
+
   <section id="amenities" class="block-spacing">
     <div class="container">
       <h2>House Amenities</h2>
@@ -111,13 +111,11 @@
   </section>
   <!-- End Amenities Section -->
   
-  {% set reviews = getReviews(1) %} {% if reviews %}
-  
-  
+
   <section id="review" class="block-spacing">
   
     <div class="container">
-  
+        {% set reviews = getReviews(1) %} {% if reviews %}
       <h2>Latest Review</h2>
       {% for review in reviews %}
       <div class="review-title">
