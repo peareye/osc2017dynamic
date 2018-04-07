@@ -3,7 +3,7 @@
 <div class="form-group">
   <label class="control-label"><h3>How many Stars?</h3></label>
   <div class="rating rating-active">
-  	<script type="text/javascript">var selectedRating = {{ review.rating }};</script>
+  	<script type="text/javascript">var selectedRating = {{ review.rating|default('0') }};</script>
   	{% for i in 1..5 %}
     <input type="radio" id="rating-{{ loop.index }}" name="rating" value="{{ loop.index }}" {% if review.rating == loop.index %}checked{% endif %}>
     <label {% if review.rating >= i %}class="rating-selected"{% endif %} for="rating-{{ loop.index }}" title="{{ loop.index }} Star"></label>
