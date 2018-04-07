@@ -12,7 +12,9 @@
     <div class="card-header {% if review.approved == 'N' %}bg-danger{% endif %}">
         <h3 class="card-title">{{ review.title }}</h3>
         {% include '_showRating.html' %} {% if review.email %}Email:
-        <a href="mailto:{{ review.email }}" title="Email guest">{{ review.email }}</a>{% endif %} {% if review.who %}Display name:
+        <a href="mailto:{{ review.email }}" title="Email guest">{{ review.email }}</a>{% endif %} 
+        
+        {% if review.who %}Display name:
         <strong>{{ review.who }}</strong>{% endif %} Submitted:
         <strong>{{ review.created_date|date("m/d/Y") }}</strong>
         {% if review.approved == 'N' %}
