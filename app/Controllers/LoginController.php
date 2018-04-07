@@ -80,23 +80,23 @@ class LoginController extends BaseController
         $tokenExpires = $session->getData('loginTokenExpires');
 
         // Check expires time on token & token match
-        if ($args['token'] !== $savedToken && time() > $tokenExpires) {
-            // No good, direct home
-            $this->container->logger->info('Invalid login token, supplied: ' . $args['token'] . ' saved: ' . $savedToken . ' time: ' . time() . ' expires: ' . $tokenExpires);
+        if ($args['token'] === $savedToken && time() < $tokenExpires) {
+            // Set session
+            $security = $this->container->get('securityHandler');
+            $security->startAuthenticatedSession();
 
-            return $response->withRedirect($this->container->router->pathFor('home'));
+            // Delete token
+            $session->unsetData('loginToken');
+            $session->unsetData('loginTokenExpires');
+
+            // Go to admin dashboard
+            return $response->withRedirect($this->container->router->pathFor('adminDashboard'));
         }
 
-        // Set session
-        $security = $this->container->get('securityHandler');
-        $security->startAuthenticatedSession();
+        // Nope, direct home
+        $this->container->logger->info('Invalid login token, supplied: ' . $args['token'] . ' saved: ' . $savedToken . ' time: ' . time() . ' expires: ' . $tokenExpires);
 
-        // Delete token
-        $session->unsetData('loginToken');
-        $session->unsetData('loginTokenExpires');
-
-        // Go to admin dashboard
-        return $response->withRedirect($this->container->router->pathFor('adminDashboard'));
+        return $response->withRedirect($this->container->router->pathFor('home'));
     }
 
     /**
