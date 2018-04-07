@@ -2,18 +2,21 @@
 
 {% block body %}
 {% for message in messages %}
-<div class="card">
+
+<div class="card mb-3">
     <div class="card-header">
-        <span class="card-title h3">{{ message.name }}</span>
+        <h3 class="card-title">{{ message.name }}</h3>
         <a href="{{ pathFor('deleteMessage', {'id': message.id}) }}" class="btn btn-danger btn-sm deleteButton float-right">Delete</a><br>
         Email: <a href="mailto:{{ message.email }}">{{ message.email }}</a><br>
         Sent: {{ message.created_date|date('F j, Y g:i a') }}
+
     </div>
-    <div class="card-block">
-        {{ message.text|nl2br }}<br>
+    <div class="card-body">
+        <div class="card-text">
+            {{ message.text|nl2br }}<br>
+        </div>
     </div>
 </div>
-<hr>
 {% else %}
 <h4>No messages found</h4>
 {% endfor %}
