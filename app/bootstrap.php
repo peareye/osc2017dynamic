@@ -44,12 +44,6 @@ return call_user_func(
         // Set up dependencies
         require ROOT_DIR . 'config/dependencies.php';
 
-        // Register middleware
-        // require ROOT_DIR . 'config/middleware.php';
-
-        // TODO: Set UTF-8 Header (old code)
-        // $app->response->headers->set('Content-Type', 'text/html; charset=utf-8');
-
         // Load routes
         require ROOT_DIR . 'config/routes.php';
 
