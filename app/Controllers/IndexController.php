@@ -167,6 +167,11 @@ class IndexController extends BaseController
                 $host .= '.com';
             }
 
+            // Add link to admin login
+            $domain = $request->getUri()->getScheme() . '://' . $request->getUri()->getHost();
+            $loginPath = $this->container->router->pathFor('showReviews');
+            $messageBody .= "\n\n{$domain}{$loginPath}";
+
             // Construct message
             $message
                 ->setFrom("OurSandCastle <send@{$host}>")
