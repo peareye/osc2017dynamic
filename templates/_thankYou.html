@@ -12,6 +12,15 @@
 
   <h2>Thank you</h2>
 
-  <div class="p lead">Thank you for contacting us at OurSandCastle, a premiere vacation rental in Yachats, Oregon. We will respond to your inquiry very soon!</div>
+	<div class="p lead">
+	{% if thankYouType == 'contact' %}
+	Thank you for contacting us at OurSandCastle, a premiere vacation rental in Yachats, Oregon. We will respond to your inquiry very soon!
+	{% elseif thankYouType == 'reserve' %}
+	Thank you for contacting us at OurSandCastle. We will respond to your request for a reservation very soon!
+	{% elseif thankYouType == 'review' %}
+	Thank you for for submitting your review of your stay at OurSandCastle.
+	{% endif %}
+	</div>
+ 
 </div>
 {% endblock %}

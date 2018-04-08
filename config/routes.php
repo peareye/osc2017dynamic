@@ -172,8 +172,8 @@ $app->post('/reservesubmit', function ($request, $response, $args) {
 })->setName('reserveSubmit');
 
 // Thank you page
-$app->get('/thankyou', function ($request, $response, $args) {
-    return $this->view->render($response, '_thankYou.html');
+$app->get('/thankyou/{type}', function ($request, $response, $args) {
+    return $this->view->render($response, '_thankYou.html', ['thankYouType' => $args['type']]);
 })->setName('thankYou');
 
 // Home page (last route, the default)

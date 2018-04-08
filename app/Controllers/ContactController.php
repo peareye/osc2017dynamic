@@ -23,7 +23,7 @@ class ContactController extends BaseController
         if ($request->getParsedBodyParam('alt_email') !== 'alt@example.com') {
             // Just return and say nothing
             $this->container->logger->error('Honeypot caught a fly: ' . $request->getParsedBodyParam('alt-email'));
-            return $response->withRedirect($this->container->router->pathFor('thankYou'));
+            return $response->withRedirect($this->container->router->pathFor('thankYou', ['type' => 'contact']));
         }
 
         // Create message
@@ -39,7 +39,7 @@ class ContactController extends BaseController
         // Send email
         $this->sendEmail($message);
 
-        return $response->withRedirect($this->container->router->pathFor('thankYou'));
+        return $response->withRedirect($this->container->router->pathFor('thankYou', ['type' => 'contact']));
     }
 
     /**
@@ -57,7 +57,7 @@ class ContactController extends BaseController
         if ($request->getParsedBodyParam('alt_email') !== 'alt@example.com') {
             // Just return and say nothing
             $this->container->logger->error('Honeypot caught a fly: ' . $request->getParsedBodyParam('alt-email'));
-            return $response->withRedirect($this->container->router->pathFor('thankYou'));
+            return $response->withRedirect($this->container->router->pathFor('thankYou', ['type' => 'reserve']));
         }
 
         $bodyText = <<<EOT
@@ -88,7 +88,7 @@ EOT;
         // Send email
         $this->sendEmail($message);
 
-        return $response->withRedirect($this->container->router->pathFor('thankYou'));
+        return $response->withRedirect($this->container->router->pathFor('thankYou', ['type' => 'reserve']));
     }
 
     /**
