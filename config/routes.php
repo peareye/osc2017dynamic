@@ -76,7 +76,7 @@ $app->group("/{$app->getContainer()->get('settings')['route']['adminSegment']}",
     if (!$security->authenticated()) {
         // Failed authentication, redirect away
         $response = $next($request, $response);
-        return $response->withRedirect($this->router->pathFor('home'));
+        return $response->withRedirect($this->router->pathFor('login'));
     }
 
     // Next call
@@ -113,7 +113,7 @@ $app->get('/logintoken/{token:[a-zA-Z0-9]{64}}', function ($request, $response, 
 })->setName('processLoginToken');
 
 // Logout
-$app->get('/logout/', function ($request, $response, $args) {
+$app->get('/logout', function ($request, $response, $args) {
     return (new App\Controllers\LoginController($this))->logout($request, $response, $args);
 })->setName('logout');
 
