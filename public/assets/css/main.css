@@ -6867,6 +6867,55 @@ textarea:hover {
 
   header h2 {
     font-size: 3vw; } }
+/* iphone 6,7,8 landscape */
+@media only screen and (min-device-width: 299px) and (max-device-width: 667px) and (orientation: landscape) {
+  body {
+    background: pink; }
+
+  header h1 {
+    font-size: 8vw; }
+
+  header h2 {
+    font-size: 3vw; }
+
+  .title-wrapper {
+    margin-top: 70px; }
+
+  .amenities-wrapper {
+    padding-top: 0;
+    padding-bottom: 0; }
+
+  .item-wrapper {
+    display: none; }
+
+  .more-amenities {
+    padding-top: 0;
+    padding-bottom: 5px; } }
+/* iphone 6,7,8 plus landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+  body {
+    background: green; }
+
+  header h1 {
+    font-size: 8vw; }
+
+  header h2 {
+    font-size: 3vw; }
+
+  .title-wrapper {
+    margin-top: 65px; }
+
+  .amenities-wrapper {
+    padding-top: 0;
+    padding-bottom: 0; }
+
+  .item-wrapper {
+    padding-top: 0;
+    padding-bottom: 0; }
+
+  .more-amenities {
+    padding-top: 0;
+    padding-bottom: 5px; } }
 /* ipad */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   header {
