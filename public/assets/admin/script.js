@@ -1,7 +1,6 @@
 // jQuery plugin to prevent double submission of forms
 jQuery.fn.preventDoubleSubmission = function() {
   $(this).on('submit',function(e){
-  	e.preventDefault();
     var $form = $(this);
 
     if ($form.data('submitted') === true) {
