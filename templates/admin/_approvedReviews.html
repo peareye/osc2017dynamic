@@ -2,11 +2,7 @@
 
 {% block body %} 
 
-{% for review in reviews %} 
-
-
-
-{% if review.approved == 'Y' %}
+{% for review in reviews if review.approved == 'Y' %} 
 
 <div class="card mb-3">
     <div class="card-header {% if review.approved == 'N' %}bg-danger{% endif %}">
@@ -31,11 +27,9 @@
         <a href="{{ pathFor('deleteReview', {'id': review.id}) }}" class="deleteButton">
             <span class="text-danger">Delete</span>
         </a>
-        {% if review.approved == 'N' %}|
-        <a href="{{ pathFor('approveReview', {'id': review.id}) }}" title="Approve review">Approve</a>{% endif %}
     </div>
 </div>
-{% endif %}{% else %}
+{% else %}
 <h4>No Approved reviews found</h4>
 
 {% endfor %} 

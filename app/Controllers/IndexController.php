@@ -184,6 +184,6 @@ class IndexController extends BaseController
         }
 
         // Display dashboard
-        return $response->withRedirect($this->container->router->pathFor('thankYou'));
+        return $response->withRedirect($this->container->router->pathFor('thankYou', ['type' => 'review']));
     }
 }
