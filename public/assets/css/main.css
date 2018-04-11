@@ -6868,7 +6868,7 @@ textarea:hover {
   header h2 {
     font-size: 3vw; } }
 /* iphone 6,7,8 landscape */
-@media only screen and (min-device-width: 299px) and (max-device-width: 667px) and (orientation: landscape) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
   body {
     background: pink; }
 
@@ -6877,9 +6877,6 @@ textarea:hover {
 
   header h2 {
     font-size: 3vw; }
-
-  .title-wrapper {
-    margin-top: 70px; }
 
   .amenities-wrapper {
     padding-top: 0;
@@ -6894,16 +6891,13 @@ textarea:hover {
 /* iphone 6,7,8 plus landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
   body {
-    background: green; }
+    background: gr; }
 
   header h1 {
     font-size: 8vw; }
 
   header h2 {
     font-size: 3vw; }
-
-  .title-wrapper {
-    margin-top: 65px; }
 
   .amenities-wrapper {
     padding-top: 0;
