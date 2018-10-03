@@ -3,6 +3,7 @@
 config/config.local.php
 logs/
 twigcache/
+prepros-6.config
 
 # Misc
 *.xml
