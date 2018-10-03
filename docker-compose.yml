@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  web:
+    build: ./docker/webserver
+    image: osc
+    ports:
+      - "80:8080"
+      - "443:443"
+    volumes:
+      - .:/var/www/osc
+    depends_on:
+      - db
+    tty: true
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - ~/.mysql-data/osc:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=osc
+      - MYSQL_USER=osc
+      - MYSQL_PASSWORD=oscpassword
