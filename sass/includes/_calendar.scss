@@ -1,0 +1,30 @@
+/* _calendar */
+  
+#calendar h2 {
+  margin-left: 15px;
+}
+.iframe-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 1300px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.iframe-wrapper a {
+  display: block;
+  text-align: center;
+  line-height: 50px;
+}
+
+iframe {
+  height: 1150px;
+  width: 100%;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.homeaway-text {
+  display: block;
+  text-align: right;
+  margin-top: -30px;
+}

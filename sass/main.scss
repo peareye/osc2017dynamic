@@ -1,15 +1,12 @@
-// This is the single file output by sass. It is intended to ONLY @import other files.
+// Vendor Tools
+@import 'vendor/bourbon/bourbon';
+@import 'vendor/base/base';
+@import 'vendor/bootstrap';
+// Variables & Mixins
 
-// 1 - TOOLS
-@import "1-tools/vars";
+@import 'vars/vars';
 
-@import "1-tools/bootstrap";
-@import "1-tools/bourbon/bourbon";
-
-/* Custom CSS */
-
-@import "custom";
-@import "4-pages/stars";
-
-
-
+// Styles
+@import 'pages/pages';
+@import 'includes/includes';
+@import 'global';

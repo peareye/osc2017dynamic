@@ -1,0 +1,52 @@
+/* Forms Styles */
+  
+.form-control {
+  border: 1px solid rgba($lite-gray, 1);
+  color: #000000;
+}
+
+label {
+    @include margin(1rem null .5rem);
+
+}
+ /* Contact Page */
+  
+ [type="color"],
+ [type="date"],
+ [type="datetime"],
+ [type="datetime-local"],
+ [type="email"],
+ [type="month"],
+ [type="number"],
+ [type="password"],
+ [type="search"],
+ [type="tel"],
+ [type="text"],
+ [type="time"],
+ [type="url"],
+ [type="week"],
+ input:not([type]),
+ textarea {
+   border: 1px solid rgba(0, 0, 255, 0.5);
+   color: #000000;
+   padding: 0.5rem;
+   margin-bottom: 0.5rem;
+ }
+ [type="color"]:hover,
+ [type="date"]:hover,
+ [type="datetime"]:hover,
+ [type="datetime-local"]:hover,
+ [type="email"]:hover,
+ [type="month"]:hover,
+ [type="number"]:hover,
+ [type="password"]:hover,
+ [type="search"]:hover,
+ [type="tel"]:hover,
+ [type="text"]:hover,
+ [type="time"]:hover,
+ [type="url"]:hover,
+ [type="week"]:hover,
+ input:not([type]):hover,
+ textarea:hover {
+   box-shadow: 1px 1px 5px rgba(153, 153, 153, 0.9) inset;
+ }

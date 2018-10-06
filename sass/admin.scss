@@ -1,9 +1,11 @@
 // 1 - TOOLS
-@import "1-tools/vars";
+@import "vendor/bourbon/bourbon";
+@import 'vendor/base/base';
+@import "vars/vars";
 
-@import "1-tools/bootstrap";
-@import "1-tools/bourbon/bourbon";
+@import "vendor/bootstrap";
+
 
 /* Custom CSS */
-@import "4-pages/admin";
-@import "4-pages/stars";
+@import "pages/admin";
+@import "includes/reviews";
