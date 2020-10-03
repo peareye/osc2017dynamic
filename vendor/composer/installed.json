@@ -30,7 +30,8 @@
             "MIT"
         ],
         "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
-        "homepage": "https://github.com/container-interop/container-interop"
+        "homepage": "https://github.com/container-interop/container-interop",
+        "abandoned": "psr/container"
     },
     {
         "name": "erusev/parsedown",
@@ -831,6 +832,65 @@
         ]
     },
     {
+        "name": "twbs/bootstrap",
+        "version": "v4.5.2",
+        "version_normalized": "4.5.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twbs/bootstrap.git",
+            "reference": "5f2480a90ab911babc53039835fe78c6fc12646d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/5f2480a90ab911babc53039835fe78c6fc12646d",
+            "reference": "5f2480a90ab911babc53039835fe78c6fc12646d",
+            "shasum": ""
+        },
+        "replace": {
+            "twitter/bootstrap": "self.version"
+        },
+        "time": "2020-08-06T16:22:43+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mark Otto",
+                "email": "markdotto@gmail.com"
+            },
+            {
+                "name": "Jacob Thornton",
+                "email": "jacobthornton@gmail.com"
+            }
+        ],
+        "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+        "homepage": "https://getbootstrap.com/",
+        "keywords": [
+            "JS",
+            "css",
+            "framework",
+            "front-end",
+            "mobile-first",
+            "responsive",
+            "sass",
+            "web"
+        ],
+        "funding": [
+            {
+                "url": "https://opencollective.com/bootstrap",
+                "type": "open_collective"
+            }
+        ]
+    },
+    {
         "name": "twig/twig",
         "version": "v1.35.2",
         "version_normalized": "1.35.2.0",
@@ -937,6 +997,7 @@
         "homepage": "https://github.com/wolfmoritz/session",
         "keywords": [
             "session"
-        ]
+        ],
+        "abandoned": "pitoncms/session"
     }
 ]
