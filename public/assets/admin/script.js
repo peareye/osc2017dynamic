@@ -18,9 +18,10 @@ jQuery.fn.preventDoubleSubmission = function() {
 
 // Delete prompt handler
 $('body').on('click', '.deleteButton', function(e) {
-  e.preventDefault();
-  let reply = confirm('Are you sure you want to delete?');
-  return reply;
+  if (!confirm('Are you sure you want to delete?')) {
+    e.preventDefault();
+    return;
+  }
 });
 
 // Show alert on request
