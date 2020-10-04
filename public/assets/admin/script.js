@@ -1,7 +1,7 @@
 // jQuery plugin to prevent double submission of forms
 jQuery.fn.preventDoubleSubmission = function() {
   $(this).on('submit',function(e){
-    var $form = $(this);
+    let $form = $(this);
 
     if ($form.data('submitted') === true) {
       // Previously submitted - don't submit again
@@ -17,13 +17,14 @@ jQuery.fn.preventDoubleSubmission = function() {
 };
 
 // Delete prompt handler
-$('body').on('click', '.deleteButton', function() {
-  var reply = confirm('Are you sure you want to delete?');
+$('body').on('click', '.deleteButton', function(e) {
+  e.preventDefault();
+  let reply = confirm('Are you sure you want to delete?');
   return reply;
 });
 
 // Show alert on request
-var showAlert = function(message, status = 'alert-info') {
+let showAlert = function(message, status = 'alert-info') {
     $('.alert').removeClass('alert-info alert-success alert-danger alert-warning').addClass(status).find('.alert-message').html(message).end().show();
 }
 
@@ -36,7 +37,7 @@ $('form').preventDoubleSubmission();
 
 $(document).ready(function() {
 	if (window.location.pathname.match('showreviews')) {
-		var pending = parseInt($('#myTab span.badge').html());
+		let pending = parseInt($('#myTab span.badge').html());
 		if (pending > 0) {
 			$('#myTab a[href="#pending"]').tab('show');
 		}

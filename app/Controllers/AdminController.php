@@ -43,7 +43,7 @@ class AdminController extends BaseController
     public function help($request, $response, $args)
     {
         // Get dependencies
-      //  $postMapper = $this->container['postMapper'];
+        //  $postMapper = $this->container['postMapper'];
         //$pagination = $this->container->get('pagination');
 
         // Get the page number and setup pagination
@@ -101,7 +101,6 @@ class AdminController extends BaseController
         if ($request->getParsedBodyParam('button') === 'preview') {
             // Preview
             return $this->previewPost($request, $response, $args);
-
         } else {
             // Save
             $this->post = $postMapper->save($this->post);
@@ -167,7 +166,6 @@ class AdminController extends BaseController
         }
 
         $this->container->view->render($response, 'post.html', ['post' => $this->post, 'metaDescription' => $this->post->meta_description]);
-
     }
 
     /**
@@ -428,7 +426,9 @@ class AdminController extends BaseController
         }
 
         // Remove any files starting with an underscore
-        $files = array_filter($files, function ($value) {return strpos($value, '_') === false;});
+        $files = array_filter($files, function ($value) {
+            return strpos($value, '_') === false;
+        });
 
         // Strip off '.html' extension from files
         // $files = array_map(function ($value) {return preg_replace('/\.html/i', '', $value);}, $files);
