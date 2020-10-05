@@ -1,11 +1,66 @@
 {% extends '_baseLayout.html' %} 
 {% block headTitle%}A Premiere Vacation Rental in Yachats, Oregon{% endblock%} 
-{% block sectionName %}home{% endblock %} 
-{% block subTitleWrapper %}a very special vacation rental in Yachats, Oregon{% endblock %} 
+{% block sectionName1 %}home{% endblock %}
+
 {% block metaDescription%} OurSandCastle, is a spacious and comfortable 5-star premiere luxury vacation rental in Yachats, Oregon.
   Here you will enjoy fabulous ocean views, spectacular sunsets, and shared private access to 7 miles of ocean beach. {% endblock %} 
 {% block body %}
-  
+
+<header class="hero-block container">
+  <div class="hero-block__title">
+    <h1 class="">OurSandCastle</h1>
+    <p class="lead">a very special vacation rental in Yachats, Oregon</p>
+  </div>
+  <div id="oscHomeCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-interval="20000">
+        <img src="{{ basePath() }}/assets/img/hero-1.jpg" class="" alt="The House">
+      </div>
+      <div class="carousel-item" data-interval="20000">
+        <img src="{{ basePath() }}/assets/img/hero-2.jpg" class="" alt="Sweeping ocean views from the balcony">
+      </div>
+      <div class="carousel-item" data-interval="20000">
+        <img src="{{ basePath() }}/assets/img/hero-3.jpg" class="" alt="Amazing sunsets.">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero-block__sidebar">
+    <div class="item-wrapper">
+      <div class="item">
+        <i class="fas fa-2x fa-male"></i> <span>9 People</span> </div>
+      <div class="item">
+        <i class="fas fa-2x fa-bed"></i> <span>4 Bedrooms</span></div>
+      <div class="item">
+        <i class="fas fa-2x fa-bath"></i> <span>3 Full Baths</span> </div>
+      <div class="item">
+        <i class="fas fa-2x fa-binoculars"></i> <span>Ocean Views</span></div>
+      <div class="item">
+        <i class="fas fa-2x fa-wifi"></i> <span>Wireless Internet</span></div>
+      <div class="item">
+        <i class="fas fa-2x fa-fire"></i> <span>Fireplace</span></div>
+    </div>
+
+    <div class="more-amenities mx-auto">
+      <a href="#amenities" class="btn btn-primary btn-sm mb-3 " role="button" aria-pressed="true">More
+        Amenities</a>
+    </div>
+
+  </div>
+</header>
+<!-- Carousel Hero -->
+
+
+
+<header id="home-header">
+
+  </div>
+
+
+</header>
+
+<!-- End Header Section -->
   <section id="welcome" class="block-spacing">
     <div class="container">
       <div class="row">

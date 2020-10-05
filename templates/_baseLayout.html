@@ -16,39 +16,6 @@
 <body>
   {% include '_nav.html' %}
   <!-- End Nav Section -->
-
-  <header id="{% block sectionName %}&nbsp;{% endblock %}-header">
-    <div class="welcome-wrapper">
-      <div class="title-wrapper">
-        <h1>OurSandCastle</h1>
-        <h2>{% block subTitleWrapper %}none {% endblock %}</h2>
-      </div>
-    </div>
-    {% if inUrl('/') %}
-    <div class="amenities-wrapper">
-      <div class="item-wrapper">
-        <div class="item">
-          <i class="fa fa-male fa-2x"></i> 9 People </div>
-        <div class="item">
-          <i class="fa fa-bed fa-2x"></i> 4 Bedrooms</div>
-        <div class="item">
-          <i class="fa fa-bath fa-2x"></i> 3 Full Baths </div>
-        <div class="item">
-          <i class="fa fa-binoculars fa-2x"></i> Ocean Views</div>
-        <div class="item">
-          <i class="fa fa-wifi fa-2x"></i> Wireless Internet</div>
-      </div> 
-      <div class="more-amenities">
-    
-        <a href="#amenities" class="btn btn-primary btn-lg" role="button" aria-pressed="true">More House Amenities</a> 
-        {% endif %}
-
-      </div>
-    </div>
-  </header>
-
-  <!-- End Header Section -->
-
   {% block body %} {# All content between the jumbo header and footer, including sidebar, goes here #} {% endblock %}
   <footer class="footer">
     <div class="container">
@@ -96,6 +63,7 @@
 
 
   </footer>
+
   <!-- End Footer  -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
