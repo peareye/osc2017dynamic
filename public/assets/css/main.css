@@ -10258,6 +10258,15 @@ h6 {
   margin-top: 0.25rem;
 }
 
+.amenities::before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 0;
+  height: 5em;
+  margin-top: -5em;
+}
+
 /* Navbar */
 .navbar {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
@@ -10424,6 +10433,18 @@ iframe {
 }
 
 /* Default styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.6;
