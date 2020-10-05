@@ -1,9 +1,9 @@
-{% extends '_baseLayout.html' %} 
-{% block headTitle%}A Premiere Vacation Rental in Yachats, Oregon{% endblock%} 
+{% extends '_baseLayout.html' %}
+{% block headTitle%}A Premiere Vacation Rental in Yachats, Oregon{% endblock%}
 {% block sectionName1 %}home{% endblock %}
 
 {% block metaDescription%} OurSandCastle, is a spacious and comfortable 5-star premiere luxury vacation rental in Yachats, Oregon.
-  Here you will enjoy fabulous ocean views, spectacular sunsets, and shared private access to 7 miles of ocean beach. {% endblock %} 
+  Here you will enjoy fabulous ocean views, spectacular sunsets, and shared private access to 7 miles of ocean beach. {% endblock %}
 {% block body %}
 
 <header class="hero-block container">
@@ -11,15 +11,15 @@
     <h1 class="">OurSandCastle</h1>
     <p class="lead">a very special vacation rental in Yachats, Oregon</p>
   </div>
-  <div id="oscHomeCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+  <div id="oscHomeCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
     <div class="carousel-inner">
-      <div class="carousel-item active" data-interval="20000">
+      <div class="carousel-item active">
         <img src="{{ basePath() }}/assets/img/hero-1.jpg" class="" alt="The House">
       </div>
-      <div class="carousel-item" data-interval="20000">
+      <div class="carousel-item">
         <img src="{{ basePath() }}/assets/img/hero-2.jpg" class="" alt="Sweeping ocean views from the balcony">
       </div>
-      <div class="carousel-item" data-interval="20000">
+      <div class="carousel-item">
         <img src="{{ basePath() }}/assets/img/hero-3.jpg" class="" alt="Amazing sunsets.">
       </div>
     </div>
@@ -98,13 +98,13 @@
         </div>
       </div>
     </div>
-  
+
   </div>
 
   <section id="amenities" class="block-spacing">
     <div class="container">
       <h2>House Amenities</h2>
-  
+
       <div class="row">
         <div class="col-md-4">
           <h4>The House</h4>
@@ -135,13 +135,13 @@
       </div>
       <!-- End The Details -->
     </div>
-  
+
   </section>
   <!-- End Amenities Section -->
-  
+
 
   <section id="review" class="block-spacing">
-  
+
     <div class="container">
         {% set reviews = getReviews(1) %} {% if reviews %}
       <h2>Latest Review</h2>
@@ -160,14 +160,14 @@
           <em>{{ review.who }} on {{ review.review_date }}</em>
         </p>
       </div>
-  
+
       {% endfor %}
-  
+
       <div class="review-btn pb-5">
         <a class="btn btn-info" href="{{ pathFor('reviews') }}" role="button">Read All Reviews</a>
       </div>
     </div>
-  
+
   </section>
-  
+
   {% endif %} {% endblock %}
