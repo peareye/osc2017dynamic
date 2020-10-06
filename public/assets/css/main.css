@@ -10185,6 +10185,12 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
 body {
   color: #262626;
   background: #fcfcfc;
@@ -10196,6 +10202,8 @@ body {
 @media (min-width: 992px) {
   body {
     margin-top: 100px;
+    display: flex;
+    flex-flow: column nowrap;
   }
 }
 
@@ -10299,7 +10307,6 @@ hr {
   display: flex;
   flex-flow: column;
   margin-bottom: 1rem;
-  padding-top: 1rem;
   padding-bottom: 1rem;
   background: #e6e6e6;
 }
@@ -10439,35 +10446,25 @@ iframe {
 }
 
 /* Footer */
+.content-wrapper {
+  flex: 999;
+}
+
 .footer {
-  min-height: 200px;
-  padding-top: 30px;
-  padding-bottom: 50px;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
   background: #1565c0;
   color: #fff;
-  display: flex;
+  flex: 1;
+  max-height: 100px;
 }
-
-.footer .footer-section {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-end;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
+.footer p {
+  padding: 0;
+  margin: 0;
 }
-
-.footer .footer-section p {
-  color: #999;
-}
-
-.footer .footer-section a {
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.footer .footer-section a:hover {
-  color: yellow;
-  text-decoration: none;
+.footer a {
+  color: white;
 }
 
 /* Gallery Page */
