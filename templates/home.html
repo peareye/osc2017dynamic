@@ -49,26 +49,15 @@
 
   </div>
 </header>
-<!-- Carousel Hero -->
-
-
-
-<header id="home-header">
-
-  </div>
-
-
-</header>
-
 <!-- End Header Section -->
   <section id="welcome" class="block-spacing">
     <div class="container">
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
           <h2>Welcome Home!</h2> {{ welcome.content_html|raw }}
         </div>
-        <div class="col-md-3">
-          <div class="">
+<div class="col-md-4 sidebar-wrapper">
+  <div class="sidebar-item">
             <h3 class="">How to Reserve</h3>
             <ol class="">
               <li>Check
@@ -79,7 +68,7 @@
               <li>We Will Contact You.</li>
             </ol>
           </div>
-          <div class="more-amenities">
+          <div class="more-amenities sidebar-item center-block">
             <a class="btn btn-info my-3 py-3 px-3" href="{{ pathFor('reviews') }}" role="button">Read All Reviews</a>
           </div>
         </div>
@@ -87,17 +76,14 @@
     </div>
   </section>
   <!-- End Welcome Section -->
-  <div class="container">
-    <div class="card-deck">
-      <div class="card bg-light text-center">
+  <div class="container card-grid">
+    <div class="card bg-light">
         <div class="card-body">
-          <h6>We accept credit card payment
-            <br>via PayPal</h6>
-            <a href="https://paypal.com" target="_blank"><img src="assets/img/paypalmini.png" alt="PayPal Logo"></a>
+          <h6>We accept credit card payment via PayPal</h6>
+          <a href="https://paypal.com" target="_blank"><img src="assets/img/paypalmini.png" alt="PayPal Logo"></a>
           <p class="small-text">Click logo for information about PayPal.</p>
         </div>
       </div>
-    </div>
 
   </div>
 
