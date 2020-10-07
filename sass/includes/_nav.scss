@@ -1,7 +1,8 @@
 /* Navbar */
 .navbar {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
-  padding: 0px 1rem !important;
+  padding: .5rem 1rem !important;
+
 }
 .navbar-nav {
   align-items: center;
@@ -11,6 +12,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  // padding-top: 0.5rem;
-  // padding-bottom: 1rem;
 }
