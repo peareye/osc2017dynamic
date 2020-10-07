@@ -12,6 +12,12 @@ class PostMapper extends DataMapperAbstract
     protected $domainObjectClass = 'Post';
     protected $defaultSelect = 'select SQL_CALC_FOUND_ROWS p.* from post p';
 
+    public function getRates()
+    {
+        $this->sql = $this->defaultSelect . ' where `url` like "rates%"';
+        return $this->find();
+    }
+
     /**
      * Get Blog Posts with Offset
      *
@@ -28,20 +34,20 @@ class PostMapper extends DataMapperAbstract
     {
         $this->sql = $this->defaultSelect . ' where 1=1 ';
 
-        if ($publishedPostsOnly) {
-            $this->sql .= ' and p.published_date <= curdate()';
-        }
+        // if ($publishedPostsOnly) {
+        //     $this->sql .= ' and p.published_date <= curdate()';
+        // }
 
-        if ($postsOnly) {
-            $this->sql .= ' and page = \'N\'';
-        }
+        // if ($postsOnly) {
+        //     $this->sql .= ' and page = \'N\'';
+        // }
 
         // Add order by
-        if ($publishedPostsOnly) {
-            $this->sql .= ' order by p.published_date desc, title asc';
-        } else {
-            $this->sql .= ' order by p.published_date is null desc, p.published_date desc, title asc';
-        }
+        // if ($publishedPostsOnly) {
+        //     $this->sql .= ' order by p.published_date desc, title asc';
+        // } else {
+        //     $this->sql .= ' order by p.published_date is null desc, p.published_date desc, title asc';
+        // }
 
         if ($limit) {
             $this->sql .= " limit ?";
@@ -82,31 +88,6 @@ class PostMapper extends DataMapperAbstract
     }
 
     /**
-     * Verify URL
-     *
-     * Check if post URL is unique
-     * @param string $url Cleaned title
-     * @return boolean
-     */
-    public function postUrlIsUnique($url)
-    {
-        $this->sql = "select 1 from {$this->table} where url = ?";
-        $this->bindValues[] = $url;
-
-        // Execute the query
-        $this->execute();
-        $data = $this->statement->fetchAll();
-        $this->clear();
-
-        // Did we find anything?
-        if (!empty($data)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
      * Get Pages
      *
      * Get all post records marked as a page
@@ -132,7 +113,7 @@ class PostMapper extends DataMapperAbstract
         if (is_string($currentPost)) {
             // We have a post URL slug, so bind a string
             $whereClause = ' url = ?';
-        } else if (is_numeric($currentPost)) {
+        } elseif (is_numeric($currentPost)) {
             // We have a post ID, so bind an integer
             $whereClause = ' id = ?';
         }

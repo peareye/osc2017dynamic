@@ -78,7 +78,7 @@ class TwigExtension extends \Twig_Extension
             new \Twig_SimpleFunction('postComments', array($this, 'getPostComments')),
             new \Twig_SimpleFunction('newCommentCount', array($this, 'getNewCommentCount')),
             new \Twig_SimpleFunction('checked', array($this, 'checked')),
-            new \Twig_SimpleFunction('pages', array($this, 'getPages')),
+            // new \Twig_SimpleFunction('pages', array($this, 'getPages')),
             new \Twig_SimpleFunction('nextPost', array($this, 'getPriorAndNextPosts')),
             new \Twig_SimpleFunction('priorPost', array($this, 'getPriorPost')),
             new \Twig_SimpleFunction('postCommentCount', array($this, 'getCommentCountByPostId')),
@@ -151,7 +151,7 @@ class TwigExtension extends \Twig_Extension
         // If just a slash is provided, meaning 'home', then evaluate
         if ($segmentToTest === '/' && ($this->uri->getPath() === '/' || empty($this->uri->getPath()))) {
             return true;
-        } else if ($segmentToTest === '/' && !empty($this->uri->getPath())) {
+        } elseif ($segmentToTest === '/' && !empty($this->uri->getPath())) {
             return false;
         }
 
@@ -317,12 +317,12 @@ class TwigExtension extends \Twig_Extension
      * Gets all posts marked as a page for navigation
      * @return array
      */
-    public function getPages()
-    {
-        $pageMapper = $this->container['postMapper'];
+    // public function getPages()
+    // {
+    //     $pageMapper = $this->container['postMapper'];
 
-        return $pageMapper->getPages();
-    }
+    //     return $pageMapper->getPages();
+    // }
 
     /**
      * Get Prior and Next Posts

@@ -31,11 +31,14 @@ class IndexController extends BaseController
     {
         // Get dependencies
         $postMapper = $this->container->get('postMapper');
+        $rates = $postMapper->getRates();
+        $rates = array_combine(array_column($rates, 'url'), $rates);
 
-        $page['summer'] = $postMapper->getSinglePost(6);
-        $page['winter'] = $postMapper->getSinglePost(7);
-        $page['details'] = $postMapper->getSinglePost(8);
-        $page['policies'] = $postMapper->getSinglePost(9);
+        $page['general'] = $rates['rates-general'];
+        $page['summer'] = $rates['rates-summer-holiday'];
+        $page['winter'] = $rates['rates-winter'];
+        $page['details'] = $rates['rates-details'];
+        $page['policies'] = $rates['rates-policies'];
 
         // Render view
         $this->container->view->render($response, 'rates.html', $page);
@@ -72,9 +75,9 @@ class IndexController extends BaseController
         return $this->container->view->render($response, 'home.html', ['posts' => $posts, 'search' => $terms]);
     }
 
-   /**
-     * Show Reviews
-     */
+    /**
+      * Show Reviews
+      */
     public function showReviews($request, $response, $args)
     {
         // Get dependencies
