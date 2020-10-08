@@ -107,7 +107,7 @@ class AdminController extends BaseController
         }
 
         // Display admin dashboard
-        return $response->withRedirect($this->container->router->pathFor('editPost', ['id' => $this->post->id]));
+        return $response->withRedirect($this->container->router->pathFor('adminDashboard'));
     }
 
     /**
