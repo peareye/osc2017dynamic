@@ -3,7 +3,7 @@
 .sidebar-wrapper {
   display: flex;
   flex-flow: column;
-  @include margin(null null 1rem);
+  @include margin(null null 1px);
   @include padding(null null 1rem);
   background: hsl(0, 0%, 90%);
 

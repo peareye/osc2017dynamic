@@ -27,7 +27,7 @@ body{
       }
 }
 section {
-
+@include padding(null null 5rem null);
     ul {
         list-style: disc outside none;
 

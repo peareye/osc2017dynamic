@@ -10207,6 +10207,9 @@ body {
   }
 }
 
+section {
+  padding-bottom: 5rem;
+}
 section ul {
   list-style: disc outside none;
   margin-left: 1rem;
@@ -10312,7 +10315,7 @@ hr {
 .sidebar-wrapper {
   display: flex;
   flex-flow: column;
-  margin-bottom: 1rem;
+  margin-bottom: 1px;
   padding-bottom: 1rem;
   background: #e6e6e6;
 }
