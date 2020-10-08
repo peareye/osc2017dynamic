@@ -10207,13 +10207,14 @@ body {
   }
 }
 
-section {
-  padding-bottom: 5rem;
-}
 section ul {
   list-style: disc outside none;
   margin-left: 1rem;
   padding-left: 1.25rem;
+}
+
+section:last-of-type {
+  padding-bottom: 4rem;
 }
 
 img {

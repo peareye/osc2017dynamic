@@ -27,7 +27,6 @@ body{
       }
 }
 section {
-@include padding(null null 5rem null);
     ul {
         list-style: disc outside none;
 
@@ -39,7 +38,9 @@ section {
 
 
 }
-
+section:last-of-type {
+    @include padding(null null 4rem null);
+}
 img{
     max-width: 100%;
     display: block;
