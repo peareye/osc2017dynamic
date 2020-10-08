@@ -10207,6 +10207,12 @@ body {
   }
 }
 
+section ul {
+  list-style: disc outside none;
+  margin-left: 1rem;
+  padding-left: 1.25rem;
+}
+
 img {
   max-width: 100%;
   display: block;
