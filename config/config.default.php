@@ -68,7 +68,7 @@ $config['file']['fileThumbUri'] = 'media/small/';
 /**
  * Review Pagination Options
  */
-$config['reviewPagination']['rowsPerPage'] = 3;
+$config['reviewPagination']['rowsPerPage'] = 10;
 $config['reviewPagination']['numberOfLinks'] = 2;
 
 /**
