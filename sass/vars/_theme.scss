@@ -1,8 +1,10 @@
 $lite-gray: #efefef;
+$lite-gray1: rgba(0, 0, 0, .3);
 $main-txt-color: #262626;
 $background-color: hsl(0, 0%, 99%);
 
-$hr: purple;
+$hr: $lite-gray1;
+
 //Add whatever variables you would like made available to the whole app
 
 $osc-box-shadow: 0 5px 15px rgba(black, .15);

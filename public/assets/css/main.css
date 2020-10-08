@@ -10256,7 +10256,7 @@ hr {
   clear: both;
   display: block;
   width: 96%;
-  background-color: purple;
+  background-color: rgba(0, 0, 0, 0.3);
   height: 1px;
 }
 
