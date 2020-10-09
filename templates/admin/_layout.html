@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="robots" content="noindex, nofollow">
-  <title>{{ setting.user.htmlAdminTitle }}</title>
+  <title>Admin</title>
   <link href="{{ basePath() }}/assets/css/main.css" rel="stylesheet">
   <link href="{{ basePath() }}/assets/css/admin.css" rel="stylesheet">
   <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" rel="stylesheet">
@@ -19,9 +19,9 @@
   </script>
 </head>
 <body>
-  
 
-  
+
+
     <div class="alert alert-{{ flashMessage('alertStatus')|default('info') }} alert-dismissible" role="alert" {% if not flashMessage() %}style="display:none;" {% endif %}>
         <button type="button" class="alert-close close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <div class="alert-message">
@@ -58,11 +58,11 @@
     </nav>
 
   <div class="container">
-     
+
         {% block body %}{% endblock %}
 
   </div>
-  
+
 
 
 
