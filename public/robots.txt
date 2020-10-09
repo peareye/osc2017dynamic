@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /
 Disallow: /thankyou
 Disallow: /letmein
 Disallow: /logintoken

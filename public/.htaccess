@@ -4,8 +4,8 @@ Allow from all
 # Prevent direct directory access, however
 Options -Indexes
 
-# Hide sitemap.xml in search results
-<Files sitemap.xml>
+# Hide sitemap.txt in search results
+<Files sitemap.txt>
   Header set X-Robots-Tag "noindex"
 </Files>
 
