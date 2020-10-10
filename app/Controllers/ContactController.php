@@ -22,7 +22,7 @@ class ContactController extends BaseController
         // Check honeypot for spammers
         if ($request->getParsedBodyParam('alt_email') !== 'alt@example.com') {
             // Just return and say nothing
-            $this->container->logger->error('Honeypot caught a fly: ' . $request->getParsedBodyParam('alt-email'));
+            $this->container->logger->error('Honeypot caught a fly (Contact) ' . print_r($_POST, true));
             return $response->withRedirect($this->container->router->pathFor('thankYou', ['type' => 'contact']));
         }
 
@@ -56,7 +56,7 @@ class ContactController extends BaseController
         // Check honeypot for spammers
         if ($request->getParsedBodyParam('alt_email') !== 'alt@example.com') {
             // Just return and say nothing
-            $this->container->logger->error('Honeypot caught a fly: ' . $request->getParsedBodyParam('alt-email'));
+            $this->container->logger->error('Honeypot caught a fly (Reservation) ' . print_r($_POST, true));
             return $response->withRedirect($this->container->router->pathFor('thankYou', ['type' => 'reserve']));
         }
 
