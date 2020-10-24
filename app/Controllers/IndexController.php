@@ -82,19 +82,9 @@ class IndexController extends BaseController
     {
         // Get dependencies
         $reviewMapper = $this->container['reviewMapper'];
-        $pagination = $this->container->get('reviewPagination');
 
-        // Get the page number and setup pagination
-        $pageNumber = ($this->container->request->getParam('page')) ?: 1;
-        $pagination->setPagePath($this->container->router->pathFor('reviews'));
-        $pagination->setCurrentPageNumber($pageNumber);
-
-        // Fetch approved reviews with limit and offset
-        $reviews = $reviewMapper->getApprovedReviews($pagination->getRowsPerPage(), $pagination->getOffset());
-
-        // Get total row count from query and add extension
-        $pagination->setTotalRowsFound($reviewMapper->foundRows());
-        $this->container->view->addExtension($pagination);
+        // Fetch approved reviews
+        $reviews = $reviewMapper->getApprovedReviews();
 
         // Check if this an Ajax request and return appropriate pagelet
         if ($request->isXhr()) {
