@@ -9,9 +9,11 @@
       <li class="nav-item {% if inUrl('/') %}active{% endif %}">
         <a class="nav-link" href="{{ pathFor('home') }}">Home {% if inUrl('/') %}<span class="sr-only">(current)</span>{% endif %}</a>
       </li>
+      {#
       <li class="nav-item {% if inUrl('rates') %}active{% endif %}">
         <a class="nav-link" href="{{ pathFor('rates') }}">Rates &amp; Policies {% if inUrl('rates') %}<span class="sr-only">(current)</span>{% endif %}</a>
       </li>
+      #}
       <li class="nav-item {% if inUrl('calendar') %}active{% endif %}">
         <a class="nav-link" href="{{ basePath() }}/calendar">Calendar {% if inUrl('calendar') %}<span class="sr-only">(current)</span>{% endif %}</a>
       </li>

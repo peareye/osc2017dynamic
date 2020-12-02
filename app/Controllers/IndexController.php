@@ -30,18 +30,20 @@ class IndexController extends BaseController
     public function rates($request, $response, $args)
     {
         // Get dependencies
-        $postMapper = $this->container->get('postMapper');
-        $rates = $postMapper->getRates();
-        $rates = array_combine(array_column($rates, 'url'), $rates);
+        // $postMapper = $this->container->get('postMapper');
+        // $rates = $postMapper->getRates();
+        // $rates = array_combine(array_column($rates, 'url'), $rates);
 
-        $page['general'] = $rates['rates-general'];
-        $page['summer'] = $rates['rates-summer-holiday'];
-        $page['winter'] = $rates['rates-winter'];
-        $page['details'] = $rates['rates-details'];
-        $page['policies'] = $rates['rates-policies'];
+        // $page['general'] = $rates['rates-general'];
+        // $page['summer'] = $rates['rates-summer-holiday'];
+        // $page['winter'] = $rates['rates-winter'];
+        // $page['details'] = $rates['rates-details'];
+        // $page['policies'] = $rates['rates-policies'];
 
         // Render view
-        $this->container->view->render($response, 'rates.html', $page);
+        // $this->container->view->render($response, 'rates.html', $page);
+
+        return $this->notFound($request, $response);
     }
 
     /**
